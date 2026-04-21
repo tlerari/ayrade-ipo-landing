@@ -19,13 +19,16 @@ const intlMiddleware = createMiddleware({
   localePrefix: 'always',
 });
 
-const AUTH_REALM = 'AYRADE IPO — Preview';
+const AUTH_REALM = 'AYRADE IPO Preview';
 
 function unauthorized() {
   return new NextResponse('Authentication required.', {
     status: 401,
     headers: {
-      'WWW-Authenticate': `Basic realm="${AUTH_REALM}", charset="UTF-8"`,
+      // ASCII-only : certains runtimes strippent les en-têtes non-ASCII
+      // (le tiret cadratin "—" faisait échouer la popup sur Chrome/Safari).
+      'WWW-Authenticate': `Basic realm="${AUTH_REALM}"`,
+      'Content-Type': 'text/plain; charset=utf-8',
     },
   });
 }
