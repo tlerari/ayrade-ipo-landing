@@ -216,7 +216,7 @@
     "pressComLabel": "AYRADE communications department",
     "pressComContact": "[PH: AYRADE press contact]",
     "pressAgencyLabel": "Press relations",
-    "pressAgencyContact": "[PH: press agency contact]"
+    "pressAgencyRole": "Public Relations & Corporate Events Manager"
   },
   "footer": {
     "tagline": "Sovereign cloud, datacenter integration, sovereign cybersecurity. Registered office: Algiers, Algeria.",

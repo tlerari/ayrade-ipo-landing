@@ -142,7 +142,20 @@ export function DataRoom() {
               </div>
               <div className="pt-4 border-t border-navy/10">
                 <p className="font-semibold text-ink">{t('pressAgencyLabel')}</p>
-                <p className="text-ink/60 font-mono text-xs mt-1">{t('pressAgencyContact')}</p>
+                <div className="mt-2 space-y-1">
+                  <p className="font-semibold text-ink text-sm">BELKIRED Mohamed Abdellatif</p>
+                  <p className="font-mono text-xs text-ink/60">{t('pressAgencyRole')}</p>
+                  <p className="font-mono text-xs text-ink/60">
+                    <a href="tel:+213770255872" className="hover:text-signal transition-colors">
+                      +213 770 25 58 72
+                    </a>
+                  </p>
+                  <p className="font-mono text-xs text-ink/60">
+                    <a href="mailto:Belkired@dusens.group" className="hover:text-signal transition-colors">
+                      Belkired@dusens.group
+                    </a>
+                  </p>
+                </div>
               </div>
             </div>
           </div>

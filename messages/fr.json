@@ -216,7 +216,7 @@
     "pressComLabel": "Direction de la communication AYRADE",
     "pressComContact": "[PH : contact presse AYRADE]",
     "pressAgencyLabel": "Relations presse",
-    "pressAgencyContact": "[PH : contact agence relations presse]"
+    "pressAgencyRole": "Public Relations & Corporate Events Manager"
   },
   "footer": {
     "tagline": "Cloud souverain, intégration de datacenters, cybersécurité souveraine. Siège social : Alger, Algérie.",

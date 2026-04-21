@@ -17,7 +17,7 @@ export function Nav({ showSubscribe }: { showSubscribe: boolean }) {
             className="h-12 w-auto"
           />
         </a>
-        <ul className="hidden lg:flex items-center gap-9 text-[13px]">
+        <ul className="hidden lg:flex items-center gap-9 text-[14px]">
           <li><a href="#operation" className="link-hover">{t('operation')}</a></li>
           <li><a href="#ayrade" className="link-hover">{t('ayrade')}</a></li>
           <li><a href="#pourquoi" className="link-hover">{t('pourquoi')}</a></li>
