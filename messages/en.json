@@ -203,8 +203,9 @@
   "asa": {
     "eyebrow": "07 — Proprietary asset",
     "productFullName": "Ayrade Security Appliance",
-    "title": "An Algerian shield for critical infrastructure.",
-    "lead": "ASA is AYRADE's in-house cybersecurity appliance. It audits infrastructure from every angle — systems, applications, networks, ports, protocols — and simulates real-world attacks to validate the actual resilience of defenses. An industrial asset already embedded in the 2026-2031 business plan, at the core of the Cybersecurity BU.",
+    "title": "Meet the AYRADE shield for critical infrastructure.",
+    "lead": "ASA is AYRADE's in-house cybersecurity appliance. It audits infrastructure from every angle (systems, applications, networks, ports, protocols) and simulates real-world attacks to validate the actual resilience of defenses. An industrial asset already embedded in the 2026-2031 business plan, at the core of the Cybersecurity BU.",
+    "visualAlt": "AYRADE Security Appliance — 1U rack unit, front and rear views, on navy and red gradient backdrop.",
     "cap1Title": "360° audit",
     "cap1Body": "Full attack-surface mapping: systems, applications, networks, ports, protocols. Nothing escapes the scan.",
     "cap2Title": "Real-world attack simulation",
