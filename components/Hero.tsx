@@ -45,7 +45,7 @@ export function Hero({ flags }: { flags: PhaseFlags }) {
               )}
               <a
                 href="/documents/notice-cosob-ayrade.pdf"
-                className="btn-ghost px-7 py-4 text-[12px] font-semibold uppercase tracking-wider inline-flex items-center gap-3 link-hover"
+                className="btn-ghost-dark px-7 py-4 text-[12px] font-semibold uppercase tracking-wider inline-flex items-center gap-3 link-hover"
               >
                 {t('ctaDownload')}
               </a>

@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import { useTranslations } from 'next-intl';
+import { useLocale, useTranslations } from 'next-intl';
 
 // Icônes SVG inline — évite la dépendance lucide-react pour 3 pictos.
 // 20×20 viewBox, stroke = currentColor, style harmonisé.
@@ -29,6 +29,7 @@ function IconFacebook() {
 
 export function Footer() {
   const t = useTranslations('footer');
+  const locale = useLocale();
 
   return (
     <footer className="bg-navy text-paper pt-16 pb-10">
@@ -91,8 +92,8 @@ export function Footer() {
         <div className="pt-8 flex flex-wrap items-center justify-between gap-4 font-mono text-[12px] uppercase tracking-micro text-paper/65 font-medium">
           <p>{t('copyright')}</p>
           <ul className="flex flex-wrap gap-6">
-            <li><a href="#" className="link-hover">{t('legal')}</a></li>
-            <li><a href="#" className="link-hover">{t('privacy')}</a></li>
+            <li><a href={`/${locale}/mentions-legales`} className="link-hover">{t('legal')}</a></li>
+            <li><a href={`/${locale}/confidentialite`} className="link-hover">{t('privacy')}</a></li>
           </ul>
         </div>
       </div>

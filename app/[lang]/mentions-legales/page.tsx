@@ -2,15 +2,29 @@ import { useTranslations } from 'next-intl';
 import { setRequestLocale } from 'next-intl/server';
 import { AnnouncementBar } from '@/components/AnnouncementBar';
 import { Nav } from '@/components/Nav';
-import { Faq } from '@/components/Faq';
+import { LegalPage } from '@/components/LegalPage';
 import { Footer } from '@/components/Footer';
 import { getOperationPhase, getPhaseFlags } from '@/lib/operationPhase';
 
-export default function FAQPage({ params: { lang } }: { params: { lang: string } }) {
+export default function MentionsLegalesPage({
+  params: { lang },
+}: {
+  params: { lang: string };
+}) {
   setRequestLocale(lang);
   const t = useTranslations();
   const phase = getOperationPhase();
   const flags = getPhaseFlags(phase);
+
+  const sectionKeys = [
+    { title: 's1Title', body: 's1Body' },
+    { title: 's2Title', body: 's2Body' },
+    { title: 's3Title', body: 's3Body' },
+    { title: 's4Title', body: 's4Body' },
+    { title: 's5Title', body: 's5Body' },
+    { title: 's6Title', body: 's6Body' },
+    { title: 's7Title', body: 's7Body' },
+  ];
 
   return (
     <>
@@ -25,7 +39,7 @@ export default function FAQPage({ params: { lang } }: { params: { lang: string }
         <Nav showSubscribe={flags.showSubscribeCTA} />
       </div>
       <main id="main">
-        <Faq />
+        <LegalPage namespace="legalNotice" sectionKeys={sectionKeys} />
       </main>
       <Footer />
     </>

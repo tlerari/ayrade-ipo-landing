@@ -1,13 +1,16 @@
 import { useTranslations } from 'next-intl';
+import type { ReactNode } from 'react';
 import { ParallaxLetter } from './ParallaxLetter';
 
 export function Thesis() {
   const t = useTranslations('thesis');
 
+  const b = (chunks: ReactNode) => <strong className="font-semibold text-ink">{chunks}</strong>;
+
   const reasons = [
-    { n: '01', title: t('reason1Title'), body: t('reason1Body') },
-    { n: '02', title: t('reason2Title'), body: t('reason2Body') },
-    { n: '03', title: t('reason3Title'), body: t('reason3Body') },
+    { n: '01', title: t.rich('reason1Title', { b }), body: t.rich('reason1Body', { b }) },
+    { n: '02', title: t.rich('reason2Title', { b }), body: t.rich('reason2Body', { b }) },
+    { n: '03', title: t.rich('reason3Title', { b }), body: t.rich('reason3Body', { b }) },
   ];
 
   return (
