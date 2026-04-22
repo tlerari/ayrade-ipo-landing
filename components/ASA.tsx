@@ -1,5 +1,4 @@
 import { useTranslations } from 'next-intl';
-import Image from 'next/image';
 import { ParallaxLetter } from './ParallaxLetter';
 
 /* ─── Icons (stroke, 20px) ─── */
@@ -70,11 +69,10 @@ export function ASA() {
   return (
     <section
       id="asa"
-      className="bg-orange text-navy py-24 lg:py-32 relative overflow-hidden"
+      className="bg-navy text-paper py-24 lg:py-32 relative overflow-hidden"
       aria-labelledby="asa-title"
     >
-      {/* Roman numeral filigree — navy tint on orange */}
-      <ParallaxLetter className="bg-letter absolute top-10 start-8 text-[18rem] lg:text-[26rem] !text-navy/10">
+      <ParallaxLetter className="bg-letter absolute top-10 start-8 text-[18rem] lg:text-[26rem] text-paper/5">
         VII
       </ParallaxLetter>
 
@@ -83,84 +81,87 @@ export function ASA() {
         <div className="grid lg:grid-cols-[1.15fr_1fr] gap-10 lg:gap-16 items-start mb-16 lg:mb-20">
           {/* Left column : eyebrow + masthead + title + lead */}
           <header>
-            {/* Navy filet hairline, replaces .filet (which is orange) */}
-            <span className="block w-14 h-px bg-navy mb-6" aria-hidden="true" />
+            {/* Orange filet hairline — signature */}
+            <span className="block w-14 h-px bg-orange mb-6" aria-hidden="true" />
 
-            <p className="font-mono text-[14px] uppercase tracking-micro text-navy mb-6 font-medium">
+            <p className="font-mono text-[14px] uppercase tracking-micro text-orange mb-6 font-medium">
               {t('eyebrow')}
             </p>
 
             <div className="flex flex-wrap items-baseline gap-x-6 gap-y-2 mb-8">
-              <span className="font-display font-light text-[4.5rem] lg:text-[6.5rem] leading-none tracking-tight text-navy select-none">
+              <span className="font-display font-light text-[4.5rem] lg:text-[6.5rem] leading-none tracking-tight text-orange select-none">
                 ASA
               </span>
-              <span className="font-mono text-[11px] uppercase tracking-[0.18em] text-navy/70">
+              <span className="font-mono text-[11px] uppercase tracking-[0.18em] text-paper/60">
                 {t('productFullName')}
               </span>
             </div>
 
             <h2
               id="asa-title"
-              className="font-display font-light text-[2rem] lg:text-[2.75rem] leading-[1.08] tracking-tight text-navy mb-6"
+              className="font-display font-light text-[2rem] lg:text-[2.75rem] leading-[1.08] tracking-tight text-paper mb-6"
             >
               {t('title')}
             </h2>
-            <p className="text-navy/80 leading-relaxed text-[1.0625rem]">
+            <p className="text-paper/75 leading-relaxed text-[1.0625rem]">
               {t('lead')}
             </p>
           </header>
 
-          {/* Right column : appliance visual */}
-          <figure className="relative w-full aspect-[15/8] lg:aspect-[4/3] border border-navy/15 overflow-hidden shadow-[0_20px_60px_-20px_rgba(11,37,69,0.45)]">
-            <Image
-              src="/assets/asa-appliance.jpg"
-              alt={t('visualAlt')}
-              fill
-              sizes="(min-width: 1024px) 45vw, 100vw"
-              className="object-cover"
-              priority={false}
-            />
+          {/* Right column : PH visuel (à remplacer par la photo fournie) */}
+          <figure
+            className="relative w-full aspect-[15/8] lg:aspect-[4/3] border-2 border-dashed border-orange/45 bg-orange/[0.04] flex items-center justify-center"
+            aria-label={t('visualAlt')}
+          >
+            <div className="text-center px-6">
+              <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-orange/90 mb-2">
+                {t('phLabel')}
+              </p>
+              <p className="font-mono text-[11px] uppercase tracking-micro text-paper/60">
+                {t('phDetail')}
+              </p>
+            </div>
           </figure>
         </div>
 
-        {/* ── Capabilities grid 2x2 — paper cards on orange ── */}
-        <div className="grid md:grid-cols-2 gap-px bg-navy/15 mb-16" role="list">
+        {/* ── Capabilities grid 2x2 — navy cards on paper/10 rule ── */}
+        <div className="grid md:grid-cols-2 gap-px bg-paper/10 mb-16" role="list">
           {capabilities.map((c, i) => (
             <div
               key={i}
               role="listitem"
-              className="bg-paper p-8 lg:p-10 flex gap-5 items-start transition-colors duration-200 hover:bg-paper-50"
+              className="bg-navy border border-paper/10 p-8 lg:p-10 flex gap-5 items-start transition-colors duration-200 hover:border-orange/40"
             >
-              <div className="shrink-0 w-12 h-12 border border-navy/40 flex items-center justify-center text-navy">
+              <div className="shrink-0 w-12 h-12 border border-orange/50 flex items-center justify-center text-orange">
                 {c.icon}
               </div>
               <div className="flex-1">
-                <h3 className="font-display text-xl lg:text-[1.5rem] tracking-tight mb-3 text-navy">
+                <h3 className="font-display text-xl lg:text-[1.5rem] tracking-tight mb-3 text-paper">
                   {c.title}
                 </h3>
-                <p className="text-navy/70 leading-relaxed text-[0.95rem]">{c.body}</p>
+                <p className="text-paper/65 leading-relaxed text-[0.95rem]">{c.body}</p>
               </div>
             </div>
           ))}
         </div>
 
         {/* ── Pull-quote CEO ── */}
-        <blockquote className="border-s-2 border-navy ps-6 md:ps-8 mb-12 max-w-3xl">
-          <p className="font-display font-light italic text-[1.375rem] lg:text-[1.75rem] leading-[1.35] text-navy mb-4">
+        <blockquote className="border-s-2 border-orange ps-6 md:ps-8 mb-12 max-w-3xl">
+          <p className="font-display font-light italic text-[1.375rem] lg:text-[1.75rem] leading-[1.35] text-paper mb-4">
             {t('quote')}
           </p>
-          <footer className="font-mono text-[11px] uppercase tracking-micro text-navy/60">
+          <footer className="font-mono text-[11px] uppercase tracking-micro text-paper/60">
             — {t('quoteAttribution')}
           </footer>
         </blockquote>
 
-        {/* ── CTA — navy solid on orange ── */}
+        {/* ── CTA — btn-primary (orange on navy) ── */}
         <div className="flex flex-wrap gap-4">
           <a
             href="/documents/presentation-asa.pdf"
             target="_blank"
             rel="noopener noreferrer"
-            className="group bg-navy text-paper hover:bg-navy-700 transition-colors duration-200 px-7 py-4 text-[12px] font-semibold uppercase tracking-wider inline-flex items-center gap-3"
+            className="group btn-primary px-7 py-4 text-[12px] font-semibold uppercase tracking-wider inline-flex items-center gap-3"
           >
             {t('ctaDownload')}
             <span
