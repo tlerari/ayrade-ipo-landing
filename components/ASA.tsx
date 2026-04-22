@@ -89,7 +89,10 @@ export function ASA() {
             </p>
 
             <div className="flex flex-wrap items-baseline gap-x-6 gap-y-2 mb-8">
-              <span className="font-display font-light text-[4.5rem] lg:text-[6.5rem] leading-none tracking-tight text-orange select-none">
+              <span
+                className="font-sans font-extrabold text-[5rem] lg:text-[7rem] leading-[0.9] tracking-[-0.02em] uppercase select-none"
+                style={{ color: '#E63946' }}
+              >
                 ASA
               </span>
               <span className="font-mono text-[11px] uppercase tracking-[0.18em] text-paper/60">
