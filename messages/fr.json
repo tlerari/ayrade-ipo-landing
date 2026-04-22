@@ -14,9 +14,9 @@
   "skipLink": "Aller au contenu",
   "announcement": {
     "visaLabel": "Visa COSOB n°",
-    "visaPlaceholder": "_______",
-    "visaDate": "10 avril 2026",
-    "compartment": "Compartiment principal · Bourse d'Alger",
+    "visaPlaceholder": "2026/02",
+    "visaDate": "15 avril 2026",
+    "compartment": "Marché de croissance · Bourse d'Alger",
     "ticker": "Ticker à venir · AYRD"
   },
   "nav": {
@@ -31,10 +31,10 @@
   "hero": {
     "eyebrow": "Introduction en Bourse — Bourse d'Alger (SGBV)",
     "title": "Votre souveraineté numérique.",
-    "lead": "AYRADE ouvre 20 % de son capital à la Bourse d'Alger du 1ᵉʳ au 30 juin 2026. Cloud souverain, intégration de datacenters, cybersécurité souveraine — l'infrastructure numérique qui portera la prochaine décennie de croissance algérienne.",
+    "lead": "AYRADE ouvre 20 % de son capital à la Bourse d'Alger du 1ᵉʳ au 30 juin 2026. Cloud souverain, intégration de datacenters, cybersécurité souveraine ; AYRADE construit l'infrastructure numérique qui portera la prochaine décennie de croissance algérienne.",
     "ctaSubscribe": "Souscrire du 1ᵉʳ au 30 juin",
     "ctaDownload": "Notice d'information COSOB",
-    "disclaimer": "Visa COSOB du 10 avril 2026. Les modalités complètes de l'opération et les facteurs de risque figurent dans la notice d'information. Document à caractère promotionnel.",
+    "disclaimer": "Visa COSOB n° 2026/02 du 15 avril 2026. Les modalités complètes de l'opération et les facteurs de risque figurent dans la notice d'information. Document à caractère promotionnel.",
     "visualAlt": "Visuel hero — datacenter AYRADE",
     "closedBanner": "La souscription est clôturée. Résultats en cours de traitement.",
     "archiveBanner": "AYRADE est cotée depuis le 15 juillet 2026. Cette page archive la communication IPO.",
@@ -59,7 +59,7 @@
     "kpi6Label": "Syndicat bancaire",
     "kpi6Sub": "Chef de file : Banque de Développement Local",
     "visaTitle": "Visa régulateur :",
-    "visaBody": "Notice d'information visée par la COSOB le 10 avril 2026. Les modalités complètes de l'opération, les facteurs de risque et les conditions de souscription figurent dans cette notice.",
+    "visaBody": "Notice d'information visée par la COSOB le 15 avril 2026 sous le n° 2026/02 (Décision CAB/40/2026). Les modalités complètes de l'opération, les facteurs de risque et les conditions de souscription figurent dans cette notice.",
     "visaCta": "Télécharger la notice"
   },
   "pillars": {
@@ -86,12 +86,12 @@
   "thesis": {
     "eyebrow": "03 — Pourquoi investir",
     "title": "Trois raisons de souscrire à la souveraineté numérique algérienne.",
-    "reason1Title": "Un marché structurellement en croissance",
-    "reason1Body": "Le marché algérien des services numériques est appelé à tripler d'ici 2030, porté par la demande de souveraineté des données, les besoins d'infrastructures locales et la transformation numérique des secteurs régulés.",
-    "reason2Title": "Un acteur déjà installé, rentable et certifié",
-    "reason2Body": "17 ans d'activité, 2 datacenters opérationnels, 10 000+ clients, certification ISO 9001. AYRADE n'est pas un projet : c'est une entreprise industrielle qui sert déjà les secteurs critiques de l'économie algérienne.",
-    "reason3Title": "Une ouverture de capital alignée avec la stratégie nationale",
-    "reason3Body": "Souveraineté des données, hébergement local, cybersécurité sous contrôle national : AYRADE sert des enjeux qui dépassent la seule logique commerciale et bénéficient du soutien des institutions."
+    "reason1Title": "Un marché captif, déjà constitué",
+    "reason1Body": "Trois forces convergent : un besoin d'infrastructure déjà installé chez les grands opérateurs algériens, un rapatriement des données rendu obligatoire par la loi de souveraineté numérique, et un marché des services numériques appelé à tripler d'ici 2030. AYRADE se positionne au point de rencontre de cette demande captive.",
+    "reason2Title": "9,5 % de rendement annuel + perspective de plus-value",
+    "reason2Body": "Rendement dividende cible de 9,5 % par an, tel que communiqué dans la notice, adossé à une politique de distribution de 100 % du résultat post-IPO. Perspective de plus-value tirée par la forte croissance du marché. Pour l'investisseur individuel, un équilibre rare entre revenu régulier et potentiel de valorisation.",
+    "reason3Title": "Un acteur industriel aligné avec la stratégie nationale",
+    "reason3Body": "17 ans d'activité, 2 datacenters opérationnels, 10 000+ clients, certification ISO 9001. AYRADE sert déjà les secteurs critiques de l'économie algérienne sur des enjeux — souveraineté des données, hébergement local, cybersécurité sous contrôle national — qui bénéficient du soutien des institutions."
   },
   "strategy": {
     "eyebrow": "04 — Stratégie et utilisation des fonds",
@@ -101,8 +101,8 @@
     "blockAmeta": "958,5 M DZD nets — 1 000 M DZD d'émission brute",
     "aCapexKicker": "CAPEX Infrastructure",
     "aCapexPct": "62 % des fonds",
-    "aCapexTitle": "Modernisation et extension des datacenters",
-    "aCapexBody": "294 nouveaux serveurs acquis de 2026 à 2028, renouvellement et renforcement de l'infrastructure réseau (switches, routeurs). Objectif : accroître la capacité de traitement, renforcer la résilience et soutenir la montée en charge des projets EPC et Cloud.",
+    "aCapexTitle": "Déploiement de datacenters Tier 3 et modernisation de l'infrastructure",
+    "aCapexBody": "Montée en gamme vers des datacenters Tier 3, avec modernisation des équipements cœur — serveurs, switches, routeurs, firewalls. Objectif : accroître la capacité de traitement, garantir la résilience exigée par les secteurs régulés et soutenir la montée en charge des projets EPC et Cloud.",
     "aBfrKicker": "BFR & Lancement",
     "aBfrPct": "38 % des fonds",
     "aBfrTitle": "Démarrage des nouveaux projets et structure financière",
@@ -113,7 +113,7 @@
     "bu1Title": "EPC Infrastructure & Engineering",
     "bu1Transition": "1 328 → 2 700 M DZD",
     "bu1Cagr": "CAGR 15 %",
-    "bu1Body": "Projets B2G (premier contrat MDN déjà engagé à 628 M DZD), portefeuille high-cap renouvelable, montée en régime mid & low cap, ingénierie datacenter et contrats de maintenance récurrents représentant 20 % du CA EPC annuel.",
+    "bu1Body": "Projets B2G (premier contrat avec une institution de sécurité déjà engagé à 628 M DZD), portefeuille high-cap renouvelable, montée en régime mid & low cap, ingénierie datacenter et contrats de maintenance récurrents représentant 20 % du CA EPC annuel.",
     "bu2Badge": "Offensive cloud souverain",
     "bu2Title": "Services IT — Cloud & Hébergement",
     "bu2Transition": "333 → 1 285 M DZD",
@@ -126,17 +126,17 @@
     "bu3Body": "Services de conseil et d'audit, vente de hardware de détection de vulnérabilités (150 unités en 2027, 426 en 2031), licences annuelles renouvelables. Réponse à la loi 18-07 et au Référentiel National de Sécurité de l'Information (RNSI).",
     "blockCtitle": "Calendrier d'investissement CAPEX — 2026-2028",
     "blockCmeta": "593 M DZD au total — phasing validé dans la notice COSOB",
-    "j1Detail": "140 serveurs + 2 switches. Première vague d'extension du parc, mise en service progressive au cours de l'exercice.",
-    "j2Detail": "91 serveurs + 1 switch + 1 routeur. Poursuite de la montée en capacité, alignée sur le lancement opérationnel de la cybersécurité.",
-    "j3Detail": "63 serveurs + 2 switches + 1 routeur. Consolidation du parc et mise en redondance réseau à la cible 2028.",
+    "j1Detail": "Première vague de montée en gamme — mise à niveau des datacenters Tier 3, déploiement de nouveaux serveurs et switches pour absorber la charge des projets EPC et Cloud.",
+    "j2Detail": "Poursuite de l'extension Tier 3 — nouveaux serveurs, renforcement des routeurs, switches et firewalls, alignée sur le lancement opérationnel de la nouvelle BU Cybersécurité.",
+    "j3Detail": "Consolidation du parc Tier 3 — redondance réseau complète, firewalls et routeurs à la cible 2028. Infrastructure prête pour la décennie suivante.",
     "footer": "L'ensemble du plan d'utilisation des fonds et du business plan 2026-2031 est détaillé dans la notice d'information COSOB — Chapitre VI, Sections 6.2.3 (Politique d'investissement) et 6.2.4 (Perspectives)."
   },
   "trajectory": {
     "eyebrow": "05 — Trajectoire & perspectives",
-    "title": "Seize années de construction industrielle. Une décennie de croissance chiffrée.",
+    "title": "Dix-sept années de construction industrielle. Une décennie de croissance chiffrée.",
     "lead": "De la création en 2009 à l'ouverture au marché en 2026, AYRADE aborde son introduction en Bourse avec un socle d'activité démontré et un plan d'affaires 2026-2031 entièrement publié dans la notice COSOB.",
-    "blockATitle": "Socle démontré — 2009-2025",
-    "a1Value": "16 ans",
+    "blockATitle": "Socle démontré — 2009-2026",
+    "a1Value": "17 ans",
     "a1Label": "Années d'activité",
     "a1Sub": "Opérateur indépendant depuis 2009",
     "a2Value": "10 000+",

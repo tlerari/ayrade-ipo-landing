@@ -14,9 +14,9 @@
   "skipLink": "Skip to content",
   "announcement": {
     "visaLabel": "COSOB visa n°",
-    "visaPlaceholder": "_______",
-    "visaDate": "10 April 2026",
-    "compartment": "Main compartment · Algiers Stock Exchange",
+    "visaPlaceholder": "2026/02",
+    "visaDate": "15 April 2026",
+    "compartment": "Growth market · Algiers Stock Exchange",
     "ticker": "Ticker to come · AYRD"
   },
   "nav": {
@@ -31,10 +31,10 @@
   "hero": {
     "eyebrow": "IPO — Algiers Stock Exchange (SGBV)",
     "title": "Your digital sovereignty.",
-    "lead": "AYRADE opens 20% of its capital on the Algiers Stock Exchange from 1 to 30 June 2026. Sovereign cloud, datacenter integration, sovereign cybersecurity — the digital infrastructure that will carry Algeria's next decade of growth.",
+    "lead": "AYRADE opens 20% of its capital on the Algiers Stock Exchange from 1 to 30 June 2026. Sovereign cloud, datacenter integration, sovereign cybersecurity; AYRADE is building the digital infrastructure that will carry Algeria's next decade of growth.",
     "ctaSubscribe": "Subscribe 1–30 June",
     "ctaDownload": "COSOB information notice",
-    "disclaimer": "COSOB visa dated 10 April 2026. Full terms of the offering and risk factors are set out in the information notice. Promotional document.",
+    "disclaimer": "COSOB visa no. 2026/02 dated 15 April 2026. Full terms of the offering and risk factors are set out in the information notice. Promotional document.",
     "visualAlt": "Hero visual — AYRADE datacenter",
     "closedBanner": "The subscription period has closed. Results are being processed.",
     "archiveBanner": "AYRADE has been listed since 15 July 2026. This page archives the IPO communication.",
@@ -59,7 +59,7 @@
     "kpi6Label": "Banking syndicate",
     "kpi6Sub": "Lead manager: Banque de Développement Local",
     "visaTitle": "Regulatory visa:",
-    "visaBody": "Information notice approved by COSOB on 10 April 2026. Full terms of the offering, risk factors and subscription conditions are set out in this notice.",
+    "visaBody": "Information notice approved by COSOB on 15 April 2026 under no. 2026/02 (Decision CAB/40/2026). Full terms of the offering, risk factors and subscription conditions are set out in this notice.",
     "visaCta": "Download the notice"
   },
   "pillars": {
@@ -86,12 +86,12 @@
   "thesis": {
     "eyebrow": "03 — Why invest",
     "title": "Three reasons to subscribe to Algerian digital sovereignty.",
-    "reason1Title": "A structurally growing market",
-    "reason1Body": "The Algerian digital services market is set to triple by 2030, driven by demand for data sovereignty, local infrastructure needs and the digital transformation of regulated sectors.",
-    "reason2Title": "An established, profitable and certified player",
-    "reason2Body": "17 years of activity, 2 operational datacenters, 10,000+ clients, ISO 9001 certification. AYRADE is not a project: it is an industrial company already serving the critical sectors of the Algerian economy.",
-    "reason3Title": "A capital opening aligned with national strategy",
-    "reason3Body": "Data sovereignty, local hosting, cybersecurity under national control: AYRADE serves issues that go beyond commercial logic alone and benefit from institutional support."
+    "reason1Title": "A captive market, already in place",
+    "reason1Body": "Three forces converge: infrastructure needs already embedded with Algeria's major operators, mandatory data repatriation under the digital-sovereignty law, and a digital-services market set to triple by 2030. AYRADE is positioned at the crossroads of this captive demand.",
+    "reason2Title": "9.5% annual yield + capital appreciation outlook",
+    "reason2Body": "Target dividend yield of 9.5% per year, as disclosed in the information notice, backed by a 100% post-IPO payout policy. Capital appreciation outlook driven by strong market growth. For individual investors, a rare balance between regular income and upside potential.",
+    "reason3Title": "An industrial player aligned with national strategy",
+    "reason3Body": "17 years of activity, 2 operational datacenters, 10,000+ clients, ISO 9001 certification. AYRADE already serves the critical sectors of the Algerian economy on issues — data sovereignty, local hosting, cybersecurity under national control — that benefit from institutional support."
   },
   "strategy": {
     "eyebrow": "04 — Strategy and use of proceeds",
@@ -101,8 +101,8 @@
     "blockAmeta": "958.5 M DZD net — 1,000 M DZD gross issuance",
     "aCapexKicker": "Infrastructure CAPEX",
     "aCapexPct": "62% of proceeds",
-    "aCapexTitle": "Modernisation and expansion of data centres",
-    "aCapexBody": "294 new servers acquired between 2026 and 2028, renewal and reinforcement of network infrastructure (switches, routers). Goal: increase processing capacity, strengthen resilience, and support scale-up of EPC and Cloud projects.",
+    "aCapexTitle": "Deployment of Tier 3 data centres and core-infrastructure modernisation",
+    "aCapexBody": "Upgrade to Tier 3 data centres, with modernisation of core equipment — servers, switches, routers, firewalls. Goal: increase processing capacity, ensure the resilience required by regulated sectors, and support scale-up of EPC and Cloud projects.",
     "aBfrKicker": "Working capital & launch",
     "aBfrPct": "38% of proceeds",
     "aBfrTitle": "Launch of new projects and balance-sheet strengthening",
@@ -113,7 +113,7 @@
     "bu1Title": "EPC Infrastructure & Engineering",
     "bu1Transition": "1,328 → 2,700 M DZD",
     "bu1Cagr": "CAGR 15%",
-    "bu1Body": "B2G projects (first MDN contract already awarded at 628 M DZD), renewable high-cap portfolio, mid & low-cap ramp-up, data-centre engineering and recurring maintenance contracts representing 20% of annual EPC revenue.",
+    "bu1Body": "B2G projects (first contract with a security institution already awarded at 628 M DZD), renewable high-cap portfolio, mid & low-cap ramp-up, data-centre engineering and recurring maintenance contracts representing 20% of annual EPC revenue.",
     "bu2Badge": "Sovereign cloud offensive",
     "bu2Title": "IT Services — Cloud & Hosting",
     "bu2Transition": "333 → 1,285 M DZD",
@@ -126,17 +126,17 @@
     "bu3Body": "Advisory and audit services, sale of vulnerability-detection hardware (150 units in 2027, 426 in 2031), renewable annual licences. Answer to Law 18-07 and the National Information Security Framework (RNSI).",
     "blockCtitle": "CAPEX investment schedule — 2026-2028",
     "blockCmeta": "593 M DZD in total — phasing validated in COSOB prospectus",
-    "j1Detail": "140 servers + 2 switches. First wave of fleet expansion, gradual commissioning throughout the year.",
-    "j2Detail": "91 servers + 1 switch + 1 router. Continued capacity ramp-up, aligned with the operational launch of cybersecurity.",
-    "j3Detail": "63 servers + 2 switches + 1 router. Fleet consolidation and network redundancy at 2028 target.",
+    "j1Detail": "First Tier 3 upgrade wave — data-centre commissioning to Tier 3 standards, deployment of new servers and switches to absorb the load from EPC and Cloud projects.",
+    "j2Detail": "Continued Tier 3 extension — additional servers, reinforcement of routers, switches and firewalls, aligned with the operational launch of the new Cybersecurity BU.",
+    "j3Detail": "Tier 3 fleet consolidation — full network redundancy, firewalls and routers at 2028 target. Infrastructure ready for the next decade.",
     "footer": "The full use-of-proceeds plan and the 2026-2031 business plan are detailed in the COSOB prospectus — Chapter VI, Sections 6.2.3 (Investment policy) and 6.2.4 (Outlook)."
   },
   "trajectory": {
     "eyebrow": "05 — Track record & outlook",
-    "title": "Sixteen years of industrial build. A decade of charted growth.",
+    "title": "Seventeen years of industrial build. A decade of charted growth.",
     "lead": "From the 2009 founding to the 2026 public listing, AYRADE approaches its IPO with a demonstrated operating base and a 2026-2031 business plan fully disclosed in the COSOB notice.",
-    "blockATitle": "Demonstrated track record — 2009-2025",
-    "a1Value": "16 yrs",
+    "blockATitle": "Demonstrated track record — 2009-2026",
+    "a1Value": "17 yrs",
     "a1Label": "Years in operation",
     "a1Sub": "Independent operator since 2009",
     "a2Value": "10,000+",
