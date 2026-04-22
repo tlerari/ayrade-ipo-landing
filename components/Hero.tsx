@@ -1,23 +1,17 @@
 import Image from 'next/image';
-import { useTranslations, useLocale } from 'next-intl';
+import { useTranslations } from 'next-intl';
 import type { PhaseFlags } from '@/lib/operationPhase';
 import { Countdown } from './Countdown';
 
 // Photo Hero — version unique sur FR / EN / AR (visuel AYRADE fourni par le client).
 const HERO_IMAGE = '/assets/ayrade-hero.jpg';
 
-// A/B test pattern BG : FR → pattern 1 (chevrons), EN → pattern 2 (rosaces).
-// AR reprend le pattern 1 par défaut (tuning ultérieur).
-const PATTERN_BY_LOCALE: Record<string, string> = {
-  fr: '/assets/pattern-header-1.png',
-  en: '/assets/pattern-header-2.png',
-  ar: '/assets/pattern-header-1.png',
-};
+// Pattern décoratif du hero — chevrons AYRADE (couleur sable), tuile 257×257.
+// Appliqué uniformément sur FR / EN / AR après A/B test.
+const HERO_PATTERN = '/assets/pattern-header-1.png';
 
 export function Hero({ flags }: { flags: PhaseFlags }) {
   const t = useTranslations('hero');
-  const locale = useLocale();
-  const patternUrl = PATTERN_BY_LOCALE[locale] ?? PATTERN_BY_LOCALE.fr;
 
   return (
     <section id="top" className="relative grain overflow-hidden bg-navy text-paper">
@@ -26,7 +20,7 @@ export function Hero({ flags }: { flags: PhaseFlags }) {
         aria-hidden="true"
         className="pointer-events-none absolute inset-0 opacity-[0.14] mix-blend-screen"
         style={{
-          backgroundImage: `url(${patternUrl})`,
+          backgroundImage: `url(${HERO_PATTERN})`,
           backgroundRepeat: 'repeat',
           backgroundSize: '257px 257px',
         }}
