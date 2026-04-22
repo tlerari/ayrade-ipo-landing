@@ -1,4 +1,4 @@
-import { useTranslations } from 'next-intl';
+import { useLocale, useTranslations } from 'next-intl';
 import type { PhaseFlags } from '@/lib/operationPhase';
 import { ParallaxLetter } from './ParallaxLetter';
 
@@ -15,6 +15,7 @@ function DownloadIcon() {
 
 export function HowTo({ flags }: { flags: PhaseFlags }) {
   const t = useTranslations('howTo');
+  const locale = useLocale();
 
   const steps = [
     { n: '1', title: t('step1Title'), body: t('step1Body') },
@@ -87,7 +88,7 @@ export function HowTo({ flags }: { flags: PhaseFlags }) {
               </span>
             </a>
             <a
-              href="#contacts"
+              href={`/${locale}/faq`}
               className="btn-ghost-dark px-7 py-4 text-[12px] font-semibold uppercase tracking-wider"
             >
               {t('ctaFaq')}
