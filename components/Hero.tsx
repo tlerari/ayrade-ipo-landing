@@ -1,16 +1,36 @@
 import Image from 'next/image';
-import { useTranslations } from 'next-intl';
+import { useTranslations, useLocale } from 'next-intl';
 import type { PhaseFlags } from '@/lib/operationPhase';
 import { Countdown } from './Countdown';
 
-// Photo Hero — version unique sur FR / EN / AR (couloir datacenter orange).
-const HERO_IMAGE = '/assets/hero-datacenter.jpg';
+// Photo Hero — version unique sur FR / EN / AR (visuel AYRADE fourni par le client).
+const HERO_IMAGE = '/assets/ayrade-hero.jpg';
+
+// A/B test pattern BG : FR → pattern 1 (chevrons), EN → pattern 2 (rosaces).
+// AR reprend le pattern 1 par défaut (tuning ultérieur).
+const PATTERN_BY_LOCALE: Record<string, string> = {
+  fr: '/assets/pattern-header-1.png',
+  en: '/assets/pattern-header-2.png',
+  ar: '/assets/pattern-header-1.png',
+};
 
 export function Hero({ flags }: { flags: PhaseFlags }) {
   const t = useTranslations('hero');
+  const locale = useLocale();
+  const patternUrl = PATTERN_BY_LOCALE[locale] ?? PATTERN_BY_LOCALE.fr;
 
   return (
     <section id="top" className="relative grain overflow-hidden bg-navy text-paper">
+      {/* Pattern décoratif — tuile 257×257, opacité contenue pour rester lisible sur navy */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0 opacity-[0.14] mix-blend-screen"
+        style={{
+          backgroundImage: `url(${patternUrl})`,
+          backgroundRepeat: 'repeat',
+          backgroundSize: '257px 257px',
+        }}
+      />
       <div className="max-w-shell mx-auto px-6 lg:px-10 pt-14 pb-20 lg:pt-20 lg:pb-28 grid lg:grid-cols-5 gap-y-16 gap-x-10 items-center relative">
 
         {/* ── Left column ── */}

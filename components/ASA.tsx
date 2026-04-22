@@ -1,5 +1,8 @@
+import Image from 'next/image';
 import { useTranslations } from 'next-intl';
 import { ParallaxLetter } from './ParallaxLetter';
+
+const ASA_IMAGE = '/assets/ayrade-asa.jpg';
 
 /* ─── Icons (stroke, 20px) ─── */
 function IconShield() {
@@ -108,19 +111,18 @@ export function ASA() {
             </p>
           </header>
 
-          {/* Right column : PH visuel (à remplacer par la photo fournie) */}
+          {/* Right column : visuel ASA (photo datacenter AYRADE) */}
           <figure
-            className="relative w-full aspect-[15/8] lg:aspect-[4/3] border-2 border-dashed border-orange/45 bg-orange/[0.04] flex items-center justify-center"
+            className="relative w-full aspect-[15/8] lg:aspect-[4/3] overflow-hidden border border-orange/30 bg-navy"
             aria-label={t('visualAlt')}
           >
-            <div className="text-center px-6">
-              <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-orange/90 mb-2">
-                {t('phLabel')}
-              </p>
-              <p className="font-mono text-[11px] uppercase tracking-micro text-paper/60">
-                {t('phDetail')}
-              </p>
-            </div>
+            <Image
+              src={ASA_IMAGE}
+              alt={t('visualAlt')}
+              fill
+              sizes="(min-width: 1024px) 40vw, 100vw"
+              className="object-cover"
+            />
           </figure>
         </div>
 

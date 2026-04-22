@@ -83,6 +83,12 @@
     "stat5Value": "ISO 9001",
     "stat5Label": "Certification qualité"
   },
+  "respiration": {
+    "eyebrow": "Découvrir AYRADE",
+    "title": "Une équipe, trois métiers, dix-sept ans de construction industrielle.",
+    "playAriaLabel": "Lire la vidéo institutionnelle (bientôt disponible)",
+    "note": "bientôt en ligne"
+  },
   "thesis": {
     "eyebrow": "03 — Pourquoi investir",
     "title": "Trois raisons de souscrire à la souveraineté numérique algérienne.",
@@ -123,7 +129,7 @@
     "bu3Title": "Cybersécurité",
     "bu3Transition": "148 → 583 M DZD",
     "bu3Cagr": "CAGR 41 %",
-    "bu3Body": "Services de conseil et d'audit, vente de hardware de détection de vulnérabilités (150 unités en 2027, 426 en 2031), licences annuelles renouvelables. Réponse à la loi 18-07 et au Référentiel National de Sécurité de l'Information (RNSI).",
+    "bu3Body": "Offre structurée notamment autour d'ASA (Ayrade Security Appliance), solution complète d'audit et de détection continue des vulnérabilités (hardware, licences annuelles renouvelables et services managés 24/7). Réponse directe à la loi 18-07 et au Référentiel National de Sécurité de l'Information (RNSI).",
     "blockCtitle": "Calendrier d'investissement CAPEX — 2026-2028",
     "blockCmeta": "593 M DZD au total — phasing validé dans la notice COSOB",
     "j1Detail": "Première vague de montée en gamme — mise à niveau des datacenters Tier 3, déploiement de nouveaux serveurs et switches pour absorber la charge des projets EPC et Cloud.",

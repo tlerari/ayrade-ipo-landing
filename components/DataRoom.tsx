@@ -116,18 +116,24 @@ export function DataRoom() {
           {/* Relations investisseurs */}
           <div className="bg-paper p-8 lg:p-10">
             <p className="font-mono text-[12px] uppercase tracking-micro text-signal mb-6 font-medium">{t('irTitle')}</p>
-            <div className="space-y-4 text-sm text-ink/70">
-              <div className="flex items-center gap-2">
-                <IconMail />
-                <span className="font-mono text-xs text-ink/60">{t('irEmail')}</span>
+            <div className="space-y-5 text-sm">
+              <div>
+                <p className="font-semibold text-ink text-sm">Mohamed Lamine BELBACHIR</p>
+                <p className="font-mono text-xs text-ink/60 mt-1">
+                  <a href="mailto:belbachir.lamine@ayrade.com" className="hover:text-signal transition-colors inline-flex items-center gap-1.5">
+                    <IconMail />
+                    belbachir.lamine@ayrade.com
+                  </a>
+                </p>
               </div>
-              <div className="flex items-center gap-2">
-                <IconPhone />
-                <span className="font-mono text-xs text-ink/60">{t('irPhone')}</span>
-              </div>
-              <div className="flex items-start gap-2">
-                <IconMapPin />
-                <span className="font-mono text-xs text-ink/60">{t('irAddress')}</span>
+              <div className="pt-4 border-t border-navy/10">
+                <p className="font-semibold text-ink text-sm">Lotfi TEMMAM</p>
+                <p className="font-mono text-xs text-ink/60 mt-1">
+                  <a href="mailto:lotfi.temmam@tell.group" className="hover:text-signal transition-colors inline-flex items-center gap-1.5">
+                    <IconMail />
+                    lotfi.temmam@tell.group
+                  </a>
+                </p>
               </div>
             </div>
           </div>
@@ -135,28 +141,21 @@ export function DataRoom() {
           {/* Presse */}
           <div className="bg-paper p-8 lg:p-10">
             <p className="font-mono text-[12px] uppercase tracking-micro text-signal mb-6 font-medium">{t('pressTitle')}</p>
-            <div className="space-y-4 text-sm">
-              <div>
-                <p className="font-semibold text-ink">{t('pressComLabel')}</p>
-                <p className="text-ink/60 font-mono text-xs mt-1">{t('pressComContact')}</p>
-              </div>
-              <div className="pt-4 border-t border-navy/10">
-                <p className="font-semibold text-ink">{t('pressAgencyLabel')}</p>
-                <div className="mt-2 space-y-1">
-                  <p className="font-semibold text-ink text-sm">BELKIRED Mohamed Abdellatif</p>
-                  <p className="font-mono text-xs text-ink/60">{t('pressAgencyRole')}</p>
-                  <p className="font-mono text-xs text-ink/60">
-                    <a href="tel:+213770255872" className="hover:text-signal transition-colors">
-                      +213 770 25 58 72
-                    </a>
-                  </p>
-                  <p className="font-mono text-xs text-ink/60">
-                    <a href="mailto:Belkired@dusens.group" className="hover:text-signal transition-colors">
-                      Belkired@dusens.group
-                    </a>
-                  </p>
-                </div>
-              </div>
+            <div className="space-y-2 text-sm">
+              <p className="font-semibold text-ink text-sm">BELKIRED Mohamed Abdellatif</p>
+              <p className="font-mono text-xs text-ink/60">{t('pressAgencyRole')}</p>
+              <p className="font-mono text-xs text-ink/60">
+                <a href="tel:+213770255872" className="hover:text-signal transition-colors inline-flex items-center gap-1.5">
+                  <IconPhone />
+                  +213 770 25 58 72
+                </a>
+              </p>
+              <p className="font-mono text-xs text-ink/60">
+                <a href="mailto:presse@ayrade.com" className="hover:text-signal transition-colors inline-flex items-center gap-1.5">
+                  <IconMail />
+                  presse@ayrade.com
+                </a>
+              </p>
             </div>
           </div>
         </div>
