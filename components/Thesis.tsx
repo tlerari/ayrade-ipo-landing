@@ -7,10 +7,11 @@ export function Thesis() {
 
   const b = (chunks: ReactNode) => <strong className="font-semibold text-ink">{chunks}</strong>;
 
+  // Seuls reason2Title et reason2Body portent des balises <b>, les autres sont du texte simple.
   const reasons = [
-    { n: '01', title: t.rich('reason1Title', { b }), body: t.rich('reason1Body', { b }) },
+    { n: '01', title: t('reason1Title'), body: t('reason1Body') },
     { n: '02', title: t.rich('reason2Title', { b }), body: t.rich('reason2Body', { b }) },
-    { n: '03', title: t.rich('reason3Title', { b }), body: t.rich('reason3Body', { b }) },
+    { n: '03', title: t('reason3Title'), body: t('reason3Body') },
   ];
 
   return (
