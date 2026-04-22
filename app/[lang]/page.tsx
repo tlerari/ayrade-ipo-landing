@@ -11,6 +11,7 @@ import { Strategy } from '@/components/Strategy';
 import { Trajectory } from '@/components/Trajectory';
 import { HowTo } from '@/components/HowTo';
 import { Citation } from '@/components/Citation';
+import { ASA } from '@/components/ASA';
 import { DataRoom } from '@/components/DataRoom';
 import { Footer } from '@/components/Footer';
 import { MobileSticky } from '@/components/MobileSticky';
@@ -47,6 +48,7 @@ export default function LandingPage({ params: { lang } }: { params: { lang: stri
         <Trajectory />
         <HowTo flags={flags} />
         <Citation />
+        <ASA />
         <DataRoom />
       </main>
 

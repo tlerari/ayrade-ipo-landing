@@ -46,7 +46,7 @@ export function DataRoom() {
   return (
     <section id="contacts" className="py-24 lg:py-32 relative" aria-labelledby="dataroom-title">
       <ParallaxLetter className="bg-letter absolute top-8 end-6 text-[16rem] lg:text-[22rem]">
-        VII
+        VIII
       </ParallaxLetter>
       <div className="max-w-shell mx-auto px-6 lg:px-10 relative">
         <header className="filet mb-16">

@@ -200,8 +200,25 @@
     "role": "Fondateur et dirigeant d'AYRADE",
     "photoAlt": "Photo Mohamed Lamine BELBACHIR"
   },
+  "asa": {
+    "eyebrow": "07 — Actif propriétaire",
+    "productFullName": "Ayrade Security Appliance",
+    "title": "Un bouclier algérien pour les infrastructures critiques.",
+    "lead": "ASA est l'appliance de cybersécurité propriétaire développée par AYRADE. Elle audite l'infrastructure sous tous ses angles — systèmes, applications, réseaux, ports, protocoles — et simule des attaques réelles pour valider la résilience effective des défenses. Un actif industriel déjà intégré au plan d'affaires 2026-2031, au cœur de la BU Cybersécurité.",
+    "cap1Title": "Audit 360°",
+    "cap1Body": "Cartographie complète de la surface d'attaque : systèmes, applications, réseaux, ports, protocoles. Rien n'échappe au scan.",
+    "cap2Title": "Simulation d'attaques réelles",
+    "cap2Body": "DDoS, malwares, botnets, exploits de protocoles. ASA met vos défenses à l'épreuve avant que les attaquants ne le fassent.",
+    "cap3Title": "Rapports exploitables",
+    "cap3Body": "Vulnérabilités priorisées, impact chiffré, plans de remédiation. Des livrables directement utilisables par les équipes sécurité et les comités de direction.",
+    "cap4Title": "Continu — 24/7",
+    "cap4Body": "L'équivalent d'une équipe d'auditeurs experts mobilisée en permanence sur votre infrastructure, sans interruption.",
+    "quote": "« Un véritable bouclier pour les entreprises. Sa mission : auditer l'infrastructure sous tous ses angles et tester la résilience de votre sécurité en continu, 24h/24 et 7j/7. »",
+    "quoteAttribution": "Mohamed Lamine BELBACHIR — Fondateur d'AYRADE",
+    "ctaDownload": "Télécharger la fiche ASA"
+  },
   "dataRoom": {
-    "eyebrow": "07 — Contacts et ressources",
+    "eyebrow": "08 — Contacts et ressources",
     "title": "Pour en savoir plus ou pour souscrire.",
     "docsTitle": "Documents",
     "doc1": "Notice d'information COSOB",

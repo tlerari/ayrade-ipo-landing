@@ -200,8 +200,25 @@
     "role": "Founder and CEO of AYRADE",
     "photoAlt": "Photo of Mohamed Lamine BELBACHIR"
   },
+  "asa": {
+    "eyebrow": "07 — Proprietary asset",
+    "productFullName": "Ayrade Security Appliance",
+    "title": "An Algerian shield for critical infrastructure.",
+    "lead": "ASA is AYRADE's in-house cybersecurity appliance. It audits infrastructure from every angle — systems, applications, networks, ports, protocols — and simulates real-world attacks to validate the actual resilience of defenses. An industrial asset already embedded in the 2026-2031 business plan, at the core of the Cybersecurity BU.",
+    "cap1Title": "360° audit",
+    "cap1Body": "Full attack-surface mapping: systems, applications, networks, ports, protocols. Nothing escapes the scan.",
+    "cap2Title": "Real-world attack simulation",
+    "cap2Body": "DDoS, malware, botnets, protocol exploits. ASA puts your defenses to the test before attackers do.",
+    "cap3Title": "Actionable reports",
+    "cap3Body": "Prioritized vulnerabilities, quantified impact, remediation plans. Deliverables that security teams and executive committees can act on directly.",
+    "cap4Title": "Continuous — 24/7",
+    "cap4Body": "The equivalent of an expert audit team permanently deployed across your infrastructure, without interruption.",
+    "quote": "\"A genuine shield for enterprises. Its mission: audit the infrastructure from every angle and test the resilience of your security continuously, 24/7.\"",
+    "quoteAttribution": "Mohamed Lamine BELBACHIR — Founder of AYRADE",
+    "ctaDownload": "Download the ASA factsheet"
+  },
   "dataRoom": {
-    "eyebrow": "07 — Contacts and resources",
+    "eyebrow": "08 — Contacts and resources",
     "title": "To learn more or to subscribe.",
     "docsTitle": "Documents",
     "doc1": "COSOB information notice",
