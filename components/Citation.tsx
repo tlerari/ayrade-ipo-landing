@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import { useTranslations } from 'next-intl';
 
 export function Citation() {
@@ -19,15 +20,16 @@ export function Citation() {
           {t('quote')}
         </blockquote>
 
-        {/* Attribution with portrait placeholder */}
+        {/* Attribution avec portrait CEO */}
         <footer className="flex items-center gap-5">
-          <div
-            aria-hidden="true"
-            className="shrink-0 w-16 h-16 lg:w-20 lg:h-20 rounded-full border-2 border-dashed border-orange/55 bg-orange/[0.06] flex items-center justify-center"
-          >
-            <span className="font-mono text-[9px] uppercase tracking-[0.12em] text-orange/80 text-center leading-tight">
-              PH<br />photo
-            </span>
+          <div className="shrink-0 w-16 h-16 lg:w-20 lg:h-20 rounded-full overflow-hidden ring-2 ring-orange/40 ring-offset-2 ring-offset-paper relative">
+            <Image
+              src="/assets/lmb-portrait.jpg"
+              alt={t('photoAlt')}
+              fill
+              sizes="80px"
+              className="object-cover"
+            />
           </div>
           <div>
             <div className="w-14 h-px bg-orange mb-3" aria-hidden="true" />

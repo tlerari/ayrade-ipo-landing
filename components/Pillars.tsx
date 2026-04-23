@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import { useTranslations } from 'next-intl';
 import { ParallaxLetter } from './ParallaxLetter';
 
@@ -73,9 +74,9 @@ export function Pillars() {
   const t = useTranslations('pillars');
 
   const pillars = [
-    { Icon: IconCloud, title: t('p1Title'), body: t('p1Body'), phLabel: 'cloud / serveurs' },
-    { Icon: IconServer, title: t('p2Title'), body: t('p2Body'), phLabel: 'datacenter / infra' },
-    { Icon: IconShield, title: t('p3Title'), body: t('p3Body'), phLabel: 'SOC / cyber' },
+    { Icon: IconCloud, title: t('p1Title'), body: t('p1Body'), photo: '/assets/pillar-cloud.jpg', alt: t('p1Title') },
+    { Icon: IconServer, title: t('p2Title'), body: t('p2Body'), photo: '/assets/pillar-datacenter.jpg', alt: t('p2Title') },
+    { Icon: IconShield, title: t('p3Title'), body: t('p3Body'), photo: '/assets/pillar-cyber.jpg', alt: t('p3Title') },
   ];
 
   const stats = [
@@ -112,23 +113,15 @@ export function Pillars() {
               <span className="bl" />
               <span className="br" />
 
-              {/* Photo band — small editorial placeholder above the pillar */}
-              <div
-                aria-hidden="true"
-                className="relative aspect-[16/9] mb-6 border border-dashed border-orange/45 bg-orange/[0.04] flex items-center justify-center overflow-hidden"
-              >
-                <span className="font-mono text-[9px] uppercase tracking-[0.15em] text-orange/80 text-center px-3 leading-tight">
-                  [ PH : {p.phLabel} ]
-                </span>
-                {/* subtle corner ticks */}
-                <span className="absolute top-1 left-1 w-2 h-px bg-orange/50" />
-                <span className="absolute top-1 left-1 w-px h-2 bg-orange/50" />
-                <span className="absolute top-1 right-1 w-2 h-px bg-orange/50" />
-                <span className="absolute top-1 right-1 w-px h-2 bg-orange/50" />
-                <span className="absolute bottom-1 left-1 w-2 h-px bg-orange/50" />
-                <span className="absolute bottom-1 left-1 w-px h-2 bg-orange/50" />
-                <span className="absolute bottom-1 right-1 w-2 h-px bg-orange/50" />
-                <span className="absolute bottom-1 right-1 w-px h-2 bg-orange/50" />
+              {/* Photo band — editorial image above the pillar */}
+              <div className="relative aspect-[16/9] mb-6 overflow-hidden border border-paper/10">
+                <Image
+                  src={p.photo}
+                  alt={p.alt}
+                  fill
+                  sizes="(min-width: 1024px) 30vw, (min-width: 768px) 45vw, 100vw"
+                  className="object-cover"
+                />
               </div>
 
               <p.Icon />
