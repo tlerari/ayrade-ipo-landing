@@ -120,18 +120,44 @@ export function AnimatedNumber({ value, durationMs = 1700 }: Props) {
   //     parent, et évite que « % » ne passe à gauche du nombre.
   //
   //  2. Valeur AVEC au moins un caractère arabe (« BDL + 11 مؤسسة »,
-  //     « بورصة الجزائر (SGBV) ») → dir="auto" + unicode-bidi: isolate.
-  //     HTML5 détecte le premier caractère fort :
-  //       - « BDL… » commence par L → span basculé LTR, l'arabe en fin
-  //         de chaîne reste lisible (RTL au niveau des glyphes).
-  //       - « بورصة… » commence par AL → span basculé RTL, l'acronyme
-  //         entre parenthèses reste LTR au sein du flux arabe.
-  //     Chaque valeur est rendue dans sa direction logique naturelle,
-  //     tout en étant isolée du flux parent.
+  //     « 800 دج », « 17 سنة », « بورصة الجزائر (SGBV) ») →
+  //     dir="rtl" + unicode-bidi: isolate (wave 4, 23/04/2026).
+  //
+  //     Historique — on utilisait `dir="auto"` mais la détection HTML5
+  //     first-strong prend le premier caractère de type L/AL/R, ce qui
+  //     pose problème sur « BDL + 11 مؤسسة » : first-strong = « B » (L)
+  //     → le span bascule en LTR, l'arabe « مؤسسة » passe à droite du
+  //     bloc LTR et la lecture R→L devient « مؤسسة 11 + BDL » au lieu
+  //     du résultat attendu « BDL + 11 مؤسسة ».
+  //
+  //     En forçant `dir="rtl"` dès qu'il y a un caractère arabe, on
+  //     s'assure que le flux logique est rendu en RTL paragraph :
+  //     - les runs latins / chiffres restent LTR (niveau 2 d'embedding)
+  //       donc « BDL » et « 11 » ne sont pas inversés intra-run ;
+  //     - l'ordre visuel R→L suit l'ordre logique de la chaîne, ce qui
+  //       donne la lecture attendue pour un lecteur arabe.
+  //
+  //     Les valeurs qui commencent par de l'arabe (« بورصة (SGBV) »)
+  //     continuent de fonctionner : l'acronyme LTR entre parenthèses
+  //     est un îlot correctement positionné au sein du flux RTL.
   const hasArabic = /[\u0600-\u06FF]/.test(value);
   if (hasArabic) {
+    // fontFamily/fontWeight: 'inherit' — en AR, le sélecteur global
+    // `[dir='rtl']` (voir globals.css) force IBM Plex Sans Arabic sur
+    // toute balise portant dir="rtl". Sans ce garde-fou, le <span>
+    // échappe à la police `.fig` (Readex Pro, weight 300) du parent
+    // et perd son rendu typographique (« 800 دج », « SGBV », etc.
+    // passent de Readex Pro → IBM Plex Sans, visuellement moins dense).
     return (
-      <span ref={spanRef} dir="auto" style={{ unicodeBidi: 'isolate' }}>
+      <span
+        ref={spanRef}
+        dir="rtl"
+        style={{
+          unicodeBidi: 'isolate',
+          fontFamily: 'inherit',
+          fontWeight: 'inherit',
+        }}
+      >
         {display}
       </span>
     );
