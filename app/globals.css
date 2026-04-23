@@ -369,3 +369,27 @@ details.faq[open] .chev {
   background: rgba(249, 166, 74, 0.08);
   color: #be7421;
 }
+
+/* ═══════════════════════════════════════════════════════════════
+   BIDI — isolation LTR pour contenus numériques / alphanumériques
+   au sein d'un conteneur RTL.
+
+   Problème : en contexte RTL, une chaîne comme « 1 250 000 » (chiffres
+   séparés par des espaces) voit ses runs numériques réorganisés par
+   l'algo Unicode BIDI, donnant visuellement « 000 250 1 ». Idem pour
+   numéros de téléphone, emails, identifiants (visa 2026/02, RC 09B...),
+   montants multi-groupes (25 000 000 دج), etc.
+
+   Solution : forcer une « bidi isolate » LTR sur le conteneur porteur.
+   Le contenu interne est traité comme un îlot LTR, ordre préservé,
+   sans affecter la direction globale de la phrase RTL environnante.
+
+   À appliquer sur :
+   - les <span> générés par AnimatedNumber
+   - toute valeur numérique/alphanumérique rendue isolément depuis
+     une traduction (kpi, stat, montant, CAGR, dates composites)
+   ═══════════════════════════════════════════════════════════════ */
+.bidi-ltr {
+  direction: ltr;
+  unicode-bidi: isolate;
+}

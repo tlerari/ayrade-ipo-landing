@@ -73,7 +73,7 @@ export function Strategy() {
             <h3 className="font-mono text-[14px] uppercase tracking-micro text-signal font-medium">
               {t('blockAtitle')}
             </h3>
-            <p className="font-mono text-[12px] text-paper/55">
+            <p className="font-mono text-[12px] text-paper/55 bidi-ltr" dir="ltr">
               {t('blockAmeta')}
             </p>
           </div>
@@ -139,7 +139,7 @@ export function Strategy() {
             <h3 className="font-mono text-[14px] uppercase tracking-micro text-signal font-medium">
               {t('blockBtitle')}
             </h3>
-            <p className="font-mono text-[12px] text-paper/55">
+            <p className="font-mono text-[12px] text-paper/55 bidi-ltr" dir="ltr">
               {t('blockBmeta')}
             </p>
           </div>
@@ -157,10 +157,10 @@ export function Strategy() {
                   {bu.title}
                 </h4>
                 <div className="border-t border-paper/10 pt-4 space-y-2">
-                  <p className="font-mono text-[14px] text-paper/85 tabular-nums leading-tight">
+                  <p className="font-mono text-[14px] text-paper/85 tabular-nums leading-tight bidi-ltr" dir="ltr">
                     {bu.transition}
                   </p>
-                  <p className="font-mono text-[12px] uppercase tracking-micro text-signal font-semibold">
+                  <p className="font-mono text-[12px] uppercase tracking-micro text-signal font-semibold bidi-ltr" dir="ltr">
                     {bu.cagr}
                   </p>
                 </div>
@@ -178,7 +178,7 @@ export function Strategy() {
             <h3 className="font-mono text-[14px] uppercase tracking-micro text-signal font-medium">
               {t('blockCtitle')}
             </h3>
-            <p className="font-mono text-[12px] text-paper/55">
+            <p className="font-mono text-[12px] text-paper/55 bidi-ltr" dir="ltr">
               {t('blockCmeta')}
             </p>
           </div>

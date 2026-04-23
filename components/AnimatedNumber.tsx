@@ -112,5 +112,11 @@ export function AnimatedNumber({ value, durationMs = 1700 }: Props) {
     return () => observer.disconnect();
   }, [value, durationMs]);
 
-  return <span ref={spanRef}>{display}</span>;
+  // dir="ltr" + unicode-bidi: isolate (via .bidi-ltr) — évite l'inversion
+  // visuelle des runs numériques en contexte RTL (ex. « 1 250 000 »).
+  return (
+    <span ref={spanRef} className="bidi-ltr" dir="ltr">
+      {display}
+    </span>
+  );
 }
