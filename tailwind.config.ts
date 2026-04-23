@@ -43,10 +43,10 @@ const config: Config = {
         sans: ['var(--font-manrope)', 'system-ui', 'sans-serif'],
         mono: ['var(--font-plex-mono)', 'ui-monospace', 'monospace'],
         arabic: ['var(--font-plex-arabic)', 'system-ui', 'sans-serif'],
-        // Amiri — display arabe statutaire (titres, citation).
+        // Readex Pro — display arabe corporate (titres, citation).
         // Normalement appliqué via override [lang='ar'] en CSS ;
         // exposé ici pour les cas d'usage ponctuels.
-        'display-ar': ['var(--font-amiri)', '"Noto Naskh Arabic"', 'serif'],
+        'display-ar': ['var(--font-readex)', '"IBM Plex Sans Arabic"', 'sans-serif'],
       },
       letterSpacing: {
         micro: '0.3em',

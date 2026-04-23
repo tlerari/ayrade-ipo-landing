@@ -293,24 +293,24 @@ details.faq[open] .chev {
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   AR — typographie statutaire (Amiri) pour grands titres + citation.
+   AR — typographie corporate (Readex Pro) pour grands titres + citation.
+   Sans-serif moderne, rigoureux, conçu pour les institutions MENA.
    IBM Plex Sans Arabic reste pour corps, nav, eyebrows, listes.
    ═══════════════════════════════════════════════════════════════ */
 [lang='ar'] .font-display,
 [lang='ar'] .fig,
 [lang='ar'] .bg-letter {
-  font-family: var(--font-amiri), 'Amiri', 'Noto Naskh Arabic', serif;
-  /* Amiri est plus posé que Plex Arabic — on détend très légèrement
-     l'interlignage et on redresse le tracking qui ne s'applique pas
-     aux glyphes arabes de la même façon qu'au latin. */
+  font-family: var(--font-readex), 'Readex Pro', 'IBM Plex Sans Arabic', system-ui, sans-serif;
+  /* tracking neutre côté AR (les glyphes arabes n'apprécient pas le
+     letter-spacing négatif Fraunces appliqué via Tailwind). */
   letter-spacing: 0;
   font-feature-settings: 'kern' 1, 'liga' 1, 'calt' 1;
 }
 
-/* Amiri n'a pas de light/italic aussi marqués que Fraunces ;
-   on neutralise les tracking serrés et on redonne du corps aux titres light. */
+/* Readex a des weights riches mais light n'a pas la même présence
+   qu'en latin ; on remonte à 500 sur les titres flaggés font-light. */
 [lang='ar'] .font-display.font-light {
-  font-weight: 400;
+  font-weight: 500;
 }
 
 /* Tabs — selected state */
