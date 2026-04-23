@@ -135,7 +135,9 @@ export function Pillars() {
           {stats.map((s, i) => (
             <div key={i}>
               <s.Icon />
-              <p className="mt-2 fig text-2xl text-paper tabular-nums bidi-ltr" dir="ltr">{s.value}</p>
+              <p className="mt-2 fig text-2xl text-paper tabular-nums">
+                <span className="bidi-ltr" dir="ltr">{s.value}</span>
+              </p>
               <p className="mt-1 font-mono text-[11px] uppercase tracking-micro text-paper/70 font-medium">{s.label}</p>
             </div>
           ))}

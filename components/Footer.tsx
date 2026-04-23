@@ -46,7 +46,7 @@ export function Footer() {
             <p className="text-paper/60 text-sm leading-relaxed max-w-sm">{t('tagline')}</p>
           </div>
           <div className="md:text-end">
-            <p className="font-mono text-[12px] uppercase tracking-micro text-paper/75 mb-3 font-medium">Suivre la société</p>
+            <p className="font-mono text-[12px] uppercase tracking-micro text-paper/75 mb-3 font-medium">{t('followLabel')}</p>
             <div className="flex gap-5 md:justify-end items-center">
               <a
                 href="https://www.linkedin.com/company/ayrade/"

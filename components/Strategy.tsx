@@ -73,8 +73,8 @@ export function Strategy() {
             <h3 className="font-mono text-[14px] uppercase tracking-micro text-signal font-medium">
               {t('blockAtitle')}
             </h3>
-            <p className="font-mono text-[12px] text-paper/55 bidi-ltr" dir="ltr">
-              {t('blockAmeta')}
+            <p className="font-mono text-[12px] text-paper/55">
+              <span className="bidi-ltr" dir="ltr">{t('blockAmeta')}</span>
             </p>
           </div>
 
@@ -89,7 +89,7 @@ export function Strategy() {
                   {t('aCapexPct')}
                 </span>
               </div>
-              <div className="flex items-baseline gap-3 flex-wrap mb-5">
+              <div className="flex items-baseline gap-3 flex-wrap mb-5 bidi-ltr" dir="ltr">
                 <span className="fig text-[3.5rem] lg:text-[4.25rem] text-paper tabular-nums leading-none">
                   593
                 </span>
@@ -115,7 +115,7 @@ export function Strategy() {
                   {t('aBfrPct')}
                 </span>
               </div>
-              <div className="flex items-baseline gap-3 flex-wrap mb-5">
+              <div className="flex items-baseline gap-3 flex-wrap mb-5 bidi-ltr" dir="ltr">
                 <span className="fig text-[3rem] lg:text-[3.5rem] text-paper tabular-nums leading-none">
                   366
                 </span>
@@ -139,8 +139,8 @@ export function Strategy() {
             <h3 className="font-mono text-[14px] uppercase tracking-micro text-signal font-medium">
               {t('blockBtitle')}
             </h3>
-            <p className="font-mono text-[12px] text-paper/55 bidi-ltr" dir="ltr">
-              {t('blockBmeta')}
+            <p className="font-mono text-[12px] text-paper/55">
+              <span className="bidi-ltr" dir="ltr">{t('blockBmeta')}</span>
             </p>
           </div>
 
@@ -157,11 +157,11 @@ export function Strategy() {
                   {bu.title}
                 </h4>
                 <div className="border-t border-paper/10 pt-4 space-y-2">
-                  <p className="font-mono text-[14px] text-paper/85 tabular-nums leading-tight bidi-ltr" dir="ltr">
-                    {bu.transition}
+                  <p className="font-mono text-[14px] text-paper/85 tabular-nums leading-tight">
+                    <span className="bidi-ltr" dir="ltr">{bu.transition}</span>
                   </p>
-                  <p className="font-mono text-[12px] uppercase tracking-micro text-signal font-semibold bidi-ltr" dir="ltr">
-                    {bu.cagr}
+                  <p className="font-mono text-[12px] uppercase tracking-micro text-signal font-semibold">
+                    <span className="bidi-ltr" dir="ltr">{bu.cagr}</span>
                   </p>
                 </div>
                 <p className="text-[15px] text-paper/75 leading-[1.65] flex-1">
@@ -178,8 +178,8 @@ export function Strategy() {
             <h3 className="font-mono text-[14px] uppercase tracking-micro text-signal font-medium">
               {t('blockCtitle')}
             </h3>
-            <p className="font-mono text-[12px] text-paper/55 bidi-ltr" dir="ltr">
-              {t('blockCmeta')}
+            <p className="font-mono text-[12px] text-paper/55">
+              <span className="bidi-ltr" dir="ltr">{t('blockCmeta')}</span>
             </p>
           </div>
 
@@ -194,7 +194,7 @@ export function Strategy() {
                   </span>
                   <span className="flex-1 h-px bg-paper/15" />
                 </div>
-                <div className="flex items-baseline gap-2 flex-wrap mb-4">
+                <div className="flex items-baseline gap-2 flex-wrap mb-4 bidi-ltr" dir="ltr">
                   <span className="fig text-[3rem] lg:text-[3.25rem] text-paper tabular-nums leading-none">
                     {j.amount}
                   </span>
@@ -215,7 +215,7 @@ export function Strategy() {
                 <p className="font-mono text-[13px] uppercase tracking-micro text-signal mb-3 font-semibold">
                   {j.year}
                 </p>
-                <div className="flex items-baseline gap-2 flex-wrap mb-3">
+                <div className="flex items-baseline gap-2 flex-wrap mb-3 bidi-ltr" dir="ltr">
                   <span className="fig text-[2.5rem] text-paper tabular-nums leading-none">
                     {j.amount}
                   </span>

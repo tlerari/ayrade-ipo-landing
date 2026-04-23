@@ -112,11 +112,19 @@ export function AnimatedNumber({ value, durationMs = 1700 }: Props) {
     return () => observer.disconnect();
   }, [value, durationMs]);
 
-  // dir="ltr" + unicode-bidi: isolate (via .bidi-ltr) — évite l'inversion
-  // visuelle des runs numériques en contexte RTL (ex. « 1 250 000 »).
-  return (
-    <span ref={spanRef} className="bidi-ltr" dir="ltr">
-      {display}
-    </span>
-  );
+  // Isolation bidi : on force LTR dès que la valeur ne contient AUCUN caractère
+  // arabe, même si elle n'est pas strictement numérique (« +100 », « ISO 9001 »,
+  // « +10 000 » doivent rester ferrés à gauche en flux LTR).
+  // Les chaînes mixtes RTL/LTR (« BDL + 11 مؤسسة », « بورصة الجزائر (SGBV) »)
+  // contiennent de l'arabe → on laisse le flux RTL du parent s'appliquer,
+  // sinon l'ordre de lecture naturel en arabe est cassé.
+  const hasArabic = /[\u0600-\u06FF]/.test(value);
+  if (!hasArabic) {
+    return (
+      <span ref={spanRef} className="bidi-ltr" dir="ltr">
+        {display}
+      </span>
+    );
+  }
+  return <span ref={spanRef}>{display}</span>;
 }
