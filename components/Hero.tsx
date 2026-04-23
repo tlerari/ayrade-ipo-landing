@@ -6,9 +6,11 @@ import { Countdown } from './Countdown';
 // Photo Hero — version unique sur FR / EN / AR (visuel AYRADE fourni par le client).
 const HERO_IMAGE = '/assets/ayrade-hero.jpg';
 
-// Pattern décoratif du hero — chevrons AYRADE (couleur sable), tuile 257×257.
+// Pattern décoratif du hero — motif AYRADE (couleur sable), tuile 257×257.
 // Appliqué uniformément sur FR / EN / AR après A/B test.
-const HERO_PATTERN = '/assets/pattern-header-1.png';
+// Version .webp (23/04/2026) : remplace le PNG d'origine — compression ×2,8 (4068→1424 o)
+// pour le même rendu visuel (mix-blend-screen + opacity 0.14).
+const HERO_PATTERN = '/assets/pattern-header-1.webp';
 
 export function Hero({ flags }: { flags: PhaseFlags }) {
   const t = useTranslations('hero');
