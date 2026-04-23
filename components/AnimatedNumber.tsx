@@ -112,19 +112,33 @@ export function AnimatedNumber({ value, durationMs = 1700 }: Props) {
     return () => observer.disconnect();
   }, [value, durationMs]);
 
-  // Isolation bidi : on force LTR dès que la valeur ne contient AUCUN caractère
-  // arabe, même si elle n'est pas strictement numérique (« +100 », « ISO 9001 »,
-  // « +10 000 » doivent rester ferrés à gauche en flux LTR).
-  // Les chaînes mixtes RTL/LTR (« BDL + 11 مؤسسة », « بورصة الجزائر (SGBV) »)
-  // contiennent de l'arabe → on laisse le flux RTL du parent s'appliquer,
-  // sinon l'ordre de lecture naturel en arabe est cassé.
+  // Isolation bidi — stratégie à deux branches :
+  //
+  //  1. Valeur SANS caractère arabe (« +100 », « ISO 9001 », « 22 % »,
+  //     « +10 000 ») → on force un îlot LTR isolé (bidi-ltr + dir="ltr").
+  //     Garantit l'ordre exact des digits et du suffixe dans un flux RTL
+  //     parent, et évite que « % » ne passe à gauche du nombre.
+  //
+  //  2. Valeur AVEC au moins un caractère arabe (« BDL + 11 مؤسسة »,
+  //     « بورصة الجزائر (SGBV) ») → dir="auto" + unicode-bidi: isolate.
+  //     HTML5 détecte le premier caractère fort :
+  //       - « BDL… » commence par L → span basculé LTR, l'arabe en fin
+  //         de chaîne reste lisible (RTL au niveau des glyphes).
+  //       - « بورصة… » commence par AL → span basculé RTL, l'acronyme
+  //         entre parenthèses reste LTR au sein du flux arabe.
+  //     Chaque valeur est rendue dans sa direction logique naturelle,
+  //     tout en étant isolée du flux parent.
   const hasArabic = /[\u0600-\u06FF]/.test(value);
-  if (!hasArabic) {
+  if (hasArabic) {
     return (
-      <span ref={spanRef} className="bidi-ltr" dir="ltr">
+      <span ref={spanRef} dir="auto" style={{ unicodeBidi: 'isolate' }}>
         {display}
       </span>
     );
   }
-  return <span ref={spanRef}>{display}</span>;
+  return (
+    <span ref={spanRef} className="bidi-ltr" dir="ltr">
+      {display}
+    </span>
+  );
 }

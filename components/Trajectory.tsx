@@ -249,6 +249,8 @@ function TrajectoryChart() {
 
 export function Trajectory() {
   const t = useTranslations('trajectory');
+  // Unité monétaire traduite (« M DZD » FR/EN, « مليون دج » AR) — wave 3 BIDI.
+  const currencyM = t('currencyM');
 
   const blockA = [
     { v: t('a1Value'), l: t('a1Label'), sub: t('a1Sub') },
@@ -265,7 +267,7 @@ export function Trajectory() {
   ];
 
   const blockC = [
-    { v: '1 234', unit: 'M DZD', l: t('c1Label'), sub: t('c1Sub') },
+    { v: '1 234', unit: currencyM, l: t('c1Label'), sub: t('c1Sub') },
     { v: '93 %', unit: '', l: t('c2Label'), sub: t('c2Sub') },
     { v: '3', unit: t('years'), l: t('c3Label'), sub: t('c3Sub') },
     { v: '9,45 %', unit: '', l: t('c4Label'), sub: t('c4Sub') },
@@ -298,8 +300,14 @@ export function Trajectory() {
           <div className="grid grid-cols-2 md:grid-cols-5 gap-px bg-navy/10 mb-8">
             {blockA.map((k, i) => (
               <div key={i} className="bg-paper p-6 lg:p-7 border border-navy/10">
+                {/* k.v peut être mixte en AR (« 17 سنة ») ou pur Latin
+                    (« +117 % »). dir="auto" + unicode-bidi: isolate laisse
+                    HTML5 détecter la direction par le premier caractère fort
+                    (Arabe→RTL, Latin→LTR) tout en isolant la valeur du flux
+                    parent. En AR, « 17 سنة » rend visuellement « سنة 17 »
+                    (nombre à droite) ; en FR/EN, « 17 ans » reste « 17 ans ». */}
                 <p className="fig text-[2.25rem] lg:text-[2.5rem] text-navy tabular-nums leading-none">
-                  <span className="bidi-ltr" dir="ltr">{k.v}</span>
+                  <span dir="auto" style={{ unicodeBidi: 'isolate' }}>{k.v}</span>
                 </p>
                 <p className="mt-3 font-mono text-[13px] uppercase tracking-micro text-ink/85 font-medium">
                   {k.l}
@@ -376,7 +384,11 @@ export function Trajectory() {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-px bg-navy/10 mb-6">
             {blockC.map((k, i) => (
               <div key={i} className="bg-paper p-6 lg:p-7 border border-navy/10">
-                <div className="flex items-baseline gap-2 flex-wrap bidi-ltr" dir="ltr">
+                {/* Flex natif : en RTL parent, les enfants s'inversent
+                    visuellement et s'alignent naturellement à droite.
+                    Nombre à droite, unité à gauche → lecture R→L « 1 234
+                    مليون دج », conforme à la demande wave-3. */}
+                <div className="flex items-baseline gap-2 flex-wrap">
                   <p className="fig text-[2.5rem] text-navy tabular-nums leading-none">{k.v}</p>
                   {k.unit && (
                     <span className="font-mono text-[13px] uppercase tracking-micro text-ink/70 font-medium">

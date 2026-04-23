@@ -10,6 +10,10 @@ import { ParallaxLetter } from './ParallaxLetter';
  */
 export function Strategy() {
   const t = useTranslations('strategy');
+  // Libellé unité monétaire (« M DZD » en FR/EN, « مليون دج » en AR) —
+  // centralisé sur une clé i18n pour éviter tout texte latin en dur
+  // côté AR (wave 3 BIDI).
+  const currencyM = t('currencyM');
 
   const bus = [
     {
@@ -74,7 +78,7 @@ export function Strategy() {
               {t('blockAtitle')}
             </h3>
             <p className="font-mono text-[12px] text-paper/55">
-              <span className="bidi-ltr" dir="ltr">{t('blockAmeta')}</span>
+              {t('blockAmeta')}
             </p>
           </div>
 
@@ -89,12 +93,16 @@ export function Strategy() {
                   {t('aCapexPct')}
                 </span>
               </div>
-              <div className="flex items-baseline gap-3 flex-wrap mb-5 bidi-ltr" dir="ltr">
+              {/* Flex natif : en contexte RTL parent, les enfants s'inversent
+                  visuellement → le nombre « 593 » passe à droite, l'unité
+                  « مليون دج » à sa gauche. Lecture R→L : « 593 مليون دج »,
+                  conforme à la demande wave-3 ("on commence par le nombre"). */}
+              <div className="flex items-baseline gap-3 flex-wrap mb-5">
                 <span className="fig text-[3.5rem] lg:text-[4.25rem] text-paper tabular-nums leading-none">
                   593
                 </span>
                 <span className="font-mono text-[14px] uppercase tracking-micro text-paper/70 font-medium">
-                  M DZD
+                  {currencyM}
                 </span>
               </div>
               <h4 className="font-display text-[1.5rem] lg:text-[1.75rem] tracking-tight leading-[1.15] text-paper mb-3">
@@ -115,12 +123,12 @@ export function Strategy() {
                   {t('aBfrPct')}
                 </span>
               </div>
-              <div className="flex items-baseline gap-3 flex-wrap mb-5 bidi-ltr" dir="ltr">
+              <div className="flex items-baseline gap-3 flex-wrap mb-5">
                 <span className="fig text-[3rem] lg:text-[3.5rem] text-paper tabular-nums leading-none">
                   366
                 </span>
                 <span className="font-mono text-[14px] uppercase tracking-micro text-paper/70 font-medium">
-                  M DZD
+                  {currencyM}
                 </span>
               </div>
               <h4 className="font-display text-[1.375rem] lg:text-[1.5rem] tracking-tight leading-[1.15] text-paper mb-3">
@@ -140,7 +148,7 @@ export function Strategy() {
               {t('blockBtitle')}
             </h3>
             <p className="font-mono text-[12px] text-paper/55">
-              <span className="bidi-ltr" dir="ltr">{t('blockBmeta')}</span>
+              {t('blockBmeta')}
             </p>
           </div>
 
@@ -157,9 +165,15 @@ export function Strategy() {
                   {bu.title}
                 </h4>
                 <div className="border-t border-paper/10 pt-4 space-y-2">
+                  {/* bu.transition = chaîne mixte AR+Latin (« 1 328 → 2 700 مليون دج »).
+                      Pas de wrapper LTR : le flux RTL naturel du parent place les
+                      chiffres LTR à gauche de l'arabe, ce qui donne la lecture
+                      attendue (« 1 328 → 2 700 مليون دج ») en RTL. */}
                   <p className="font-mono text-[14px] text-paper/85 tabular-nums leading-tight">
-                    <span className="bidi-ltr" dir="ltr">{bu.transition}</span>
+                    {bu.transition}
                   </p>
+                  {/* bu.cagr = « CAGR 15 % » pur Latin → bidi-ltr obligatoire
+                      pour éviter que « % » se retrouve à gauche du nombre. */}
                   <p className="font-mono text-[12px] uppercase tracking-micro text-signal font-semibold">
                     <span className="bidi-ltr" dir="ltr">{bu.cagr}</span>
                   </p>
@@ -179,7 +193,7 @@ export function Strategy() {
               {t('blockCtitle')}
             </h3>
             <p className="font-mono text-[12px] text-paper/55">
-              <span className="bidi-ltr" dir="ltr">{t('blockCmeta')}</span>
+              {t('blockCmeta')}
             </p>
           </div>
 
@@ -194,12 +208,12 @@ export function Strategy() {
                   </span>
                   <span className="flex-1 h-px bg-paper/15" />
                 </div>
-                <div className="flex items-baseline gap-2 flex-wrap mb-4 bidi-ltr" dir="ltr">
+                <div className="flex items-baseline gap-2 flex-wrap mb-4">
                   <span className="fig text-[3rem] lg:text-[3.25rem] text-paper tabular-nums leading-none">
                     {j.amount}
                   </span>
                   <span className="font-mono text-[13px] uppercase tracking-micro text-paper/70 font-medium">
-                    M DZD
+                    {currencyM}
                   </span>
                 </div>
                 <p className="text-[14px] text-paper/75 leading-[1.6]">{j.detail}</p>
@@ -215,12 +229,12 @@ export function Strategy() {
                 <p className="font-mono text-[13px] uppercase tracking-micro text-signal mb-3 font-semibold">
                   {j.year}
                 </p>
-                <div className="flex items-baseline gap-2 flex-wrap mb-3 bidi-ltr" dir="ltr">
+                <div className="flex items-baseline gap-2 flex-wrap mb-3">
                   <span className="fig text-[2.5rem] text-paper tabular-nums leading-none">
                     {j.amount}
                   </span>
                   <span className="font-mono text-[13px] uppercase tracking-micro text-paper/70 font-medium">
-                    M DZD
+                    {currencyM}
                   </span>
                 </div>
                 <p className="text-[14px] text-paper/75 leading-[1.6]">{j.detail}</p>

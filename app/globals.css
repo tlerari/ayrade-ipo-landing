@@ -393,3 +393,12 @@ details.faq[open] .chev {
   direction: ltr;
   unicode-bidi: isolate;
 }
+
+/* ───────────────────────────────────────────────────────────────
+   Wave 3 (23/04/2026) — la classe `.bidi-ltr-row` a été retirée
+   au profit du flex natif : en contexte RTL parent, un flex-row
+   sans override inverse visuellement les enfants ET les ferre à
+   droite (flex-start = bord droit en RTL). C'est le comportement
+   attendu pour « 593 مليون دج » (nombre à droite, unité à sa
+   gauche — lecture R→L correcte).
+   ─────────────────────────────────────────────────────────────── */
