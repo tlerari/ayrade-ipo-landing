@@ -292,6 +292,27 @@ details.faq[open] .chev {
   display: inline-block;
 }
 
+/* ═══════════════════════════════════════════════════════════════
+   AR — typographie statutaire (Amiri) pour grands titres + citation.
+   IBM Plex Sans Arabic reste pour corps, nav, eyebrows, listes.
+   ═══════════════════════════════════════════════════════════════ */
+[lang='ar'] .font-display,
+[lang='ar'] .fig,
+[lang='ar'] .bg-letter {
+  font-family: var(--font-amiri), 'Amiri', 'Noto Naskh Arabic', serif;
+  /* Amiri est plus posé que Plex Arabic — on détend très légèrement
+     l'interlignage et on redresse le tracking qui ne s'applique pas
+     aux glyphes arabes de la même façon qu'au latin. */
+  letter-spacing: 0;
+  font-feature-settings: 'kern' 1, 'liga' 1, 'calt' 1;
+}
+
+/* Amiri n'a pas de light/italic aussi marqués que Fraunces ;
+   on neutralise les tracking serrés et on redonne du corps aux titres light. */
+[lang='ar'] .font-display.font-light {
+  font-weight: 400;
+}
+
 /* Tabs — selected state */
 [role='tab'][aria-selected='true'] {
   background: #0b2545;

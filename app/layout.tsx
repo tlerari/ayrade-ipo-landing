@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from 'next';
-import { Fraunces, Manrope, IBM_Plex_Mono, IBM_Plex_Sans_Arabic } from 'next/font/google';
+import { Fraunces, Manrope, IBM_Plex_Mono, IBM_Plex_Sans_Arabic, Amiri } from 'next/font/google';
 import './globals.css';
 
 const fraunces = Fraunces({
@@ -29,6 +29,16 @@ const plexArabic = IBM_Plex_Sans_Arabic({
   variable: '--font-plex-arabic',
 });
 
+// Amiri — naskh classique, typographie statutaire pour les grands titres AR
+// et la citation LMB (équivalent Fraunces pour l'arabe).
+const amiri = Amiri({
+  subsets: ['arabic'],
+  weight: ['400', '700'],
+  style: ['normal', 'italic'],
+  display: 'swap',
+  variable: '--font-amiri',
+});
+
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? 'https://ipo.ayrade.com'),
   title: {
@@ -51,7 +61,7 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html className={`${fraunces.variable} ${manrope.variable} ${plexMono.variable} ${plexArabic.variable}`}>
+    <html className={`${fraunces.variable} ${manrope.variable} ${plexMono.variable} ${plexArabic.variable} ${amiri.variable}`}>
       <body className="font-sans antialiased text-ink selection:bg-orange/30">{children}</body>
     </html>
   );
