@@ -305,6 +305,13 @@ details.faq[open] .chev {
      letter-spacing négatif Fraunces appliqué via Tailwind). */
   letter-spacing: 0;
   font-feature-settings: 'kern' 1, 'liga' 1, 'calt' 1;
+  /* Readex Pro a une x-height naturellement plus haute que Fraunces
+     (~0.54 contre ~0.42). Sans correction, les titres AR paraissent
+     ~25 % plus gros que leurs équivalents latins. font-size-adjust
+     demande au navigateur de rescaler la police pour obtenir un
+     ratio x-height / font-size précis — réglé ici pour matcher
+     visuellement Fraunces opsz 144. À ajuster si besoin. */
+  font-size-adjust: 0.46;
 }
 
 /* Readex a des weights riches mais light n'a pas la même présence
