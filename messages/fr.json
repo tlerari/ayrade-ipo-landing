@@ -247,10 +247,13 @@
     "irEmail": "[PH : email IR AYRADE]",
     "irPhone": "[PH : tél IR AYRADE]",
     "irAddress": "[PH : adresse siège AYRADE, Alger]",
+    "irName1": "Mohamed Lamine BELBACHIR",
+    "irName2": "Lotfi TEMMAM",
     "pressTitle": "Presse",
     "pressComLabel": "Direction de la communication AYRADE",
     "pressComContact": "[PH : contact presse AYRADE]",
     "pressAgencyLabel": "Relations presse",
+    "pressAgencyName": "BELKIRED Mohamed Abdellatif",
     "pressAgencyRole": "Public Relations & Corporate Events Manager"
   },
   "faq": {
