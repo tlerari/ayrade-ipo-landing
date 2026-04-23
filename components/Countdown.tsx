@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
+import { useTranslations } from 'next-intl';
 
 const TARGET = new Date('2026-06-01T09:00:00+01:00').getTime();
 
@@ -16,8 +17,13 @@ function pad(n: number): string {
  * on affiche un placeholder "—" entre-temps, puis on tick toutes les 30 s.
  *
  * aria-live="polite" — annonce discrète pour lecteurs d'écran.
+ *
+ * i18n (23/04/2026) — libellés, date d'ouverture et unités (j/h/min) tirés du
+ * namespace `countdown`. En AR, les chiffres 00 sont isolés en dir="ltr" pour
+ * éviter que les groupes numériques basculent visuellement dans le flux RTL.
  */
 export function Countdown() {
+  const t = useTranslations('countdown');
   const [now, setNow] = useState<number | null>(null);
 
   useEffect(() => {
@@ -44,29 +50,29 @@ export function Countdown() {
       suppressHydrationWarning
     >
       <p className="font-mono text-[12px] uppercase tracking-micro text-paper/75 mb-4 font-medium">
-        Ouverture de la souscription dans
+        {t('label')}
       </p>
 
       <div className="flex items-baseline flex-wrap gap-x-1 font-mono text-paper tabular-nums">
-        {/* Days */}
-        <span className="text-[2rem] lg:text-[2.5rem] leading-none">{dd}</span>
-        <span className="text-[12px] uppercase tracking-micro text-paper/70 me-3 font-medium">j</span>
+        {/* Days — dd isolé LTR pour garantir l'ordre des chiffres en AR */}
+        <span className="text-[2rem] lg:text-[2.5rem] leading-none" dir="ltr">{dd}</span>
+        <span className="text-[12px] uppercase tracking-micro text-paper/70 me-3 font-medium">{t('days')}</span>
 
         <span aria-hidden="true" className="text-paper/30 text-lg me-3">·</span>
 
         {/* Hours */}
-        <span className="text-[2rem] lg:text-[2.5rem] leading-none">{hh}</span>
-        <span className="text-[12px] uppercase tracking-micro text-paper/70 me-3 font-medium">h</span>
+        <span className="text-[2rem] lg:text-[2.5rem] leading-none" dir="ltr">{hh}</span>
+        <span className="text-[12px] uppercase tracking-micro text-paper/70 me-3 font-medium">{t('hours')}</span>
 
         <span aria-hidden="true" className="text-paper/30 text-lg me-3">·</span>
 
         {/* Minutes */}
-        <span className="text-[2rem] lg:text-[2.5rem] leading-none">{mm}</span>
-        <span className="text-[12px] uppercase tracking-micro text-paper/70 font-medium">min</span>
+        <span className="text-[2rem] lg:text-[2.5rem] leading-none" dir="ltr">{mm}</span>
+        <span className="text-[12px] uppercase tracking-micro text-paper/70 font-medium">{t('minutes')}</span>
       </div>
 
       <p className="mt-4 font-mono text-[12px] uppercase tracking-micro text-paper/70 font-medium">
-        1<sup>er</sup> juin 2026 · 09:00 (Alger, UTC+1)
+        {t('openingDate')}
       </p>
     </div>
   );

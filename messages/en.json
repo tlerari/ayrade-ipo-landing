@@ -40,6 +40,13 @@
     "archiveBanner": "AYRADE has been listed since 15 July 2026. This page archives the IPO communication.",
     "imageAlt": "AYRADE datacenter — editorial view of the server corridor in blue light, evoking compute power and sovereign digital infrastructure."
   },
+  "countdown": {
+    "label": "Subscription opens in",
+    "days": "d",
+    "hours": "h",
+    "minutes": "min",
+    "openingDate": "1 June 2026 · 09:00 (Algiers, UTC+1)"
+  },
   "keyFigures": {
     "eyebrow": "01 — The offering at a glance",
     "title": "The first IPO by an Algerian sovereign cloud operator.",

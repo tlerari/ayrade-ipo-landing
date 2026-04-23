@@ -389,7 +389,17 @@ export function Trajectory() {
                     Nombre à droite, unité à gauche → lecture R→L « 1 234
                     مليون دج », conforme à la demande wave-3. */}
                 <div className="flex items-baseline gap-2 flex-wrap">
-                  <p className="fig text-[2.5rem] text-navy tabular-nums leading-none">{k.v}</p>
+                  {/* k.v est toujours pur Latin (« 93 % », « 9,45 % », « 1 234 »).
+                      Dans un paragraphe RTL (AR), « 93 % » peut visuellement
+                      basculer en « % 93 » à cause de l'interaction ET/EN/WS
+                      avec le flux parent — on force donc un îlot LTR isolé
+                      (bidi-ltr + dir="ltr"), identique au pattern cagrRows.
+                      Le flex parent reste RTL : en AR, le nombre passe à
+                      droite et l'unité (k.unit, qui peut être « مليون دج »)
+                      à gauche — conforme à la lecture R→L attendue. */}
+                  <p className="fig text-[2.5rem] text-navy tabular-nums leading-none">
+                    <span className="bidi-ltr" dir="ltr">{k.v}</span>
+                  </p>
                   {k.unit && (
                     <span className="font-mono text-[13px] uppercase tracking-micro text-ink/70 font-medium">
                       {k.unit}

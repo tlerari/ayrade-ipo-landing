@@ -40,6 +40,13 @@
     "archiveBanner": "AYRADE est cotée depuis le 15 juillet 2026. Cette page archive la communication IPO.",
     "imageAlt": "Datacenter AYRADE — vue éditoriale du couloir serveurs en lumière bleue, évoquant la puissance de calcul et l'infrastructure numérique souveraine."
   },
+  "countdown": {
+    "label": "Ouverture de la souscription dans",
+    "days": "j",
+    "hours": "h",
+    "minutes": "min",
+    "openingDate": "1ᵉʳ juin 2026 · 09:00 (Alger, UTC+1)"
+  },
   "keyFigures": {
     "eyebrow": "01 — L'opération en un regard",
     "title": "Première introduction en Bourse d'un opérateur algérien de Cloud souverain.",
