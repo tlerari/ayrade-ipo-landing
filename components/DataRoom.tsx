@@ -66,6 +66,26 @@ export function DataRoom({ flags }: { flags: PhaseFlags }) {
           <div className="bg-paper p-8 lg:p-10">
             <p className="font-mono text-[12px] uppercase tracking-micro text-signal mb-6 font-medium">{t('docsTitle')}</p>
             <ul className="space-y-4 text-sm">
+              {/* 1. Communiqué de presse — document d'annonce, toujours
+                  publiable même en V1 (pas d'acte réglementé COSOB, c'est la
+                  communication de lancement). */}
+              <li>
+                <a
+                  href="/documents/communique-presse-annonce-ayrade.pdf"
+                  className="group flex items-center gap-2 text-ink hover:text-signal transition-colors duration-150"
+                >
+                  <IconFile />
+                  <span className="link-hover flex-1">{t('docPress')}</span>
+                  <span
+                    aria-hidden="true"
+                    className="rtl-flip opacity-0 group-hover:opacity-100 transition-opacity duration-150 text-signal font-mono text-xs"
+                  >
+                    →
+                  </span>
+                </a>
+              </li>
+              {/* 2. Notice d'information COSOB — V2 uniquement (gate :
+                  notice publiée). V1 : libellé « bientôt disponible ». */}
               <li>
                 {flags.showNoticeCTA ? (
                   <a
@@ -88,6 +108,8 @@ export function DataRoom({ flags }: { flags: PhaseFlags }) {
                   </span>
                 )}
               </li>
+              {/* 3. Bulletin de souscription — V2 uniquement (gate :
+                  bulletin téléchargeable). V1 : libellé « bientôt disponible ». */}
               <li>
                 {flags.showBulletinCTA ? (
                   <a
@@ -110,25 +132,26 @@ export function DataRoom({ flags }: { flags: PhaseFlags }) {
                   </span>
                 )}
               </li>
-              <li>
-                <a
-                  href="/documents/plaquette-investisseurs-ayrade.pdf"
-                  className="group flex items-center gap-2 text-ink hover:text-signal transition-colors duration-150"
-                >
-                  <IconFile />
-                  <span className="link-hover flex-1">{t('doc3')}</span>
-                  <span
-                    aria-hidden="true"
-                    className="rtl-flip opacity-0 group-hover:opacity-100 transition-opacity duration-150 text-signal font-mono text-xs"
+              {/* 4. Plaquette investisseurs — V2 uniquement. En V1 la
+                  plaquette n'est pas encore validée et ne peut pas être
+                  diffusée (période de préannonce). */}
+              {flags.showNoticeCTA && (
+                <li>
+                  <a
+                    href="/documents/plaquette-investisseurs-ayrade.pdf"
+                    className="group flex items-center gap-2 text-ink hover:text-signal transition-colors duration-150"
                   >
-                    →
-                  </span>
-                </a>
-              </li>
-              <li className="flex items-center gap-2 text-ink/40">
-                <IconFile />
-                <span className="font-mono text-xs">{t('doc4')}</span>
-              </li>
+                    <IconFile />
+                    <span className="link-hover flex-1">{t('doc3')}</span>
+                    <span
+                      aria-hidden="true"
+                      className="rtl-flip opacity-0 group-hover:opacity-100 transition-opacity duration-150 text-signal font-mono text-xs"
+                    >
+                      →
+                    </span>
+                  </a>
+                </li>
+              )}
             </ul>
           </div>
 
