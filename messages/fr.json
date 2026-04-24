@@ -3,11 +3,11 @@
     "title": "AYRADE · Introduction en Bourse d'Alger : 1er→30 juin 2026",
     "description": "AYRADE : Introduction en Bourse d'Alger. Souscription du 1er au 30 juin 2026. 800 DZD par action. Cloud souverain, intégration de datacenters, cybersécurité souveraine.",
     "ogTitle": "AYRADE · Introduction en Bourse d'Alger",
-    "ogDescription": "AYRADE ouvre 20 % de son capital à la Bourse d'Alger du 1er au 30 juin 2026.",
+    "ogDescription": "AYRADE ouvre 25 % de son capital à la Bourse d'Alger du 1er au 30 juin 2026.",
     "titleTeaser": "AYRADE · Introduction en Bourse d'Alger : ouverture 1ᵉʳ juin 2026",
     "descriptionTeaser": "AYRADE prépare son introduction en Bourse d'Alger. Ouverture prévue le 1ᵉʳ juin 2026. Cloud souverain, intégration de datacenters, cybersécurité souveraine.",
     "ogTitleTeaser": "AYRADE · Be Ready : introduction en Bourse d'Alger",
-    "ogDescriptionTeaser": "AYRADE ouvrira 20 % de son capital à la Bourse d'Alger. Ouverture prévue le 1ᵉʳ juin 2026. Nombre d'actions limité."
+    "ogDescriptionTeaser": "AYRADE ouvrira 25 % de son capital à la Bourse d'Alger. Ouverture prévue le 1ᵉʳ juin 2026. Nombre d'actions limité."
   },
   "langSwitch": {
     "label": "Langue",
@@ -35,7 +35,7 @@
   "hero": {
     "eyebrow": "Introduction en Bourse : Bourse d'Alger (SGBV)",
     "title": "Votre souveraineté numérique.",
-    "lead": "AYRADE ouvre 20 % de son capital à la Bourse d'Alger du 1ᵉʳ au 30 juin 2026. Cloud souverain, intégration de datacenters, cybersécurité souveraine ; AYRADE construit l'infrastructure numérique qui portera la prochaine décennie de croissance algérienne.",
+    "lead": "AYRADE ouvre 25 % de son capital à la Bourse d'Alger du 1ᵉʳ au 30 juin 2026. Cloud souverain, intégration de datacenters, cybersécurité souveraine ; AYRADE construit l'infrastructure numérique qui portera la prochaine décennie de croissance algérienne.",
     "ctaSubscribe": "Souscrire du 1ᵉʳ au 30 juin",
     "ctaDownload": "Notice d'information COSOB",
     "disclaimer": "Visa COSOB n° 2026/02 du 15 avril 2026. Les modalités complètes de l'opération et les facteurs de risque figurent dans la notice d'information. Document à caractère promotionnel.",
@@ -56,7 +56,7 @@
     "eyebrow": "01 : L'opération en un regard",
     "title": "Première introduction en Bourse d'un opérateur algérien de Cloud souverain.",
     "srTitle": "Chiffres clés de l'opération",
-    "kpi1Value": "20 %",
+    "kpi1Value": "25 %",
     "kpi1Label": "Du capital social ouvert au public",
     "kpi2Value": "1 250 000",
     "kpi2Label": "Actions nouvelles émises",
@@ -379,7 +379,7 @@
   "mobileCta": "Souscrire →",
   "beReady": {
     "eyebrow": "Soyez prêts",
-    "title": "AYRADE ouvrira 20 % de son capital à la Bourse d'Alger. Nombre d'actions limité.",
+    "title": "AYRADE ouvrira 25 % de son capital à la Bourse d'Alger. Nombre d'actions limité.",
     "body": "L'ouverture de la souscription est prévue le 1ᵉʳ juin 2026. Les modalités définitives, le syndicat bancaire et la notice d'information visée par la COSOB seront communiqués prochainement.",
     "bullet1Label": "Date cible",
     "bullet1Value": "1ᵉʳ juin 2026",

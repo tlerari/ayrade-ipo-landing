@@ -3,11 +3,11 @@
     "title": "AYRADE · Algiers Stock Exchange IPO : 1-30 June 2026",
     "description": "AYRADE : Algiers Stock Exchange IPO. Subscription window 1 to 30 June 2026. 800 DZD per share. Sovereign cloud, datacenter integration, sovereign cybersecurity.",
     "ogTitle": "AYRADE · Algiers Stock Exchange IPO",
-    "ogDescription": "AYRADE opens 20% of its capital on the Algiers Stock Exchange from 1 to 30 June 2026.",
+    "ogDescription": "AYRADE opens 25% of its capital on the Algiers Stock Exchange from 1 to 30 June 2026.",
     "titleTeaser": "AYRADE · Algiers Stock Exchange IPO : opening 1 June 2026",
     "descriptionTeaser": "AYRADE is preparing its IPO on the Algiers Stock Exchange. Opening scheduled 1 June 2026. Sovereign cloud, datacenter integration, sovereign cybersecurity.",
     "ogTitleTeaser": "AYRADE · Be Ready : Algiers Stock Exchange IPO",
-    "ogDescriptionTeaser": "AYRADE will open 20% of its capital on the Algiers Stock Exchange. Opening scheduled 1 June 2026. Limited number of shares."
+    "ogDescriptionTeaser": "AYRADE will open 25% of its capital on the Algiers Stock Exchange. Opening scheduled 1 June 2026. Limited number of shares."
   },
   "langSwitch": {
     "label": "Language",
@@ -35,7 +35,7 @@
   "hero": {
     "eyebrow": "IPO : Algiers Stock Exchange (SGBV)",
     "title": "Your digital sovereignty.",
-    "lead": "AYRADE opens 20% of its capital on the Algiers Stock Exchange from 1 to 30 June 2026. Sovereign cloud, datacenter integration, sovereign cybersecurity; AYRADE is building the digital infrastructure that will carry Algeria's next decade of growth.",
+    "lead": "AYRADE opens 25% of its capital on the Algiers Stock Exchange from 1 to 30 June 2026. Sovereign cloud, datacenter integration, sovereign cybersecurity; AYRADE is building the digital infrastructure that will carry Algeria's next decade of growth.",
     "ctaSubscribe": "Subscribe 1-30 June",
     "ctaDownload": "COSOB information notice",
     "disclaimer": "COSOB visa no. 2026/02 dated 15 April 2026. Full terms of the offering and risk factors are set out in the information notice. Promotional document.",
@@ -56,7 +56,7 @@
     "eyebrow": "01 : The offering at a glance",
     "title": "The first IPO by an Algerian sovereign cloud operator.",
     "srTitle": "Key offering figures",
-    "kpi1Value": "20%",
+    "kpi1Value": "25%",
     "kpi1Label": "Of share capital open to the public",
     "kpi2Value": "1,250,000",
     "kpi2Label": "New shares issued",
@@ -379,7 +379,7 @@
   "mobileCta": "Subscribe →",
   "beReady": {
     "eyebrow": "Be ready",
-    "title": "AYRADE will open 20% of its capital on the Algiers Stock Exchange. Limited number of shares.",
+    "title": "AYRADE will open 25% of its capital on the Algiers Stock Exchange. Limited number of shares.",
     "body": "The subscription window is scheduled to open on 1 June 2026. The final terms, the banking syndicate and the COSOB-approved information notice will be communicated shortly.",
     "bullet1Label": "Target date",
     "bullet1Value": "1 June 2026",
