@@ -14,6 +14,20 @@
  *
  * Override with env var OPERATION_PHASE=<phase> — useful for QA and "auto" for
  * production.
+ *
+ * ── Orthogonal axis: NOTICE & SYNDICATE PUBLICATION ──
+ *
+ * The banking syndicate of the operation is not yet definitively constituted
+ * at the time the site goes live. Until the syndicate is confirmed and the
+ * notice is finalised:
+ *   - no mention of the "notice d'information" (document official),
+ *   - no mention of the banking syndicate or its members,
+ *   - no download CTA for the notice or the subscription form.
+ *
+ * Controlled by the env var NEXT_PUBLIC_NOTICE_PUBLISHED (default: "false").
+ * Flip to "true" and redeploy when the syndicate is confirmed. Orthogonal to
+ * the phase above: both inputs combine into the PhaseFlags consumed by
+ * components.
  */
 
 export type OperationPhase =
@@ -65,18 +79,47 @@ export function getOperationPhase(now: Date = new Date()): OperationPhase {
 }
 
 /**
- * Feature flags derived from the current phase.
+ * Returns whether the notice & syndicate have been officially published.
+ * Driven by NEXT_PUBLIC_NOTICE_PUBLISHED env var (default: false).
+ */
+export function getNoticePublished(): boolean {
+  return process.env.NEXT_PUBLIC_NOTICE_PUBLISHED === 'true';
+}
+
+/**
+ * Feature flags derived from the current phase AND the notice publication
+ * state. Phase flags drive the lifecycle of the offering (pre-quiet → listing).
+ * Notice flags drive the V1 teaser → V2 full communication switch.
  */
 export interface PhaseFlags {
+  // Phase-driven
   showSubscribeCTA: boolean;
   showFounderTribune: boolean;
   showOpeningCountdown: boolean;
   showClosingCountdown: boolean;
   showClosedBanner: boolean;
   showArchiveNotice: boolean;
+  // Notice/syndicate-driven (orthogonal to phase)
+  showNoticeCTA: boolean;
+  showSyndicateList: boolean;
+  showBulletinCTA: boolean;
+  showBeReady: boolean;
 }
 
-export function getPhaseFlags(phase: OperationPhase): PhaseFlags {
+export function getPhaseFlags(
+  phase: OperationPhase,
+  noticePublished: boolean = getNoticePublished(),
+): PhaseFlags {
+  // Notice-driven flags are orthogonal to phases.
+  // showBeReady is the visual counterpart: it surfaces the "teaser" signal
+  // block when notice & syndicate are not yet published.
+  const noticeFlags = {
+    showNoticeCTA: noticePublished,
+    showSyndicateList: noticePublished,
+    showBulletinCTA: noticePublished,
+    showBeReady: !noticePublished,
+  };
+
   switch (phase) {
     case 'pre-quiet':
       return {
@@ -86,6 +129,7 @@ export function getPhaseFlags(phase: OperationPhase): PhaseFlags {
         showClosingCountdown: false,
         showClosedBanner: false,
         showArchiveNotice: false,
+        ...noticeFlags,
       };
     case 'quiet':
       return {
@@ -95,6 +139,7 @@ export function getPhaseFlags(phase: OperationPhase): PhaseFlags {
         showClosingCountdown: false,
         showClosedBanner: false,
         showArchiveNotice: false,
+        ...noticeFlags,
       };
     case 'subscription':
       return {
@@ -104,6 +149,7 @@ export function getPhaseFlags(phase: OperationPhase): PhaseFlags {
         showClosingCountdown: true,
         showClosedBanner: false,
         showArchiveNotice: false,
+        ...noticeFlags,
       };
     case 'post-close':
       return {
@@ -113,6 +159,9 @@ export function getPhaseFlags(phase: OperationPhase): PhaseFlags {
         showClosingCountdown: false,
         showClosedBanner: true,
         showArchiveNotice: false,
+        ...noticeFlags,
+        // Once closed, no more Be Ready signal whatever happens
+        showBeReady: false,
       };
     case 'post-listing':
       return {
@@ -122,6 +171,8 @@ export function getPhaseFlags(phase: OperationPhase): PhaseFlags {
         showClosingCountdown: false,
         showClosedBanner: false,
         showArchiveNotice: true,
+        ...noticeFlags,
+        showBeReady: false,
       };
   }
 }
