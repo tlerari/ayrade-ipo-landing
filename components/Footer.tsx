@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import { useLocale, useTranslations } from 'next-intl';
+import type { PhaseFlags } from '@/lib/operationPhase';
 
 // Icônes SVG inline — évite la dépendance lucide-react pour 3 pictos.
 // 20×20 viewBox, stroke = currentColor, style harmonisé.
@@ -27,9 +28,11 @@ function IconFacebook() {
   );
 }
 
-export function Footer() {
+export function Footer({ flags }: { flags: PhaseFlags }) {
   const t = useTranslations('footer');
   const locale = useLocale();
+  // V1 : le disclaimer COSOB passe au futur tant que la notice n'est pas visée.
+  const disclaimer1Key = flags.showNoticeCTA ? 'disclaimer1' : 'disclaimer1Teaser';
 
   return (
     <footer className="bg-navy text-paper pt-16 pb-10">
@@ -84,7 +87,7 @@ export function Footer() {
             <p className="font-mono text-[12px] uppercase tracking-micro text-orange font-medium">{t('disclaimerLabel')}</p>
           </div>
           <div className="lg:col-span-10 text-[13px] text-paper/75 leading-relaxed space-y-3 max-w-4xl">
-            <p>{t('disclaimer1')}</p>
+            <p>{t(disclaimer1Key)}</p>
             <p>{t('disclaimer2')}</p>
           </div>
         </div>

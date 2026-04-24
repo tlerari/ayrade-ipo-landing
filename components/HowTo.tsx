@@ -17,10 +17,17 @@ export function HowTo({ flags }: { flags: PhaseFlags }) {
   const t = useTranslations('howTo');
   const locale = useLocale();
 
+  // Teaser variants for each step: until the notice is published, we keep
+  // the 3-step narrative but strip committed references (syndicate bank list,
+  // exact subscription modalities, calendar bound by the notice).
+  const step1BodyKey = flags.showNoticeCTA ? 'step1Body' : 'step1BodyTeaser';
+  const step2BodyKey = flags.showNoticeCTA ? 'step2Body' : 'step2BodyTeaser';
+  const step3BodyKey = flags.showNoticeCTA ? 'step3Body' : 'step3BodyTeaser';
+
   const steps = [
-    { n: '1', title: t('step1Title'), body: t('step1Body') },
-    { n: '2', title: t('step2Title'), body: t('step2Body') },
-    { n: '3', title: t('step3Title'), body: t('step3Body') },
+    { n: '1', title: t('step1Title'), body: t(step1BodyKey) },
+    { n: '2', title: t('step2Title'), body: t(step2BodyKey) },
+    { n: '3', title: t('step3Title'), body: t(step3BodyKey) },
   ];
 
   // Placeholder bank names 2–11
@@ -55,38 +62,42 @@ export function HowTo({ flags }: { flags: PhaseFlags }) {
           ))}
         </ol>
 
-        {/* Banques du syndicat */}
-        <div className="bg-navy border border-paper/15 p-8 lg:p-10 mb-10">
-          <p className="font-mono text-[11px] uppercase tracking-micro text-signal mb-6">{t('syndicateLabel')}</p>
-          <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-3 text-sm">
-            <div className="flex items-center gap-2">
-              <span className="font-semibold text-paper">{t('syndicateLeader')}</span>
-              <span className="text-signal font-mono text-[10px] uppercase tracking-micro">
-                {t('syndicateLeaderTag')}
-              </span>
+        {/* Banques du syndicat — masqué tant que la liste définitive n'est pas publiée. */}
+        {flags.showSyndicateList && (
+          <div className="bg-navy border border-paper/15 p-8 lg:p-10 mb-10">
+            <p className="font-mono text-[11px] uppercase tracking-micro text-signal mb-6">{t('syndicateLabel')}</p>
+            <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-3 text-sm">
+              <div className="flex items-center gap-2">
+                <span className="font-semibold text-paper">{t('syndicateLeader')}</span>
+                <span className="text-signal font-mono text-[10px] uppercase tracking-micro">
+                  {t('syndicateLeaderTag')}
+                </span>
+              </div>
+              {bankPlaceholders.map((name, i) => (
+                <span
+                  key={i}
+                  className="ph-box font-mono text-[10px] px-2 py-1.5 leading-tight"
+                >
+                  {name}
+                </span>
+              ))}
             </div>
-            {bankPlaceholders.map((name, i) => (
-              <span
-                key={i}
-                className="ph-box font-mono text-[10px] px-2 py-1.5 leading-tight"
-              >
-                {name}
-              </span>
-            ))}
           </div>
-        </div>
+        )}
 
-        {flags.showSubscribeCTA && (
+        {(flags.showBulletinCTA || flags.showSubscribeCTA) && (
           <div className="flex flex-wrap gap-4">
-            <a
-              href="/documents/bulletin-souscription-ayrade.pdf"
-              className="group btn-primary px-7 py-4 text-[12px] font-semibold uppercase tracking-wider inline-flex items-center gap-3"
-            >
-              {t('ctaDownload')}
-              <span className="transition-transform duration-200 group-hover:translate-y-0.5" aria-hidden="true">
-                <DownloadIcon />
-              </span>
-            </a>
+            {flags.showBulletinCTA && (
+              <a
+                href="/documents/bulletin-souscription-ayrade.pdf"
+                className="group btn-primary px-7 py-4 text-[12px] font-semibold uppercase tracking-wider inline-flex items-center gap-3"
+              >
+                {t('ctaDownload')}
+                <span className="transition-transform duration-200 group-hover:translate-y-0.5" aria-hidden="true">
+                  <DownloadIcon />
+                </span>
+              </a>
+            )}
             <a
               href={`/${locale}/faq`}
               className="btn-ghost-dark px-7 py-4 text-[12px] font-semibold uppercase tracking-wider"

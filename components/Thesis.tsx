@@ -1,16 +1,21 @@
 import { useTranslations } from 'next-intl';
 import type { ReactNode } from 'react';
+import type { PhaseFlags } from '@/lib/operationPhase';
 import { ParallaxLetter } from './ParallaxLetter';
 
-export function Thesis() {
+export function Thesis({ flags }: { flags: PhaseFlags }) {
   const t = useTranslations('thesis');
 
   const b = (chunks: ReactNode) => <strong className="font-semibold text-ink">{chunks}</strong>;
 
+  // reason2Body switches to a teaser variant (no committed yield, no
+  // distribution policy) until the notice is published.
+  const reason2BodyKey = flags.showNoticeCTA ? 'reason2Body' : 'reason2BodyTeaser';
+
   // Seuls reason2Title et reason2Body portent des balises <b>, les autres sont du texte simple.
   const reasons = [
     { n: '01', title: t('reason1Title'), body: t('reason1Body') },
-    { n: '02', title: t.rich('reason2Title', { b }), body: t.rich('reason2Body', { b }) },
+    { n: '02', title: t.rich('reason2Title', { b }), body: t.rich(reason2BodyKey, { b }) },
     { n: '03', title: t('reason3Title'), body: t('reason3Body') },
   ];
 

@@ -27,7 +27,7 @@ export default function SouscrirePage({ params: { lang } }: { params: { lang: st
       <main id="main">
         <HowTo flags={flags} />
       </main>
-      <Footer />
+      <Footer flags={flags} />
     </>
   );
 }

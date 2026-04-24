@@ -1,4 +1,5 @@
 import { useTranslations } from 'next-intl';
+import type { PhaseFlags } from '@/lib/operationPhase';
 import { ParallaxLetter } from './ParallaxLetter';
 
 function IconFile() {
@@ -40,8 +41,12 @@ function IconMapPin() {
   );
 }
 
-export function DataRoom() {
+export function DataRoom({ flags }: { flags: PhaseFlags }) {
   const t = useTranslations('dataRoom');
+  // V1 (notice non publiée) : les libellés doc1/doc2 renvoient une version
+  // « bientôt disponible » et les liens PDF deviennent inactifs (ph-box).
+  const doc1Label = flags.showNoticeCTA ? t('doc1') : t('doc1Teaser');
+  const doc2Label = flags.showBulletinCTA ? t('doc2') : t('doc2Teaser');
 
   return (
     <section id="contacts" className="py-24 lg:py-32 relative" aria-labelledby="dataroom-title">
@@ -62,34 +67,48 @@ export function DataRoom() {
             <p className="font-mono text-[12px] uppercase tracking-micro text-signal mb-6 font-medium">{t('docsTitle')}</p>
             <ul className="space-y-4 text-sm">
               <li>
-                <a
-                  href="/documents/notice-cosob-ayrade.pdf"
-                  className="group flex items-center gap-2 text-ink hover:text-signal transition-colors duration-150"
-                >
-                  <IconFile />
-                  <span className="link-hover flex-1">{t('doc1')}</span>
-                  <span
-                    aria-hidden="true"
-                    className="rtl-flip opacity-0 group-hover:opacity-100 transition-opacity duration-150 text-signal font-mono text-xs"
+                {flags.showNoticeCTA ? (
+                  <a
+                    href="/documents/notice-cosob-ayrade.pdf"
+                    className="group flex items-center gap-2 text-ink hover:text-signal transition-colors duration-150"
                   >
-                    →
+                    <IconFile />
+                    <span className="link-hover flex-1">{doc1Label}</span>
+                    <span
+                      aria-hidden="true"
+                      className="rtl-flip opacity-0 group-hover:opacity-100 transition-opacity duration-150 text-signal font-mono text-xs"
+                    >
+                      →
+                    </span>
+                  </a>
+                ) : (
+                  <span className="flex items-center gap-2 text-ink/40">
+                    <IconFile />
+                    <span className="font-mono text-xs">{doc1Label}</span>
                   </span>
-                </a>
+                )}
               </li>
               <li>
-                <a
-                  href="/documents/bulletin-souscription-ayrade.pdf"
-                  className="group flex items-center gap-2 text-ink hover:text-signal transition-colors duration-150"
-                >
-                  <IconFile />
-                  <span className="link-hover flex-1">{t('doc2')}</span>
-                  <span
-                    aria-hidden="true"
-                    className="rtl-flip opacity-0 group-hover:opacity-100 transition-opacity duration-150 text-signal font-mono text-xs"
+                {flags.showBulletinCTA ? (
+                  <a
+                    href="/documents/bulletin-souscription-ayrade.pdf"
+                    className="group flex items-center gap-2 text-ink hover:text-signal transition-colors duration-150"
                   >
-                    →
+                    <IconFile />
+                    <span className="link-hover flex-1">{doc2Label}</span>
+                    <span
+                      aria-hidden="true"
+                      className="rtl-flip opacity-0 group-hover:opacity-100 transition-opacity duration-150 text-signal font-mono text-xs"
+                    >
+                      →
+                    </span>
+                  </a>
+                ) : (
+                  <span className="flex items-center gap-2 text-ink/40">
+                    <IconFile />
+                    <span className="font-mono text-xs">{doc2Label}</span>
                   </span>
-                </a>
+                )}
               </li>
               <li>
                 <a

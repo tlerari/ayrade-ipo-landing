@@ -1,4 +1,5 @@
 import { useTranslations } from 'next-intl';
+import type { PhaseFlags } from '@/lib/operationPhase';
 import { ParallaxLetter } from './ParallaxLetter';
 
 /**
@@ -8,8 +9,14 @@ import { ParallaxLetter } from './ParallaxLetter';
  *  - §6.2.3 Politique d'investissement (phasing 281/184/128 M DZD 2026-2028)
  *  - §6.2.4.1 Business plan 2026-2031 par BU (EPC, Services IT, Cybersécurité)
  */
-export function Strategy() {
+export function Strategy({ flags }: { flags: PhaseFlags }) {
   const t = useTranslations('strategy');
+  // Teaser variants are used before the notice is officially published —
+  // we still showcase the industrial plan, but without committing the
+  // numeric envelope or the exact phasing that only the notice can bind.
+  const leadKey = flags.showNoticeCTA ? 'lead' : 'leadTeaser';
+  const blockCmetaKey = flags.showNoticeCTA ? 'blockCmeta' : 'blockCmetaTeaser';
+  const footerKey = flags.showNoticeCTA ? 'footer' : 'footerTeaser';
   // Libellé unité monétaire (« M DZD » en FR/EN, « مليون دج » en AR) —
   // centralisé sur une clé i18n pour éviter tout texte latin en dur
   // côté AR (wave 3 BIDI).
@@ -67,7 +74,7 @@ export function Strategy() {
             {t('title')}
           </h2>
           <p className="mt-6 text-paper/80 text-[1.0625rem] lg:text-lg leading-[1.65] max-w-3xl">
-            {t('lead')}
+            {t(leadKey)}
           </p>
         </header>
 
@@ -193,7 +200,7 @@ export function Strategy() {
               {t('blockCtitle')}
             </h3>
             <p className="font-mono text-[12px] text-paper/55">
-              {t('blockCmeta')}
+              {t(blockCmetaKey)}
             </p>
           </div>
 
@@ -244,7 +251,7 @@ export function Strategy() {
         </div>
 
         <p className="mt-12 text-[14px] text-paper/70 leading-relaxed max-w-3xl">
-          {t('footer')}
+          {t(footerKey)}
         </p>
       </div>
     </section>

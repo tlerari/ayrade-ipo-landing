@@ -1,4 +1,5 @@
 import { useTranslations } from 'next-intl';
+import type { PhaseFlags } from '@/lib/operationPhase';
 import { ParallaxLetter } from './ParallaxLetter';
 
 function IconPlus() {
@@ -22,37 +23,42 @@ function IconPlus() {
   );
 }
 
-export function Faq() {
+export function Faq({ flags }: { flags: PhaseFlags }) {
   const t = useTranslations('faq');
+  // V1 (notice non publiée) : 6 questions clefs, réponses en version teaser.
+  // V2 : 10 questions, réponses officielles adossées à la notice COSOB.
+  const leadKey = flags.showNoticeCTA ? 'lead' : 'leadTeaser';
 
-  // 10 questions organized in 3 thematic groups
-  const groups = [
-    {
-      label: t('groupAccessLabel'),
-      items: [
-        { q: t('q1Title'), a: t('q1Body') },
-        { q: t('q2Title'), a: t('q2Body') },
-        { q: t('q3Title'), a: t('q3Body') },
-        { q: t('q4Title'), a: t('q4Body') },
-      ],
-    },
-    {
-      label: t('groupReturnLabel'),
-      items: [
-        { q: t('q5Title'), a: t('q5Body') },
-        { q: t('q6Title'), a: t('q6Body') },
-        { q: t('q7Title'), a: t('q7Body') },
-      ],
-    },
-    {
-      label: t('groupRiskLabel'),
-      items: [
-        { q: t('q8Title'), a: t('q8Body') },
-        { q: t('q9Title'), a: t('q9Body') },
-        { q: t('q10Title'), a: t('q10Body') },
-      ],
-    },
-  ];
+  const q = (n: number, hasTeaser: boolean) => ({
+    q: t(`q${n}Title`),
+    a: flags.showNoticeCTA || !hasTeaser ? t(`q${n}Body`) : t(`q${n}BodyTeaser`),
+  });
+
+  const groups = flags.showNoticeCTA
+    ? [
+        {
+          label: t('groupAccessLabel'),
+          items: [q(1, true), q(2, true), q(3, true), q(4, true)],
+        },
+        {
+          label: t('groupReturnLabel'),
+          items: [q(5, false), q(6, false), q(7, false)],
+        },
+        {
+          label: t('groupRiskLabel'),
+          items: [q(8, true), q(9, false), q(10, true)],
+        },
+      ]
+    : [
+        {
+          label: t('groupAccessLabel'),
+          items: [q(1, true), q(2, true), q(3, true), q(4, true)],
+        },
+        {
+          label: t('groupRiskLabel'),
+          items: [q(8, true), q(10, true)],
+        },
+      ];
 
   return (
     <section
@@ -76,7 +82,7 @@ export function Faq() {
             {t('title')}
           </h1>
           <p className="mt-6 text-ink/70 text-[1.0625rem] leading-[1.65] max-w-2xl">
-            {t('lead')}
+            {t(leadKey)}
           </p>
         </header>
 

@@ -25,9 +25,9 @@ export default function FAQPage({ params: { lang } }: { params: { lang: string }
         <Nav showSubscribe={flags.showSubscribeCTA} />
       </div>
       <main id="main">
-        <Faq />
+        <Faq flags={flags} />
       </main>
-      <Footer />
+      <Footer flags={flags} />
     </>
   );
 }

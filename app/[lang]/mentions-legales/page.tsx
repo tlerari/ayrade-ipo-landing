@@ -16,13 +16,20 @@ export default function MentionsLegalesPage({
   const phase = getOperationPhase();
   const flags = getPhaseFlags(phase);
 
+  // V1 : les sections 5 (objet du site) et 6 (liens hypertextes) basculent
+  // sur leur variante teaser tant que la notice et le syndicat ne sont pas
+  // officiellement publiés — elles mentionnent par défaut la notice COSOB
+  // et les banques du syndicat.
+  const s5Body = flags.showNoticeCTA ? 's5Body' : 's5BodyTeaser';
+  const s6Body = flags.showSyndicateList ? 's6Body' : 's6BodyTeaser';
+
   const sectionKeys = [
     { title: 's1Title', body: 's1Body' },
     { title: 's2Title', body: 's2Body' },
     { title: 's3Title', body: 's3Body' },
     { title: 's4Title', body: 's4Body' },
-    { title: 's5Title', body: 's5Body' },
-    { title: 's6Title', body: 's6Body' },
+    { title: 's5Title', body: s5Body },
+    { title: 's6Title', body: s6Body },
     { title: 's7Title', body: 's7Body' },
   ];
 
@@ -39,9 +46,9 @@ export default function MentionsLegalesPage({
         <Nav showSubscribe={flags.showSubscribeCTA} />
       </div>
       <main id="main">
-        <LegalPage namespace="legalNotice" sectionKeys={sectionKeys} />
+        <LegalPage namespace="legalNotice" sectionKeys={sectionKeys} flags={flags} />
       </main>
-      <Footer />
+      <Footer flags={flags} />
     </>
   );
 }

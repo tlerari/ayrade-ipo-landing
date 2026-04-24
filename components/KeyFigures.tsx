@@ -1,4 +1,5 @@
 import { useTranslations } from 'next-intl';
+import type { PhaseFlags } from '@/lib/operationPhase';
 import { ParallaxLetter } from './ParallaxLetter';
 import { AnimatedNumber } from './AnimatedNumber';
 
@@ -52,8 +53,12 @@ function FileTextIcon() {
   );
 }
 
-export function KeyFigures() {
+export function KeyFigures({ flags }: { flags: PhaseFlags }) {
   const t = useTranslations('keyFigures');
+  // Syndicate list gate : when the syndicate isn't published yet, show a
+  // placeholder value and body (teaser variants) instead of the definitive
+  // "BDL + 11" figure and the official visa body.
+  const syndicateReady = flags.showSyndicateList;
 
   return (
     <section
@@ -90,9 +95,9 @@ export function KeyFigures() {
           <KPI value={t('kpi4Value')} label={t('kpi4Label')} delay={250} />
           <KPI value={t('kpi5Value')} label={t('kpi5Label')} delay={300} />
           <KPI
-            value={t('kpi6Value')}
-            label={t('kpi6Label')}
-            sub={t('kpi6Sub')}
+            value={syndicateReady ? t('kpi6Value') : t('kpi6ValueTeaser')}
+            label={syndicateReady ? t('kpi6Label') : t('kpi6LabelTeaser')}
+            sub={syndicateReady ? t('kpi6Sub') : t('kpi6SubTeaser')}
             delay={350}
           />
         </div>
@@ -100,15 +105,22 @@ export function KeyFigures() {
         <div className="bg-paper border border-navy/12 border-s-2 border-s-signal ps-6 py-5 flex items-start gap-3">
           <FileTextIcon />
           <p className="text-sm text-ink/75 leading-relaxed">
-            <strong className="text-ink">{t('visaTitle')}</strong>{' '}
-            {t('visaBody')}{' '}
-            <a
-              href="/documents/notice-cosob-ayrade.pdf"
-              className="text-signal underline font-semibold link-hover"
-            >
-              {t('visaCta')}
-            </a>
-            .
+            <strong className="text-ink">
+              {flags.showNoticeCTA ? t('visaTitle') : t('visaTitleTeaser')}
+            </strong>{' '}
+            {flags.showNoticeCTA ? t('visaBody') : t('visaBodyTeaser')}
+            {flags.showNoticeCTA && (
+              <>
+                {' '}
+                <a
+                  href="/documents/notice-cosob-ayrade.pdf"
+                  className="text-signal underline font-semibold link-hover"
+                >
+                  {t('visaCta')}
+                </a>
+                .
+              </>
+            )}
           </p>
         </div>
       </div>

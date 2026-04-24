@@ -3,6 +3,7 @@ import { setRequestLocale } from 'next-intl/server';
 import { AnnouncementBar } from '@/components/AnnouncementBar';
 import { Nav } from '@/components/Nav';
 import { Hero } from '@/components/Hero';
+import { BeReady } from '@/components/BeReady';
 import { KeyFigures } from '@/components/KeyFigures';
 import { Pillars } from '@/components/Pillars';
 import { RespirationBand } from '@/components/RespirationBand';
@@ -40,19 +41,20 @@ export default function LandingPage({ params: { lang } }: { params: { lang: stri
 
       <main id="main">
         <Hero flags={flags} />
-        <KeyFigures />
+        {flags.showBeReady && <BeReady />}
+        <KeyFigures flags={flags} />
         <Pillars />
         <RespirationBand />
-        <Thesis />
-        <Strategy />
-        <Trajectory />
+        <Thesis flags={flags} />
+        <Strategy flags={flags} />
+        <Trajectory flags={flags} />
         <HowTo flags={flags} />
         <Citation />
         <ASA />
-        <DataRoom />
+        <DataRoom flags={flags} />
       </main>
 
-      <Footer />
+      <Footer flags={flags} />
       {flags.showSubscribeCTA && <MobileSticky />}
     </>
   );

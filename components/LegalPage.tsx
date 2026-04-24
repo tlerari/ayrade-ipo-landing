@@ -1,18 +1,24 @@
 import type { ReactNode } from 'react';
 import { useTranslations } from 'next-intl';
+import type { PhaseFlags } from '@/lib/operationPhase';
 
 type LegalPageProps = {
   /** Translation namespace, e.g. "legalNotice" or "privacyPolicy". */
   namespace: string;
   /** List of translation keys for each section's title + body, in order. */
   sectionKeys: Array<{ title: string; body: string }>;
-  /** Optional eyebrow / header overrides are read from the same namespace. */
+  /** Phase flags — used to switch lead to teaser variant when the notice
+   *  is not yet published. */
+  flags: PhaseFlags;
 };
 
-export function LegalPage({ namespace, sectionKeys }: LegalPageProps) {
+export function LegalPage({ namespace, sectionKeys, flags }: LegalPageProps) {
   const t = useTranslations(namespace);
 
   const b = (chunks: ReactNode) => <strong className="font-semibold text-ink">{chunks}</strong>;
+
+  // V1 : la promesse légale passe au futur tant que la notice n'est pas visée.
+  const leadKey = flags.showNoticeCTA ? 'lead' : 'leadTeaser';
 
   return (
     <section className="py-20 lg:py-28 bg-paper">
@@ -24,7 +30,7 @@ export function LegalPage({ namespace, sectionKeys }: LegalPageProps) {
           <h1 className="font-display font-light text-[2.25rem] lg:text-[3.25rem] leading-[1.05] tracking-tight text-ink mb-6">
             {t('title')}
           </h1>
-          <p className="text-ink/70 leading-[1.7] text-[1rem]">{t.rich('lead', { b })}</p>
+          <p className="text-ink/70 leading-[1.7] text-[1rem]">{t.rich(leadKey, { b })}</p>
           <p className="mt-6 font-mono text-[12px] uppercase tracking-micro text-ink/50">
             {t('lastUpdated')}
           </p>

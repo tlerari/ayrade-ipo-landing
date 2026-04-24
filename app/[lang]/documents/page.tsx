@@ -25,9 +25,9 @@ export default function DocumentsPage({ params: { lang } }: { params: { lang: st
         <Nav showSubscribe={flags.showSubscribeCTA} />
       </div>
       <main id="main">
-        <DataRoom />
+        <DataRoom flags={flags} />
       </main>
-      <Footer />
+      <Footer flags={flags} />
     </>
   );
 }

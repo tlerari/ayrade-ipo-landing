@@ -16,12 +16,16 @@ export default function ConfidentialitePage({
   const phase = getOperationPhase();
   const flags = getPhaseFlags(phase);
 
+  // V1 : la section 5 (destinataires des données) ne mentionne pas les
+  // banques du syndicat tant que la liste n'est pas publiée.
+  const s5Body = flags.showSyndicateList ? 's5Body' : 's5BodyTeaser';
+
   const sectionKeys = [
     { title: 's1Title', body: 's1Body' },
     { title: 's2Title', body: 's2Body' },
     { title: 's3Title', body: 's3Body' },
     { title: 's4Title', body: 's4Body' },
-    { title: 's5Title', body: 's5Body' },
+    { title: 's5Title', body: s5Body },
     { title: 's6Title', body: 's6Body' },
     { title: 's7Title', body: 's7Body' },
     { title: 's8Title', body: 's8Body' },
@@ -40,9 +44,9 @@ export default function ConfidentialitePage({
         <Nav showSubscribe={flags.showSubscribeCTA} />
       </div>
       <main id="main">
-        <LegalPage namespace="privacyPolicy" sectionKeys={sectionKeys} />
+        <LegalPage namespace="privacyPolicy" sectionKeys={sectionKeys} flags={flags} />
       </main>
-      <Footer />
+      <Footer flags={flags} />
     </>
   );
 }

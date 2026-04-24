@@ -1,6 +1,7 @@
 'use client';
 
 import { useTranslations } from 'next-intl';
+import type { PhaseFlags } from '@/lib/operationPhase';
 import { ParallaxLetter } from './ParallaxLetter';
 
 type YearPoint = { year: string; ca: number; ebitda: number; rn: number };
@@ -247,10 +248,15 @@ function TrajectoryChart() {
   );
 }
 
-export function Trajectory() {
+export function Trajectory({ flags }: { flags: PhaseFlags }) {
   const t = useTranslations('trajectory');
   // Unité monétaire traduite (« M DZD » FR/EN, « مليون دج » AR) — wave 3 BIDI.
   const currencyM = t('currencyM');
+  // Teaser variants for pre-notice communication (no COSOB reference yet).
+  const leadKey = flags.showNoticeCTA ? 'lead' : 'leadTeaser';
+  const sourceChartKey = flags.showNoticeCTA ? 'sourceChart' : 'sourceChartTeaser';
+  const sourceFinanceKey = flags.showNoticeCTA ? 'sourceFinance' : 'sourceFinanceTeaser';
+  const disclaimerKey = flags.showNoticeCTA ? 'disclaimer' : 'disclaimerTeaser';
 
   const blockA = [
     { v: t('a1Value'), l: t('a1Label'), sub: t('a1Sub') },
@@ -289,7 +295,7 @@ export function Trajectory() {
           >
             {t('title')}
           </h2>
-          <p className="mt-6 text-ink/75 text-[1.0625rem] lg:text-lg leading-[1.65] max-w-3xl">{t('lead')}</p>
+          <p className="mt-6 text-ink/75 text-[1.0625rem] lg:text-lg leading-[1.65] max-w-3xl">{t(leadKey)}</p>
         </header>
 
         {/* BLOC A — SOCLE DEMONTRE */}
@@ -372,7 +378,7 @@ export function Trajectory() {
             </aside>
           </div>
           <p className="mt-6 text-[13px] text-ink/60 italic leading-[1.6] max-w-3xl">
-            {t('sourceChart')}
+            {t(sourceChartKey)}
           </p>
         </div>
 
@@ -414,12 +420,12 @@ export function Trajectory() {
             ))}
           </div>
           <p className="text-[13px] text-ink/60 italic leading-[1.6] max-w-3xl">
-            {t('sourceFinance')}
+            {t(sourceFinanceKey)}
           </p>
         </div>
 
         <p className="mt-8 text-[13px] text-ink/65 leading-[1.6] max-w-3xl italic">
-          {t('disclaimer')}
+          {t(disclaimerKey)}
         </p>
       </div>
     </section>

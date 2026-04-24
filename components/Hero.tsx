@@ -59,12 +59,14 @@ export function Hero({ flags }: { flags: PhaseFlags }) {
                   </span>
                 </a>
               )}
-              <a
-                href="/documents/notice-cosob-ayrade.pdf"
-                className="btn-ghost-dark px-7 py-4 text-[12px] font-semibold uppercase tracking-wider inline-flex items-center gap-3 link-hover"
-              >
-                {t('ctaDownload')}
-              </a>
+              {flags.showNoticeCTA && (
+                <a
+                  href="/documents/notice-cosob-ayrade.pdf"
+                  className="btn-ghost-dark px-7 py-4 text-[12px] font-semibold uppercase tracking-wider inline-flex items-center gap-3 link-hover"
+                >
+                  {t('ctaDownload')}
+                </a>
+              )}
             </div>
           )}
 
@@ -80,7 +82,7 @@ export function Hero({ flags }: { flags: PhaseFlags }) {
           )}
 
           <p className="fade-up d5 mt-8 text-[13px] text-paper/75 max-w-xl leading-relaxed">
-            {t('disclaimer')}
+            {flags.showNoticeCTA ? t('disclaimer') : t('disclaimerTeaser')}
           </p>
 
           {(flags.showOpeningCountdown || flags.showClosingCountdown) && (
