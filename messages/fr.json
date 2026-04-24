@@ -47,9 +47,9 @@
   },
   "countdown": {
     "label": "Ouverture de la souscription dans",
-    "days": "j",
-    "hours": "h",
-    "minutes": "min",
+    "days": "jours",
+    "hours": "heures",
+    "minutes": "minutes",
     "openingDate": "1ᵉʳ juin 2026 · 09:00 (Alger, UTC+1)"
   },
   "keyFigures": {
@@ -388,7 +388,6 @@
     "bullet3Label": "Place de cotation",
     "bullet3Value": "Bourse d'Alger (SGBV)",
     "cta": "M'alerter à l'ouverture",
-    "microcopy": "En laissant votre adresse, vous recevrez uniquement l'annonce officielle de l'ouverture de la souscription. Aucune démarche commerciale.",
     "emailPlaceholder": "Votre adresse e-mail",
     "consent": "J'accepte qu'AYRADE utilise mon adresse e-mail pour me notifier de l'ouverture de la souscription, conformément à la politique de confidentialité."
   }

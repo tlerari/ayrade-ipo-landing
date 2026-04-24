@@ -42,36 +42,48 @@ export function Countdown() {
   const hh = ready ? pad(hours) : '—';
   const mm = ready ? pad(mins)  : '—';
 
+  const cells = [
+    { value: dd, unit: t('days') },
+    { value: hh, unit: t('hours') },
+    { value: mm, unit: t('minutes') },
+  ];
+
   return (
     <div
-      className="mt-16 pt-8 border-t border-paper/15"
       role="timer"
       aria-live="polite"
       suppressHydrationWarning
+      className="w-full"
     >
-      <p className="font-mono text-[12px] uppercase tracking-micro text-paper/75 mb-4 font-medium">
+      <p className="font-mono text-[11px] uppercase tracking-micro text-signal mb-5 font-medium">
         {t('label')}
       </p>
 
-      <div className="flex items-baseline flex-wrap gap-x-1 font-mono text-paper tabular-nums">
-        {/* Days — dd isolé LTR pour garantir l'ordre des chiffres en AR */}
-        <span className="text-[2rem] lg:text-[2.5rem] leading-none" dir="ltr">{dd}</span>
-        <span className="text-[12px] uppercase tracking-micro text-paper/70 me-3 font-medium">{t('days')}</span>
-
-        <span aria-hidden="true" className="text-paper/30 text-lg me-3">·</span>
-
-        {/* Hours */}
-        <span className="text-[2rem] lg:text-[2.5rem] leading-none" dir="ltr">{hh}</span>
-        <span className="text-[12px] uppercase tracking-micro text-paper/70 me-3 font-medium">{t('hours')}</span>
-
-        <span aria-hidden="true" className="text-paper/30 text-lg me-3">·</span>
-
-        {/* Minutes */}
-        <span className="text-[2rem] lg:text-[2.5rem] leading-none" dir="ltr">{mm}</span>
-        <span className="text-[12px] uppercase tracking-micro text-paper/70 font-medium">{t('minutes')}</span>
+      {/* Grille 3 cellules — chaque cellule = gros chiffre + unité sous le
+          chiffre, séparée par un filet vertical subtil. Donne un bloc dense
+          et équilibré visuellement avec le formulaire M'alerter en regard. */}
+      <div className="grid grid-cols-3 font-mono text-paper tabular-nums">
+        {cells.map((c, i) => (
+          <div
+            key={c.unit}
+            className={`flex flex-col items-center text-center px-2 ${
+              i > 0 ? 'border-s border-paper/12' : ''
+            }`}
+          >
+            <span
+              className="fig text-[3rem] lg:text-[3.5rem] leading-none text-paper"
+              dir="ltr"
+            >
+              {c.value}
+            </span>
+            <span className="mt-2 text-[11px] uppercase tracking-micro text-paper/60 font-medium">
+              {c.unit}
+            </span>
+          </div>
+        ))}
       </div>
 
-      <p className="mt-4 font-mono text-[12px] uppercase tracking-micro text-paper/70 font-medium">
+      <p className="mt-6 pt-4 border-t border-paper/10 font-mono text-[11px] uppercase tracking-micro text-paper/65 font-medium text-center">
         {t('openingDate')}
       </p>
     </div>

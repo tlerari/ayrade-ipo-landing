@@ -47,9 +47,9 @@
   },
   "countdown": {
     "label": "Subscription opens in",
-    "days": "d",
-    "hours": "h",
-    "minutes": "min",
+    "days": "days",
+    "hours": "hours",
+    "minutes": "minutes",
     "openingDate": "1 June 2026 · 09:00 (Algiers, UTC+1)"
   },
   "keyFigures": {
@@ -388,7 +388,6 @@
     "bullet3Label": "Listing venue",
     "bullet3Value": "Algiers Stock Exchange (SGBV)",
     "cta": "Notify me at opening",
-    "microcopy": "By leaving your email, you will only receive the official subscription-opening announcement. No commercial outreach.",
     "emailPlaceholder": "Your email address",
     "consent": "I agree that AYRADE may use my email address to notify me of the subscription opening, in accordance with the privacy policy."
   }

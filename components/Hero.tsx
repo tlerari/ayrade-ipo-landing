@@ -1,7 +1,6 @@
 import Image from 'next/image';
 import { useTranslations } from 'next-intl';
 import type { PhaseFlags } from '@/lib/operationPhase';
-import { Countdown } from './Countdown';
 
 // Photo Hero — version unique sur FR / EN / AR (visuel AYRADE fourni par le client).
 const HERO_IMAGE = '/assets/ayrade-hero.jpg';
@@ -27,7 +26,7 @@ export function Hero({ flags }: { flags: PhaseFlags }) {
           backgroundSize: '257px 257px',
         }}
       />
-      <div className="max-w-shell mx-auto px-6 lg:px-10 pt-14 pb-20 lg:pt-20 lg:pb-28 grid lg:grid-cols-5 gap-y-16 gap-x-10 items-center relative">
+      <div className="max-w-shell mx-auto px-6 lg:px-10 pt-14 pb-12 lg:pt-20 lg:pb-16 grid lg:grid-cols-5 gap-y-16 gap-x-10 items-stretch relative">
 
         {/* ── Left column ── */}
         <div className="lg:col-span-3">
@@ -84,15 +83,13 @@ export function Hero({ flags }: { flags: PhaseFlags }) {
           <p className="fade-up d5 mt-8 text-[13px] text-paper/75 max-w-xl leading-relaxed">
             {flags.showNoticeCTA ? t('disclaimer') : t('disclaimerTeaser')}
           </p>
-
-          {(flags.showOpeningCountdown || flags.showClosingCountdown) && (
-            <Countdown />
-          )}
         </div>
 
-        {/* ── Right column — datacenter photo (portrait 4/5) ── */}
-        <div className="lg:col-span-2 fade-up d4">
-          <figure className="relative corner aspect-[4/5] bg-navy border border-paper/15 overflow-hidden">
+        {/* ── Right column — datacenter photo.
+            Hauteur calée sur la colonne gauche (items-stretch + min-h sur mobile
+            pour garder une présence visuelle avant que la grille ne s'active). ── */}
+        <div className="lg:col-span-2 fade-up d4 flex">
+          <figure className="relative corner bg-navy border border-paper/15 overflow-hidden w-full min-h-[420px] lg:min-h-0">
             <span />
             <span className="tr" />
             <span className="bl" />

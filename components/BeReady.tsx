@@ -11,28 +11,22 @@ import { Countdown } from './Countdown';
  * avant que la notice d'information ne soit définitivement publiée par la
  * COSOB et avant que le syndicat bancaire ne soit formellement constitué.
  *
- * Objectif éditorial : préparer le marché, signaler la rareté (20 % du
- * capital, nombre d'actions limité), proposer un mécanisme de notification
- * sans collecter aucune donnée sensible ni promettre d'allocation.
+ * Structure minimale (validée 24/04/2026) :
+ *   - colonne gauche  : formulaire « M'alerter » (email + CTA + consent + microcopy)
+ *   - colonne droite  : Countdown
  *
  * Le formulaire est uniquement front pour l'instant (pas d'endpoint de
  * collecte). Il affiche un état `thanks` après soumission. Aucun email
- * n'est envoyé, aucune liste n'est constituée côté serveur à ce stade —
+ * n'est envoyé, aucune liste n'est constituée côté serveur à ce stade :
  * c'est un engagement de posture, pas un pré-enregistrement.
  *
- * Typographie : respect strict de la règle « pas de tiret cadratin » —
- * séparateurs via colons, incises via parenthèses.
+ * Typographie : respect strict de la règle « pas de tiret cadratin »
+ * (séparateurs via colons, incises via parenthèses).
  */
 export function BeReady() {
   const t = useTranslations('beReady');
   const [email, setEmail] = useState('');
   const [submitted, setSubmitted] = useState(false);
-
-  const bullets = [
-    { label: t('bullet1Label'), value: t('bullet1Value') },
-    { label: t('bullet2Label'), value: t('bullet2Value') },
-    { label: t('bullet3Label'), value: t('bullet3Value') },
-  ];
 
   function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -45,8 +39,8 @@ export function BeReady() {
   return (
     <section
       id="be-ready"
-      className="relative bg-navy text-paper py-24 lg:py-32 overflow-hidden"
-      aria-labelledby="be-ready-title"
+      className="relative bg-navy text-paper pt-6 pb-16 lg:pt-8 lg:pb-20 overflow-hidden"
+      aria-label={t('eyebrow')}
     >
       {/* Grille décorative — même esthétique que Hero, plus discrète */}
       <div
@@ -59,97 +53,70 @@ export function BeReady() {
         }}
       />
 
-      <div className="max-w-shell mx-auto px-6 lg:px-10 relative grid lg:grid-cols-5 gap-y-12 gap-x-10 items-start">
-        {/* Colonne gauche : eyebrow + titre + body + bullets */}
-        <div className="lg:col-span-3">
-          <p className="fade-up d1 font-mono text-[14px] uppercase tracking-micro text-orange mb-4 font-medium">
-            {t('eyebrow')}
-          </p>
+      <div className="max-w-shell mx-auto px-6 lg:px-10 relative">
+        {/* Cadre unifié : compteur (gauche) + séparateur + formulaire (droite).
+            Le cadre corner englobe les deux colonnes pour créer une
+            mini-section autonome cohérente avec l'esthétique AYRADE. */}
+        <div className="corner bg-navy border border-paper/15 relative fade-up d1">
+          <span />
+          <span className="tr" />
+          <span className="bl" />
+          <span className="br" />
 
-          <h2
-            id="be-ready-title"
-            className="fade-up d2 font-display font-light text-[2.25rem] sm:text-[3rem] lg:text-[3.75rem] leading-[1.02] tracking-[-0.02em] text-paper"
-          >
-            {t('title')}
-          </h2>
+          <div className="grid lg:grid-cols-2">
+            {/* Colonne gauche : Countdown — labels alignés avec la colonne
+                formulaire (pas de flex items-center, on part du haut). */}
+            <div className="p-8 lg:p-12 border-b lg:border-b-0 lg:border-e border-paper/10">
+              <Countdown />
+            </div>
 
-          <p className="fade-up d3 mt-8 max-w-2xl text-[1.0625rem] lg:text-lg leading-[1.65] text-paper/80">
-            {t('body')}
-          </p>
+            {/* Colonne droite : formulaire « M'alerter » */}
+            <div className="p-8 lg:p-12">
+              {!submitted ? (
+                <form onSubmit={handleSubmit} noValidate className="flex flex-col gap-5">
+                  <div className="flex flex-col gap-3">
+                    <span className="font-mono text-[11px] uppercase tracking-micro text-signal font-medium">
+                      {t('emailPlaceholder')}
+                    </span>
+                    {/* Input + CTA alignés sur une seule ligne : underline
+                        partagé visuellement, bouton compact à droite pour ne
+                        plus dominer visuellement le Countdown en regard. */}
+                    <div className="flex items-stretch gap-2">
+                      <input
+                        type="email"
+                        required
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
+                        placeholder={t('emailPlaceholder')}
+                        className="flex-1 min-w-0 bg-transparent border-b border-paper/30 focus:border-orange py-2 text-paper outline-none transition-colors"
+                      />
+                      <button
+                        type="submit"
+                        className="group shrink-0 btn-primary px-4 py-2 text-[11px] font-semibold uppercase tracking-wider inline-flex items-center justify-center gap-2 whitespace-nowrap"
+                      >
+                        {t('cta')}
+                        <span
+                          aria-hidden="true"
+                          className="rtl-flip transition-transform duration-200 group-hover:translate-x-1"
+                        >
+                          →
+                        </span>
+                      </button>
+                    </div>
+                  </div>
 
-          <dl className="fade-up d4 mt-10 grid grid-cols-1 sm:grid-cols-3 gap-px bg-paper/10 max-w-2xl">
-            {bullets.map((b) => (
-              <div
-                key={b.label}
-                className="bg-navy border border-paper/10 p-5"
-              >
-                <dt className="font-mono text-[11px] uppercase tracking-micro text-signal mb-2">
-                  {b.label}
-                </dt>
-                <dd className="font-display text-[1.125rem] lg:text-[1.25rem] text-paper leading-tight">
-                  {b.value}
-                </dd>
-              </div>
-            ))}
-          </dl>
-
-          <div className="fade-up d5 mt-10">
-            <Countdown />
-          </div>
-        </div>
-
-        {/* Colonne droite : formulaire de notification (V1 uniquement) */}
-        <div className="lg:col-span-2 fade-up d4">
-          <div className="corner bg-navy border border-paper/15 p-8 lg:p-10 relative">
-            <span />
-            <span className="tr" />
-            <span className="bl" />
-            <span className="br" />
-
-            {!submitted ? (
-              <form onSubmit={handleSubmit} noValidate className="flex flex-col gap-5">
-                <label className="flex flex-col gap-2">
-                  <span className="font-mono text-[11px] uppercase tracking-micro text-signal">
-                    {t('emailPlaceholder')}
-                  </span>
-                  <input
-                    type="email"
-                    required
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    placeholder={t('emailPlaceholder')}
-                    className="bg-transparent border-b border-paper/30 focus:border-orange py-2 text-paper outline-none transition-colors"
-                  />
-                </label>
-
-                <button
-                  type="submit"
-                  className="group btn-primary px-7 py-4 text-[12px] font-semibold uppercase tracking-wider inline-flex items-center justify-center gap-3"
-                >
-                  {t('cta')}
-                  <span
-                    aria-hidden="true"
-                    className="rtl-flip transition-transform duration-200 group-hover:translate-x-1"
-                  >
-                    →
-                  </span>
-                </button>
-
-                <p className="text-[12px] text-paper/60 leading-relaxed">
-                  {t('consent')}
-                </p>
-                <p className="text-[11px] text-paper/45 leading-relaxed">
-                  {t('microcopy')}
-                </p>
-              </form>
-            ) : (
-              <div role="status" aria-live="polite" className="text-paper/85 text-sm leading-relaxed">
-                <p className="font-display text-[1.25rem] text-paper mb-3">
-                  {t('cta')} ✓
-                </p>
-                <p>{t('microcopy')}</p>
-              </div>
-            )}
+                  <p className="text-[12px] text-paper/65 leading-relaxed">
+                    {t('consent')}
+                  </p>
+                </form>
+              ) : (
+                <div role="status" aria-live="polite" className="text-paper/85 text-sm leading-relaxed">
+                  <p className="font-display text-[1.25rem] text-paper">
+                    {t('cta')} ✓
+                  </p>
+                </div>
+              )}
+            </div>
           </div>
         </div>
       </div>
