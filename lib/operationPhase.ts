@@ -90,6 +90,11 @@ export function getNoticePublished(): boolean {
  * Feature flags derived from the current phase AND the notice publication
  * state. Phase flags drive the lifecycle of the offering (pre-quiet → listing).
  * Notice flags drive the V1 teaser → V2 full communication switch.
+ *
+ * Note (26/04/2026) — le flag `showBeReady` (bloc "Soyez prêts" autonome
+ * affichant un formulaire d'alerte email + countdown XL) a été retiré sur
+ * décision client. Le countdown est désormais intégré inline dans le Hero
+ * via `<Countdown compact />`, conditionné par `showOpeningCountdown`.
  */
 export interface PhaseFlags {
   // Phase-driven
@@ -103,7 +108,6 @@ export interface PhaseFlags {
   showNoticeCTA: boolean;
   showSyndicateList: boolean;
   showBulletinCTA: boolean;
-  showBeReady: boolean;
 }
 
 export function getPhaseFlags(
@@ -111,13 +115,10 @@ export function getPhaseFlags(
   noticePublished: boolean = getNoticePublished(),
 ): PhaseFlags {
   // Notice-driven flags are orthogonal to phases.
-  // showBeReady is the visual counterpart: it surfaces the "teaser" signal
-  // block when notice & syndicate are not yet published.
   const noticeFlags = {
     showNoticeCTA: noticePublished,
     showSyndicateList: noticePublished,
     showBulletinCTA: noticePublished,
-    showBeReady: !noticePublished,
   };
 
   switch (phase) {
@@ -160,8 +161,6 @@ export function getPhaseFlags(
         showClosedBanner: true,
         showArchiveNotice: false,
         ...noticeFlags,
-        // Once closed, no more Be Ready signal whatever happens
-        showBeReady: false,
       };
     case 'post-listing':
       return {
@@ -172,7 +171,6 @@ export function getPhaseFlags(
         showClosedBanner: false,
         showArchiveNotice: true,
         ...noticeFlags,
-        showBeReady: false,
       };
   }
 }

@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import { useTranslations } from 'next-intl';
 import type { PhaseFlags } from '@/lib/operationPhase';
+import { Countdown } from './Countdown';
 
 // Photo Hero — version unique sur FR / EN / AR (visuel AYRADE fourni par le client).
 const HERO_IMAGE = '/assets/ayrade-hero.jpg';
@@ -83,6 +84,16 @@ export function Hero({ flags }: { flags: PhaseFlags }) {
           <p className="fade-up d5 mt-8 text-[13px] text-paper/75 max-w-xl leading-relaxed">
             {flags.showNoticeCTA ? t('disclaimer') : t('disclaimerTeaser')}
           </p>
+
+          {/* Compact countdown — intégré sous la headline depuis le 26/04/2026
+              (suppression du bloc BeReady autonome sur décision client : le
+              formulaire d'alerte n'a plus lieu d'être avant la publication
+              de la notice COSOB et la conformité loi 18-07). */}
+          {flags.showOpeningCountdown && (
+            <div className="fade-up d5 mt-10 pt-8 border-t border-paper/15 max-w-xl">
+              <Countdown compact />
+            </div>
+          )}
         </div>
 
         {/* ── Right column — datacenter photo.

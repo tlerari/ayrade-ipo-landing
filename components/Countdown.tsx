@@ -21,8 +21,13 @@ function pad(n: number): string {
  * i18n (23/04/2026) — libellés, date d'ouverture et unités (j/h/min) tirés du
  * namespace `countdown`. En AR, les chiffres 00 sont isolés en dir="ltr" pour
  * éviter que les groupes numériques basculent visuellement dans le flux RTL.
+ *
+ * Mode `compact` (26/04/2026) — variante inline pour intégration sous une
+ * headline (utilisée dans Hero après suppression du bloc autonome BeReady).
+ * Mêmes données, taille ×0.5 environ, layout horizontal sans séparateurs
+ * verticaux pour ne pas surcharger la colonne gauche du Hero.
  */
-export function Countdown() {
+export function Countdown({ compact = false }: { compact?: boolean }) {
   const t = useTranslations('countdown');
   const [now, setNow] = useState<number | null>(null);
 
@@ -48,6 +53,43 @@ export function Countdown() {
     { value: mm, unit: t('minutes') },
   ];
 
+  // ── Mode compact (Hero inline) ──────────────────────────────────────
+  if (compact) {
+    return (
+      <div
+        role="timer"
+        aria-live="polite"
+        suppressHydrationWarning
+        className="w-full"
+      >
+        <p className="font-mono text-[11px] uppercase tracking-micro text-orange mb-3 font-medium">
+          {t('label')}
+        </p>
+
+        <div className="flex flex-wrap items-baseline gap-x-6 gap-y-2 font-mono text-paper tabular-nums">
+          {cells.map((c) => (
+            <div key={c.unit} className="flex items-baseline gap-1.5">
+              <span
+                className="fig text-[2rem] lg:text-[2.25rem] leading-none text-paper font-light"
+                dir="ltr"
+              >
+                {c.value}
+              </span>
+              <span className="text-[10px] uppercase tracking-micro text-paper/55 font-medium">
+                {c.unit}
+              </span>
+            </div>
+          ))}
+        </div>
+
+        <p className="mt-3 font-mono text-[11px] uppercase tracking-micro text-paper/55 font-medium">
+          {t('openingDate')}
+        </p>
+      </div>
+    );
+  }
+
+  // ── Mode plein (autonome) ───────────────────────────────────────────
   return (
     <div
       role="timer"
@@ -60,8 +102,7 @@ export function Countdown() {
       </p>
 
       {/* Grille 3 cellules — chaque cellule = gros chiffre + unité sous le
-          chiffre, séparée par un filet vertical subtil. Donne un bloc dense
-          et équilibré visuellement avec le formulaire M'alerter en regard. */}
+          chiffre, séparée par un filet vertical subtil. */}
       <div className="grid grid-cols-3 font-mono text-paper tabular-nums">
         {cells.map((c, i) => (
           <div
