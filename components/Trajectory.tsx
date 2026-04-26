@@ -276,7 +276,7 @@ export function Trajectory({ flags }: { flags: PhaseFlags }) {
     { v: '1 234', unit: currencyM, l: t('c1Label'), sub: t('c1Sub') },
     { v: '93 %', unit: '', l: t('c2Label'), sub: t('c2Sub') },
     { v: '3', unit: t('years'), l: t('c3Label'), sub: t('c3Sub') },
-    { v: '9,45 %', unit: '', l: t('c4Label'), sub: t('c4Sub') },
+    { v: '9,5 %', unit: '', l: t('c4Label'), sub: t('c4Sub') },
   ];
 
   return (
@@ -395,7 +395,7 @@ export function Trajectory({ flags }: { flags: PhaseFlags }) {
                     Nombre à droite, unité à gauche → lecture R→L « 1 234
                     مليون دج », conforme à la demande wave-3. */}
                 <div className="flex items-baseline gap-2 flex-wrap">
-                  {/* k.v est toujours pur Latin (« 93 % », « 9,45 % », « 1 234 »).
+                  {/* k.v est toujours pur Latin (« 93 % », « 9,5 % », « 1 234 »).
                       Dans un paragraphe RTL (AR), « 93 % » peut visuellement
                       basculer en « % 93 » à cause de l'interaction ET/EN/WS
                       avec le flux parent — on force donc un îlot LTR isolé
