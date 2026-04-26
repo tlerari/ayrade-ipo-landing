@@ -389,6 +389,8 @@
     "bullet3Value": "Bourse d'Alger (SGBV)",
     "cta": "M'alerter à l'ouverture",
     "emailPlaceholder": "Votre adresse e-mail",
-    "consent": "J'accepte qu'AYRADE utilise mon adresse e-mail pour me notifier de l'ouverture de la souscription, conformément à la politique de confidentialité."
+    "consent": "J'accepte qu'AYRADE utilise mon adresse e-mail pour me notifier de l'ouverture de la souscription, conformément à la politique de confidentialité.",
+    "comingSoonTitle": "Le canal d'alertes ouvrira avec la notice",
+    "comingSoonBody": "Le formulaire de notification sera disponible dès la publication de la notice d'information visée par la COSOB. Pour suivre les prochaines étapes officielles, revenez sur ipo.ayrade.com."
   }
 }

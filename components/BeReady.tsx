@@ -1,40 +1,23 @@
-'use client';
-
-import { useState } from 'react';
 import { useTranslations } from 'next-intl';
 import { Countdown } from './Countdown';
 
 /**
  * BeReady — bloc d'anticipation V1 (phase « teaser »).
  *
- * S'affiche uniquement lorsque `flags.showBeReady === true`, c'est-à-dire
- * avant que la notice d'information ne soit définitivement publiée par la
- * COSOB et avant que le syndicat bancaire ne soit formellement constitué.
+ * V1 livraison preprod (26/04/2026) : le formulaire de notification a été
+ * désactivé sur décision client (DUSENS · AYRADE) en attendant la
+ * publication de la notice COSOB et la mise en conformité loi 18-07
+ * (DPO + base CRM investisseurs). La colonne droite affiche désormais un
+ * message d'attente. Le canal d'alerte sera réactivé en V2.
  *
- * Structure minimale (validée 24/04/2026) :
- *   - colonne gauche  : formulaire « M'alerter » (email + CTA + consent + microcopy)
- *   - colonne droite  : Countdown
- *
- * Le formulaire est uniquement front pour l'instant (pas d'endpoint de
- * collecte). Il affiche un état `thanks` après soumission. Aucun email
- * n'est envoyé, aucune liste n'est constituée côté serveur à ce stade :
- * c'est un engagement de posture, pas un pré-enregistrement.
+ * Le composant est devenu un Server Component pur (pas d'état local,
+ * pas de form handler) — compatible static export.
  *
  * Typographie : respect strict de la règle « pas de tiret cadratin »
  * (séparateurs via colons, incises via parenthèses).
  */
 export function BeReady() {
   const t = useTranslations('beReady');
-  const [email, setEmail] = useState('');
-  const [submitted, setSubmitted] = useState(false);
-
-  function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
-    e.preventDefault();
-    // NB : pas de POST à ce stade — la mécanique de collecte sera branchée
-    // quand la notice sera publiée et que l'ouverture du CRM investisseurs
-    // sera validée juridiquement (bdl + DPO).
-    setSubmitted(true);
-  }
 
   return (
     <section
@@ -54,9 +37,7 @@ export function BeReady() {
       />
 
       <div className="max-w-shell mx-auto px-6 lg:px-10 relative">
-        {/* Cadre unifié : compteur (gauche) + séparateur + formulaire (droite).
-            Le cadre corner englobe les deux colonnes pour créer une
-            mini-section autonome cohérente avec l'esthétique AYRADE. */}
+        {/* Cadre unifié : compteur (gauche) + message d'attente (droite). */}
         <div className="corner bg-navy border border-paper/15 relative fade-up d1">
           <span />
           <span className="tr" />
@@ -64,58 +45,22 @@ export function BeReady() {
           <span className="br" />
 
           <div className="grid lg:grid-cols-2">
-            {/* Colonne gauche : Countdown — labels alignés avec la colonne
-                formulaire (pas de flex items-center, on part du haut). */}
+            {/* Colonne gauche : Countdown */}
             <div className="p-8 lg:p-12 border-b lg:border-b-0 lg:border-e border-paper/10">
               <Countdown />
             </div>
 
-            {/* Colonne droite : formulaire « M'alerter » */}
-            <div className="p-8 lg:p-12">
-              {!submitted ? (
-                <form onSubmit={handleSubmit} noValidate className="flex flex-col gap-5">
-                  <div className="flex flex-col gap-3">
-                    <span className="font-mono text-[11px] uppercase tracking-micro text-signal font-medium">
-                      {t('emailPlaceholder')}
-                    </span>
-                    {/* Input + CTA alignés sur une seule ligne : underline
-                        partagé visuellement, bouton compact à droite pour ne
-                        plus dominer visuellement le Countdown en regard. */}
-                    <div className="flex items-stretch gap-2">
-                      <input
-                        type="email"
-                        required
-                        value={email}
-                        onChange={(e) => setEmail(e.target.value)}
-                        placeholder={t('emailPlaceholder')}
-                        className="flex-1 min-w-0 bg-transparent border-b border-paper/30 focus:border-orange py-2 text-paper outline-none transition-colors"
-                      />
-                      <button
-                        type="submit"
-                        className="group shrink-0 btn-primary px-4 py-2 text-[11px] font-semibold uppercase tracking-wider inline-flex items-center justify-center gap-2 whitespace-nowrap"
-                      >
-                        {t('cta')}
-                        <span
-                          aria-hidden="true"
-                          className="rtl-flip transition-transform duration-200 group-hover:translate-x-1"
-                        >
-                          →
-                        </span>
-                      </button>
-                    </div>
-                  </div>
-
-                  <p className="text-[12px] text-paper/65 leading-relaxed">
-                    {t('consent')}
-                  </p>
-                </form>
-              ) : (
-                <div role="status" aria-live="polite" className="text-paper/85 text-sm leading-relaxed">
-                  <p className="font-display text-[1.25rem] text-paper">
-                    {t('cta')} ✓
-                  </p>
-                </div>
-              )}
+            {/* Colonne droite : message d'attente (formulaire désactivé V1) */}
+            <div className="p-8 lg:p-12 flex flex-col gap-4 justify-center">
+              <span className="font-mono text-[11px] uppercase tracking-micro text-signal font-medium">
+                {t('eyebrow')}
+              </span>
+              <h3 className="font-display text-[1.5rem] lg:text-[1.75rem] leading-[1.15] text-paper font-light">
+                {t('comingSoonTitle')}
+              </h3>
+              <p className="text-[14px] text-paper/75 leading-relaxed">
+                {t('comingSoonBody')}
+              </p>
             </div>
           </div>
         </div>
