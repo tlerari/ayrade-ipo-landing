@@ -3,11 +3,11 @@
     "title": "AYRADE · Introduction en Bourse d'Alger : 1er→30 juin 2026",
     "description": "AYRADE : Introduction en Bourse d'Alger. Souscription du 1er au 30 juin 2026. 800 DZD par action. Cloud souverain, intégration de datacenters, cybersécurité souveraine.",
     "ogTitle": "AYRADE · Introduction en Bourse d'Alger",
-    "ogDescription": "AYRADE ouvre 25 % de son capital à la Bourse d'Alger du 1er au 30 juin 2026.",
+    "ogDescription": "AYRADE ouvre 20 % de son capital à la Bourse d'Alger du 1er au 30 juin 2026, via une augmentation de capital de 25 %.",
     "titleTeaser": "AYRADE · Introduction en Bourse d'Alger : ouverture 1ᵉʳ juin 2026",
     "descriptionTeaser": "AYRADE prépare son introduction en Bourse d'Alger. Ouverture prévue le 1ᵉʳ juin 2026. Cloud souverain, intégration de datacenters, cybersécurité souveraine.",
     "ogTitleTeaser": "AYRADE · Be Ready : introduction en Bourse d'Alger",
-    "ogDescriptionTeaser": "AYRADE ouvrira 25 % de son capital à la Bourse d'Alger. Ouverture prévue le 1ᵉʳ juin 2026. Nombre d'actions limité."
+    "ogDescriptionTeaser": "AYRADE ouvrira 20 % de son capital à la Bourse d'Alger via une augmentation de capital de 25 %. Ouverture prévue le 1ᵉʳ juin 2026. Nombre d'actions limité."
   },
   "langSwitch": {
     "label": "Langue",
@@ -35,7 +35,7 @@
   "hero": {
     "eyebrow": "Introduction en Bourse : Bourse d'Alger (SGBV)",
     "title": "Votre souveraineté numérique.",
-    "lead": "AYRADE ouvre 25 % de son capital à la Bourse d'Alger du 1ᵉʳ au 30 juin 2026. Cloud souverain, intégration de datacenters, cybersécurité souveraine ; AYRADE construit l'infrastructure numérique qui portera la prochaine décennie de croissance algérienne.",
+    "lead": "AYRADE ouvre 20 % de son capital à la Bourse d'Alger du 1ᵉʳ au 30 juin 2026, via une augmentation de capital de 25 % portant le nombre d'actions de 5 000 000 à 6 250 000. Cloud souverain, intégration de datacenters, cybersécurité souveraine ; AYRADE construit l'infrastructure numérique qui portera la prochaine décennie de croissance algérienne.",
     "ctaSubscribe": "Souscrire du 1ᵉʳ au 30 juin",
     "ctaDownload": "Notice d'information COSOB",
     "disclaimer": "Visa COSOB n° 2026/02 du 15 avril 2026. Les modalités complètes de l'opération et les facteurs de risque figurent dans la notice d'information. Document à caractère promotionnel.",
@@ -56,8 +56,9 @@
     "eyebrow": "01 : L'opération en un regard",
     "title": "Première introduction en Bourse d'un opérateur algérien de Cloud souverain.",
     "srTitle": "Chiffres clés de l'opération",
-    "kpi1Value": "25 %",
-    "kpi1Label": "Du capital social ouvert au public",
+    "kpi1Value": "20 %",
+    "kpi1Label": "Du capital ouvert au public",
+    "kpi1Sub": "Via augmentation de capital de 25 %",
     "kpi2Value": "1 250 000",
     "kpi2Label": "Actions nouvelles émises",
     "kpi3Value": "800 DZD",
@@ -370,7 +371,7 @@
     "s5Body": "Les données sont destinées aux seuls services habilités d'AYRADE (Relations Investisseurs, Communication, DSI) et, le cas échéant, aux conseils d'AYRADE dans le cadre de l'opération (banques du syndicat de placement, conseil juridique, IOB) et à l'autorité de marché (COSOB) dans les strictes limites de leurs missions légales et réglementaires.",
     "s5BodyTeaser": "Les données sont destinées aux seuls services habilités d'AYRADE (Relations Investisseurs, Communication, DSI) et, le cas échéant, aux conseils d'AYRADE dans le cadre de l'opération (conseil juridique, IOB) et à l'autorité de marché (COSOB) dans les strictes limites de leurs missions légales et réglementaires.",
     "s6Title": "6. Droits des personnes concernées",
-    "s6Body": "Conformément à la loi 18-07, vous disposez d'un droit d'accès, de rectification, d'opposition, d'effacement et de limitation du traitement portant sur vos données à caractère personnel.\n\nCes droits peuvent être exercés à tout moment par courrier à l'adresse du siège social, à l'attention du Responsable du traitement, ou par courrier électronique à l'adresse <b>ir@ayrade.dz</b>. Une réponse vous sera apportée dans un délai raisonnable.\n\nVous disposez également du droit d'introduire une réclamation auprès de l'Autorité nationale de protection des données à caractère personnel (ANPDP).",
+    "s6Body": "Conformément à la loi 18-07, vous disposez d'un droit d'accès, de rectification, d'opposition, d'effacement et de limitation du traitement portant sur vos données à caractère personnel.\n\nCes droits peuvent être exercés à tout moment par courrier à l'adresse du siège social, à l'attention du Responsable du traitement, ou par courrier électronique à l'adresse <b>support@ayrade.com</b>. Une réponse vous sera apportée dans un délai raisonnable.\n\nVous disposez également du droit d'introduire une réclamation auprès de l'Autorité nationale de protection des données à caractère personnel (ANPDP).",
     "s7Title": "7. Cookies et traceurs",
     "s7Body": "Le site utilise un nombre limité de cookies et technologies similaires :\n\n• Cookies strictement nécessaires au fonctionnement du site (préférence de langue, session).\n\n• Cookies de mesure d'audience anonymisée, permettant de suivre la fréquentation de manière agrégée.\n\nLes cookies non essentiels ne sont déposés qu'après recueil de votre consentement. Vous pouvez à tout moment modifier vos choix via les réglages de votre navigateur.",
     "s8Title": "8. Sécurité et mises à jour",
@@ -379,7 +380,7 @@
   "mobileCta": "Souscrire →",
   "beReady": {
     "eyebrow": "Soyez prêts",
-    "title": "AYRADE ouvrira 25 % de son capital à la Bourse d'Alger. Nombre d'actions limité.",
+    "title": "AYRADE ouvrira 20 % de son capital à la Bourse d'Alger via une augmentation de capital de 25 %. Nombre d'actions limité.",
     "body": "L'ouverture de la souscription est prévue le 1ᵉʳ juin 2026. Les modalités définitives, le syndicat bancaire et la notice d'information visée par la COSOB seront communiqués prochainement.",
     "bullet1Label": "Date cible",
     "bullet1Value": "1ᵉʳ juin 2026",

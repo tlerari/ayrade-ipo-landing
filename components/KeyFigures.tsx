@@ -84,7 +84,12 @@ export function KeyFigures({ flags }: { flags: PhaseFlags }) {
         </header>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
-          <KPI value={t('kpi1Value')} label={t('kpi1Label')} delay={100} />
+          <KPI
+            value={t('kpi1Value')}
+            label={t('kpi1Label')}
+            sub={t('kpi1Sub')}
+            delay={100}
+          />
           <KPI value={t('kpi2Value')} label={t('kpi2Label')} delay={150} />
           <KPI
             value={t('kpi3Value')}

@@ -3,11 +3,11 @@
     "title": "AYRADE · Algiers Stock Exchange IPO : 1-30 June 2026",
     "description": "AYRADE : Algiers Stock Exchange IPO. Subscription window 1 to 30 June 2026. 800 DZD per share. Sovereign cloud, datacenter integration, sovereign cybersecurity.",
     "ogTitle": "AYRADE · Algiers Stock Exchange IPO",
-    "ogDescription": "AYRADE opens 25% of its capital on the Algiers Stock Exchange from 1 to 30 June 2026.",
+    "ogDescription": "AYRADE opens 20% of its capital on the Algiers Stock Exchange from 1 to 30 June 2026, via a 25% capital increase.",
     "titleTeaser": "AYRADE · Algiers Stock Exchange IPO : opening 1 June 2026",
     "descriptionTeaser": "AYRADE is preparing its IPO on the Algiers Stock Exchange. Opening scheduled 1 June 2026. Sovereign cloud, datacenter integration, sovereign cybersecurity.",
     "ogTitleTeaser": "AYRADE · Be Ready : Algiers Stock Exchange IPO",
-    "ogDescriptionTeaser": "AYRADE will open 25% of its capital on the Algiers Stock Exchange. Opening scheduled 1 June 2026. Limited number of shares."
+    "ogDescriptionTeaser": "AYRADE will open 20% of its capital on the Algiers Stock Exchange via a 25% capital increase. Opening scheduled 1 June 2026. Limited number of shares."
   },
   "langSwitch": {
     "label": "Language",
@@ -35,7 +35,7 @@
   "hero": {
     "eyebrow": "IPO : Algiers Stock Exchange (SGBV)",
     "title": "Your digital sovereignty.",
-    "lead": "AYRADE opens 25% of its capital on the Algiers Stock Exchange from 1 to 30 June 2026. Sovereign cloud, datacenter integration, sovereign cybersecurity; AYRADE is building the digital infrastructure that will carry Algeria's next decade of growth.",
+    "lead": "AYRADE opens 20% of its capital on the Algiers Stock Exchange from 1 to 30 June 2026, via a 25% capital increase taking the total share count from 5,000,000 to 6,250,000. Sovereign cloud, datacenter integration, sovereign cybersecurity; AYRADE is building the digital infrastructure that will carry Algeria's next decade of growth.",
     "ctaSubscribe": "Subscribe 1-30 June",
     "ctaDownload": "COSOB information notice",
     "disclaimer": "COSOB visa no. 2026/02 dated 15 April 2026. Full terms of the offering and risk factors are set out in the information notice. Promotional document.",
@@ -56,8 +56,9 @@
     "eyebrow": "01 : The offering at a glance",
     "title": "The first IPO by an Algerian sovereign cloud operator.",
     "srTitle": "Key offering figures",
-    "kpi1Value": "25%",
+    "kpi1Value": "20%",
     "kpi1Label": "Of share capital open to the public",
+    "kpi1Sub": "Via a 25% capital increase",
     "kpi2Value": "1,250,000",
     "kpi2Label": "New shares issued",
     "kpi3Value": "800 DZD",
@@ -370,7 +371,7 @@
     "s5Body": "Data is accessible only to authorized AYRADE departments (Investor Relations, Communications, IT) and, where applicable, to AYRADE's advisors as part of the offering (syndicate banks, legal counsel, IOB) and to the market authority (COSOB), strictly within the scope of their legal and regulatory duties.",
     "s5BodyTeaser": "Data is accessible only to authorized AYRADE departments (Investor Relations, Communications, IT) and, where applicable, to AYRADE's advisors as part of the offering (legal counsel, IOB) and to the market authority (COSOB), strictly within the scope of their legal and regulatory duties.",
     "s6Title": "6. Rights of data subjects",
-    "s6Body": "In accordance with Act 18-07, you have a right of access, rectification, objection, erasure and restriction of processing concerning your personal data.\n\nThese rights may be exercised at any time by post to the registered office, to the attention of the Data Controller, or by email to <b>ir@ayrade.dz</b>. You will receive a response within a reasonable time.\n\nYou also have the right to lodge a complaint with the Algerian National Authority for the Protection of Personal Data (ANPDP).",
+    "s6Body": "In accordance with Act 18-07, you have a right of access, rectification, objection, erasure and restriction of processing concerning your personal data.\n\nThese rights may be exercised at any time by post to the registered office, to the attention of the Data Controller, or by email to <b>support@ayrade.com</b>. You will receive a response within a reasonable time.\n\nYou also have the right to lodge a complaint with the Algerian National Authority for the Protection of Personal Data (ANPDP).",
     "s7Title": "7. Cookies and trackers",
     "s7Body": "The website uses a limited number of cookies and similar technologies:\n\n• Cookies strictly necessary for the website to function (language preference, session).\n\n• Anonymized audience-measurement cookies, which track traffic in an aggregated manner.\n\nNon-essential cookies are only set after your consent has been obtained. You can change your choices at any time via your browser settings.",
     "s8Title": "8. Security and updates",
@@ -379,7 +380,7 @@
   "mobileCta": "Subscribe →",
   "beReady": {
     "eyebrow": "Be ready",
-    "title": "AYRADE will open 25% of its capital on the Algiers Stock Exchange. Limited number of shares.",
+    "title": "AYRADE will open 20% of its capital on the Algiers Stock Exchange via a 25% capital increase. Limited number of shares.",
     "body": "The subscription window is scheduled to open on 1 June 2026. The final terms, the banking syndicate and the COSOB-approved information notice will be communicated shortly.",
     "bullet1Label": "Target date",
     "bullet1Value": "1 June 2026",

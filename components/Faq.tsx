@@ -143,10 +143,10 @@ export function Faq({ flags }: { flags: PhaseFlags }) {
           <p className="text-ink/80 text-[0.975rem] leading-relaxed">
             {t('contactBody')}{' '}
             <a
-              href="mailto:ir@ayrade.dz"
+              href="mailto:support@ayrade.com"
               className="text-ink font-semibold link-hover"
             >
-              ir@ayrade.dz
+              support@ayrade.com
             </a>
             .
           </p>
