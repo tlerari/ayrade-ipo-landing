@@ -54,6 +54,9 @@ export function Countdown({ compact = false }: { compact?: boolean }) {
   ];
 
   // ── Mode compact (Hero inline) ──────────────────────────────────────
+  // Taille rééquilibrée le 28/04/2026 pour matcher la présence visuelle
+  // du bloc <AlertCompact /> à droite (chiffres ~3.5rem, séparateurs
+  // verticaux subtils, date d'ouverture isolée par un border-top).
   if (compact) {
     return (
       <div
@@ -62,27 +65,32 @@ export function Countdown({ compact = false }: { compact?: boolean }) {
         suppressHydrationWarning
         className="w-full"
       >
-        <p className="font-mono text-[11px] uppercase tracking-micro text-orange mb-3 font-medium">
+        <p className="font-mono text-[11px] uppercase tracking-micro text-orange mb-5 font-medium">
           {t('label')}
         </p>
 
-        <div className="flex flex-wrap items-baseline gap-x-6 gap-y-2 font-mono text-paper tabular-nums">
-          {cells.map((c) => (
-            <div key={c.unit} className="flex items-baseline gap-1.5">
+        <div className="grid grid-cols-3 font-mono text-paper tabular-nums">
+          {cells.map((c, i) => (
+            <div
+              key={c.unit}
+              className={`flex flex-col items-center text-center px-2 ${
+                i > 0 ? 'border-s border-paper/12' : ''
+              }`}
+            >
               <span
-                className="fig text-[2rem] lg:text-[2.25rem] leading-none text-paper font-light"
+                className="fig text-[2.75rem] lg:text-[3.25rem] leading-none text-paper font-light"
                 dir="ltr"
               >
                 {c.value}
               </span>
-              <span className="text-[10px] uppercase tracking-micro text-paper/55 font-medium">
+              <span className="mt-2 text-[11px] uppercase tracking-micro text-paper/60 font-medium">
                 {c.unit}
               </span>
             </div>
           ))}
         </div>
 
-        <p className="mt-3 font-mono text-[11px] uppercase tracking-micro text-paper/55 font-medium">
+        <p className="mt-5 font-mono text-[11px] uppercase tracking-micro text-paper/65 font-medium text-center">
           {t('openingDate')}
         </p>
       </div>

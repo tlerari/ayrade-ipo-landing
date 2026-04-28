@@ -28,102 +28,105 @@ export function Hero({ flags }: { flags: PhaseFlags }) {
           backgroundSize: '257px 257px',
         }}
       />
-      <div className="max-w-shell mx-auto px-6 lg:px-10 pt-14 pb-12 lg:pt-20 lg:pb-16 grid lg:grid-cols-5 gap-y-16 gap-x-10 items-stretch relative">
+      <div className="max-w-shell mx-auto px-6 lg:px-10 pt-14 pb-12 lg:pt-20 lg:pb-16 relative">
 
-        {/* ── Left column ── */}
-        <div className="lg:col-span-3">
-          <p className="fade-up d1 font-mono text-[14px] uppercase tracking-micro text-orange mb-4 font-medium">
-            {t('eyebrow')}
-          </p>
+        {/* ════════ Ligne 1 — texte (gauche) + photo datacenter (droite) ════════ */}
+        <div className="grid lg:grid-cols-5 gap-y-16 gap-x-10 items-stretch">
 
-          <h1 className="fade-up d2 font-display font-light text-[2.75rem] sm:text-[3.75rem] lg:text-[5rem] xl:text-[5.5rem] leading-[0.95] tracking-[-0.03em] text-paper">
-            {t('title')}
-          </h1>
+          {/* ── Left column ── */}
+          <div className="lg:col-span-3">
+            <p className="fade-up d1 font-mono text-[14px] uppercase tracking-micro text-orange mb-4 font-medium">
+              {t('eyebrow')}
+            </p>
 
-          <p className="fade-up d3 mt-8 max-w-2xl text-[1.0625rem] lg:text-lg leading-[1.65] text-paper/80">
-            {t('lead')}
-          </p>
+            <h1 className="fade-up d2 font-display font-light text-[2.75rem] sm:text-[3.75rem] lg:text-[5rem] xl:text-[5.5rem] leading-[0.95] tracking-[-0.03em] text-paper">
+              {t('title')}
+            </h1>
 
-          {(flags.showSubscribeCTA || !flags.showArchiveNotice) && (
-            <div className="fade-up d4 mt-10 flex flex-col sm:flex-row gap-3">
-              {flags.showSubscribeCTA && (
-                <a
-                  href="#comment"
-                  className="group btn-primary px-7 py-4 text-[12px] font-semibold uppercase tracking-wider inline-flex items-center gap-3"
-                >
-                  {t('ctaSubscribe')}
-                  <span
-                    aria-hidden="true"
-                    className="rtl-flip transition-transform duration-200 group-hover:translate-x-1"
+            <p className="fade-up d3 mt-8 max-w-2xl text-[1.0625rem] lg:text-lg leading-[1.65] text-paper/80">
+              {t('lead')}
+            </p>
+
+            {(flags.showSubscribeCTA || !flags.showArchiveNotice) && (
+              <div className="fade-up d4 mt-10 flex flex-col sm:flex-row gap-3">
+                {flags.showSubscribeCTA && (
+                  <a
+                    href="#comment"
+                    className="group btn-primary px-7 py-4 text-[12px] font-semibold uppercase tracking-wider inline-flex items-center gap-3"
                   >
-                    →
-                  </span>
-                </a>
-              )}
-              {flags.showNoticeCTA && (
-                <a
-                  href="/documents/notice-cosob-ayrade.pdf"
-                  className="btn-ghost-dark px-7 py-4 text-[12px] font-semibold uppercase tracking-wider inline-flex items-center gap-3 link-hover"
-                >
-                  {t('ctaDownload')}
-                </a>
-              )}
-            </div>
-          )}
+                    {t('ctaSubscribe')}
+                    <span
+                      aria-hidden="true"
+                      className="rtl-flip transition-transform duration-200 group-hover:translate-x-1"
+                    >
+                      →
+                    </span>
+                  </a>
+                )}
+                {flags.showNoticeCTA && (
+                  <a
+                    href="/documents/notice-cosob-ayrade.pdf"
+                    className="btn-ghost-dark px-7 py-4 text-[12px] font-semibold uppercase tracking-wider inline-flex items-center gap-3 link-hover"
+                  >
+                    {t('ctaDownload')}
+                  </a>
+                )}
+              </div>
+            )}
 
-          {flags.showClosedBanner && (
-            <div className="mt-10 border-s-2 border-orange ps-5 py-3 text-paper/80 text-sm">
-              {t('closedBanner')}
-            </div>
-          )}
-          {flags.showArchiveNotice && (
-            <div className="mt-10 border-s-2 border-signal ps-5 py-3 text-paper/80 text-sm">
-              {t('archiveBanner')}
-            </div>
-          )}
+            {flags.showClosedBanner && (
+              <div className="mt-10 border-s-2 border-orange ps-5 py-3 text-paper/80 text-sm">
+                {t('closedBanner')}
+              </div>
+            )}
+            {flags.showArchiveNotice && (
+              <div className="mt-10 border-s-2 border-signal ps-5 py-3 text-paper/80 text-sm">
+                {t('archiveBanner')}
+              </div>
+            )}
 
-          <p className="fade-up d5 mt-8 text-[13px] text-paper/75 max-w-xl leading-relaxed">
-            {flags.showNoticeCTA ? t('disclaimer') : t('disclaimerTeaser')}
-          </p>
+            <p className="fade-up d5 mt-8 text-[13px] text-paper/75 max-w-xl leading-relaxed">
+              {flags.showNoticeCTA ? t('disclaimer') : t('disclaimerTeaser')}
+            </p>
+          </div>
 
-          {/* Bloc cohérent Countdown + Alerte e-mail (28/04/2026) :
-              countdown à gauche, formulaire d'alerte à droite, séparé du
-              contenu par un border-top. Réintroduction de l'UX d'avant le
-              26/04 (Task #25), désormais conforme Loi 18-07 grâce au
-              double opt-in côté backend (cf. email-alert-server/). */}
-          {flags.showOpeningCountdown && (
-            <div className="fade-up d5 mt-10 pt-8 border-t border-paper/15 grid lg:grid-cols-2 gap-x-12 gap-y-8">
-              <div>
+          {/* ── Right column — datacenter photo. ── */}
+          <div className="lg:col-span-2 fade-up d4 flex">
+            <figure className="relative corner bg-navy border border-paper/15 overflow-hidden w-full min-h-[420px] lg:min-h-0">
+              <span />
+              <span className="tr" />
+              <span className="bl" />
+              <span className="br" />
+              <Image
+                src={HERO_IMAGE}
+                alt={t('imageAlt')}
+                fill
+                sizes="(min-width: 1024px) 40vw, 100vw"
+                className="object-cover"
+                priority
+              />
+            </figure>
+          </div>
+
+        </div>
+
+        {/* ════════ Ligne 2 — bloc cohérent Countdown + Alerte e-mail ════════
+            Réintroduction de l'UX d'avant la Task #25 (26/04/2026), désormais
+            conforme Loi 18-07 grâce au double opt-in côté backend (cf.
+            email-alert-server/). Encart bordé full-width pour matérialiser
+            visuellement le "bloc cohérent" demandé par le client (28/04/2026). */}
+        {flags.showOpeningCountdown && (
+          <div className="fade-up d5 mt-12 lg:mt-16 border border-paper/20 bg-paper/[0.03]">
+            <div className="grid lg:grid-cols-2 lg:divide-x lg:divide-paper/15">
+              <div className="p-6 sm:p-8 lg:p-10">
                 <Countdown compact />
               </div>
-              <div>
+              <div className="p-6 sm:p-8 lg:p-10">
                 <AlertCompact />
               </div>
             </div>
-          )}
-        </div>
-
-        {/* ── Right column — datacenter photo.
-            Hauteur calée sur la colonne gauche (items-stretch + min-h sur mobile
-            pour garder une présence visuelle avant que la grille ne s'active). ── */}
-        <div className="lg:col-span-2 fade-up d4 flex">
-          <figure className="relative corner bg-navy border border-paper/15 overflow-hidden w-full min-h-[420px] lg:min-h-0">
-            <span />
-            <span className="tr" />
-            <span className="bl" />
-            <span className="br" />
-
-            {/* Photo */}
-            <Image
-              src={HERO_IMAGE}
-              alt={t('imageAlt')}
-              fill
-              sizes="(min-width: 1024px) 40vw, 100vw"
-              className="object-cover"
-              priority
-            />
-          </figure>
-        </div>
+          </div>
+        )}
 
       </div>
     </section>
