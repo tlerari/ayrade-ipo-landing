@@ -20,6 +20,8 @@
     "eyebrow": "كُن على إطلاع",
     "title": "تلقَّ تنبيهاً عند افتتاح الاكتتاب.",
     "lead": "اترك لنا عنوان بريدك الإلكتروني. ستتلقّى إشعاراً في \u20661 جوان 2026\u2069 عند الافتتاح الرسمي للاكتتاب في الطرح العمومي لأيراد، إلى جانب الشروط النهائية للاكتتاب.",
+    "compactTitle": "تلقَّ تنبيهاً عند الافتتاح.",
+    "compactConsent": "أوافق على إشعاري عند الافتتاح، وفقاً <a href='/ar/confidentialite' class='underline underline-offset-2 hover:text-orange'>لسياسة الخصوصية</a>.",
     "emailLabel": "البريد الإلكتروني",
     "emailPlaceholder": "your.email@example.com",
     "submit": "تنبيهي",

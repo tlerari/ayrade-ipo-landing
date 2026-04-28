@@ -20,6 +20,8 @@
     "eyebrow": "Soyez prévenu",
     "title": "Recevez une alerte à l'ouverture de la souscription.",
     "lead": "Laissez-nous votre adresse e-mail. Vous recevrez une notification le 1ᵉʳ juin 2026 lorsque l'introduction en Bourse d'AYRADE ouvrira officiellement, ainsi que les modalités définitives de souscription.",
+    "compactTitle": "Recevez une alerte à l'ouverture.",
+    "compactConsent": "J'accepte d'être notifié à l'ouverture, conformément à la <a href='/fr/confidentialite' class='underline underline-offset-2 hover:text-orange'>politique de confidentialité</a>.",
     "emailLabel": "Adresse e-mail",
     "emailPlaceholder": "votre.email@exemple.com",
     "submit": "M'alerter",

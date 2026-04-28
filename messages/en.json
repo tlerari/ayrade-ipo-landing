@@ -20,6 +20,8 @@
     "eyebrow": "Be alerted",
     "title": "Get a notification when subscription opens.",
     "lead": "Leave us your e-mail. You'll receive a notification on 1 June 2026 when AYRADE's IPO officially opens, along with the final subscription terms.",
+    "compactTitle": "Get a notification at opening.",
+    "compactConsent": "I agree to be notified at opening, in accordance with the <a href='/en/confidentialite' class='underline underline-offset-2 hover:text-orange'>privacy policy</a>.",
     "emailLabel": "E-mail address",
     "emailPlaceholder": "your.email@example.com",
     "submit": "Alert me",

@@ -2,6 +2,7 @@ import Image from 'next/image';
 import { useTranslations } from 'next-intl';
 import type { PhaseFlags } from '@/lib/operationPhase';
 import { Countdown } from './Countdown';
+import { AlertCompact } from './AlertCompact';
 
 // Photo Hero — version unique sur FR / EN / AR (visuel AYRADE fourni par le client).
 const HERO_IMAGE = '/assets/ayrade-hero.jpg';
@@ -85,13 +86,19 @@ export function Hero({ flags }: { flags: PhaseFlags }) {
             {flags.showNoticeCTA ? t('disclaimer') : t('disclaimerTeaser')}
           </p>
 
-          {/* Compact countdown — intégré sous la headline depuis le 26/04/2026
-              (suppression du bloc BeReady autonome sur décision client : le
-              formulaire d'alerte n'a plus lieu d'être avant la publication
-              de la notice COSOB et la conformité loi 18-07). */}
+          {/* Bloc cohérent Countdown + Alerte e-mail (28/04/2026) :
+              countdown à gauche, formulaire d'alerte à droite, séparé du
+              contenu par un border-top. Réintroduction de l'UX d'avant le
+              26/04 (Task #25), désormais conforme Loi 18-07 grâce au
+              double opt-in côté backend (cf. email-alert-server/). */}
           {flags.showOpeningCountdown && (
-            <div className="fade-up d5 mt-10 pt-8 border-t border-paper/15 max-w-xl">
-              <Countdown compact />
+            <div className="fade-up d5 mt-10 pt-8 border-t border-paper/15 grid lg:grid-cols-2 gap-x-12 gap-y-8">
+              <div>
+                <Countdown compact />
+              </div>
+              <div>
+                <AlertCompact />
+              </div>
             </div>
           )}
         </div>
