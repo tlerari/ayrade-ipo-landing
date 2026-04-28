@@ -13,6 +13,7 @@ import { HowTo } from '@/components/HowTo';
 import { Citation } from '@/components/Citation';
 import { ASA } from '@/components/ASA';
 import { DataRoom } from '@/components/DataRoom';
+import { AlertSubscribe } from '@/components/AlertSubscribe';
 import { Footer } from '@/components/Footer';
 import { MobileSticky } from '@/components/MobileSticky';
 import { getOperationPhase, getPhaseFlags } from '@/lib/operationPhase';
@@ -50,6 +51,7 @@ export default function LandingPage({ params: { lang } }: { params: { lang: stri
         <Citation />
         <ASA />
         <DataRoom flags={flags} />
+        <AlertSubscribe />
       </main>
 
       <Footer flags={flags} />

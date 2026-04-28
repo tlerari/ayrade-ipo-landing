@@ -16,6 +16,33 @@
     "accept": "Accept",
     "decline": "Decline"
   },
+  "alert": {
+    "eyebrow": "Be alerted",
+    "title": "Get a notification when subscription opens.",
+    "lead": "Leave us your e-mail. You'll receive a notification on 1 June 2026 when AYRADE's IPO officially opens, along with the final subscription terms.",
+    "emailLabel": "E-mail address",
+    "emailPlaceholder": "your.email@example.com",
+    "submit": "Alert me",
+    "submitLoading": "Sending…",
+    "consent": "I agree that AYRADE may use my e-mail address to notify me of the subscription opening, in accordance with the <a href='/en/confidentialite' class='underline underline-offset-2 hover:text-orange'>privacy policy</a> (law 18-07). One-click unsubscribe in every message.",
+    "success": {
+      "title": "Check your inbox.",
+      "body": "We've just sent you a confirmation e-mail. Click the link inside to validate your alert request. Without this confirmation, we don't keep any data on you.",
+      "alreadyTitle": "This address is already subscribed.",
+      "alreadyBody": "You've already confirmed your alert request. You'll receive an e-mail on 1 June 2026 when subscription opens. If you don't see one, check your spam folder or contact support@ayrade.com."
+    },
+    "errors": {
+      "invalid": "Please enter a valid e-mail address and accept the privacy policy.",
+      "rateLimited": "Too many requests from this connection. Try again in an hour.",
+      "server": "Something went wrong, please try again in a moment."
+    },
+    "return": {
+      "confirmed": "Your address is confirmed. You'll receive an e-mail on 1 June 2026 at the subscription opening.",
+      "alreadyConfirmed": "This address was already confirmed. You'll receive an e-mail at the opening.",
+      "unsubscribed": "You're unsubscribed. No further notifications will be sent.",
+      "invalid": "The link you used is no longer valid. You can try again below."
+    }
+  },
   "langSwitch": {
     "label": "Language",
     "fr": "Français",

@@ -16,6 +16,33 @@
     "accept": "Accepter",
     "decline": "Refuser"
   },
+  "alert": {
+    "eyebrow": "Soyez prévenu",
+    "title": "Recevez une alerte à l'ouverture de la souscription.",
+    "lead": "Laissez-nous votre adresse e-mail. Vous recevrez une notification le 1ᵉʳ juin 2026 lorsque l'introduction en Bourse d'AYRADE ouvrira officiellement, ainsi que les modalités définitives de souscription.",
+    "emailLabel": "Adresse e-mail",
+    "emailPlaceholder": "votre.email@exemple.com",
+    "submit": "M'alerter",
+    "submitLoading": "Envoi…",
+    "consent": "J'accepte qu'AYRADE utilise mon adresse e-mail pour me notifier de l'ouverture de la souscription, conformément à la <a href='/fr/confidentialite' class='underline underline-offset-2 hover:text-orange'>politique de confidentialité</a> (loi 18-07). Désinscription possible à tout moment via le lien présent dans chaque e-mail.",
+    "success": {
+      "title": "Vérifiez votre boîte de réception.",
+      "body": "Nous venons de vous envoyer un e-mail de confirmation. Cliquez sur le lien dans ce message pour valider votre demande d'alerte. Sans cette confirmation, nous ne conservons aucune donnée vous concernant.",
+      "alreadyTitle": "Cette adresse est déjà inscrite.",
+      "alreadyBody": "Vous avez déjà confirmé votre demande d'alerte. Vous recevrez un e-mail le 1ᵉʳ juin 2026 à l'ouverture de la souscription. Si vous n'avez pas reçu de message après confirmation, vérifiez vos spams ou contactez support@ayrade.com."
+    },
+    "errors": {
+      "invalid": "Merci de saisir une adresse e-mail valide et d'accepter la politique de confidentialité.",
+      "rateLimited": "Trop de demandes depuis cette connexion. Réessayez dans une heure.",
+      "server": "Une erreur est survenue, merci de réessayer dans quelques instants."
+    },
+    "return": {
+      "confirmed": "Votre adresse est confirmée. Vous recevrez un e-mail le 1ᵉʳ juin 2026 à l'ouverture de la souscription.",
+      "alreadyConfirmed": "Cette adresse était déjà confirmée. Vous recevrez un e-mail à l'ouverture.",
+      "unsubscribed": "Vous êtes désinscrit. Aucune autre notification ne vous sera envoyée.",
+      "invalid": "Le lien que vous avez utilisé n'est plus valide. Vous pouvez réessayer ci-dessous."
+    }
+  },
   "langSwitch": {
     "label": "Langue",
     "fr": "Français",
