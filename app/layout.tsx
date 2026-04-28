@@ -46,8 +46,9 @@ export const metadata: Metadata = {
     template: '%s',
   },
   description: "AYRADE — Introduction en Bourse d'Alger. Souscription du 1er au 30 juin 2026.",
-  // Preview : site verrouillé derrière Basic Auth, on l'exclut des moteurs
-  // tant que l'opération n'est pas publique. À rouvrir au go-live.
+  // Preview / pre-launch : on exclut les moteurs tant que l'opération n'est
+  // pas publique (visa COSOB pas encore publié au JO). À rouvrir au go-live
+  // (1er juin 2026) en passant index:true / follow:true.
   robots: { index: false, follow: false, nocache: true },
   icons: { icon: '/favicon.svg' },
 };

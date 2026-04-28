@@ -2,6 +2,7 @@ import { NextIntlClientProvider } from 'next-intl';
 import { getMessages, setRequestLocale } from 'next-intl/server';
 import { notFound } from 'next/navigation';
 import { locales, localeDirections, type Locale } from '@/i18n';
+import { CookieConsent } from '@/components/CookieConsent';
 
 export function generateStaticParams() {
   return locales.map((lang) => ({ lang }));
@@ -25,6 +26,7 @@ export default async function LangLayout({
     <NextIntlClientProvider messages={messages}>
       <div lang={lang} dir={dir}>
         {children}
+        <CookieConsent />
       </div>
     </NextIntlClientProvider>
   );

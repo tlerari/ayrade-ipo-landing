@@ -9,6 +9,13 @@
     "ogTitleTeaser": "AYRADE · Be Ready : introduction en Bourse d'Alger",
     "ogDescriptionTeaser": "AYRADE ouvrira 20 % de son capital à la Bourse d'Alger via une augmentation de capital de 25 %. Ouverture prévue le 1ᵉʳ juin 2026. Nombre d'actions limité."
   },
+  "cookies": {
+    "title": "Vos cookies, votre choix",
+    "body": "Ce site utilise Google Analytics pour mesurer l'audience de manière anonyme. Aucune donnée personnelle n'est collectée sans votre accord.",
+    "learnMore": "En savoir plus",
+    "accept": "Accepter",
+    "decline": "Refuser"
+  },
   "langSwitch": {
     "label": "Langue",
     "fr": "Français",

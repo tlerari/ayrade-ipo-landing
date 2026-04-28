@@ -9,6 +9,13 @@
     "ogTitleTeaser": "AYRADE · Be Ready : Algiers Stock Exchange IPO",
     "ogDescriptionTeaser": "AYRADE will open 20% of its capital on the Algiers Stock Exchange via a 25% capital increase. Opening scheduled 1 June 2026. Limited number of shares."
   },
+  "cookies": {
+    "title": "Your cookies, your choice",
+    "body": "This site uses Google Analytics to measure traffic anonymously. No personal data is collected without your consent.",
+    "learnMore": "Learn more",
+    "accept": "Accept",
+    "decline": "Decline"
+  },
   "langSwitch": {
     "label": "Language",
     "fr": "Français",
