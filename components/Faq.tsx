@@ -28,6 +28,11 @@ export function Faq({ flags }: { flags: PhaseFlags }) {
   // V1 (notice non publiée) : 6 questions clefs, réponses en version teaser.
   // V2 : 10 questions, réponses officielles adossées à la notice COSOB.
   const leadKey = flags.showNoticeCTA ? 'lead' : 'leadTeaser';
+  // Le titre annonce le bon nombre de questions selon la phase :
+  //   V1 → titleTeaser ("Six questions…"), V2 → title ("Dix questions…").
+  // Correctif client 29/04/2026 : auparavant on affichait "Dix questions"
+  // même en V1 alors que seulement 6 sont rendues.
+  const titleKey = flags.showNoticeCTA ? 'title' : 'titleTeaser';
 
   const q = (n: number, hasTeaser: boolean) => ({
     q: t(`q${n}Title`),
@@ -79,7 +84,7 @@ export function Faq({ flags }: { flags: PhaseFlags }) {
             id="faq-title"
             className="font-display font-light text-[2.5rem] lg:text-[4rem] leading-[0.95] tracking-tight text-ink"
           >
-            {t('title')}
+            {t(titleKey)}
           </h1>
           <p className="mt-6 text-ink/70 text-[1.0625rem] leading-[1.65] max-w-2xl">
             {t(leadKey)}
