@@ -59,7 +59,9 @@ export function CookieConsent() {
 
   return (
     <>
-      {/* GA4 — chargé UNIQUEMENT si l'utilisateur a accepté. */}
+      {/* GA4 — chargé UNIQUEMENT si l'utilisateur a accepté.
+          Metricool, lui, est chargé indépendamment dans app/[lang]/layout.tsx
+          (décision client 29/04/2026 — risque assumé Loi 18-07). */}
       {consent === 'granted' && (
         <>
           <Script

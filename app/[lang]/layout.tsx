@@ -27,6 +27,19 @@ export default async function LangLayout({
       <div lang={lang} dir={dir}>
         {children}
         <CookieConsent />
+        {/* Metricool tracker pixel — demande client 29/04/2026.
+            Chargé indépendamment du consentement cookies (risque Loi 18-07
+            explicitement assumé par le client). Pixel 1×1 offscreen, sans
+            impact layout. Mention dans la politique de confidentialité §7. */}
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src="https://tracker.metricool.com/c3po.jpg?hash=2f35743cbd5ad6d98c9bd7549fced693"
+          alt=""
+          width={1}
+          height={1}
+          aria-hidden="true"
+          style={{ position: 'absolute', width: 1, height: 1, opacity: 0, pointerEvents: 'none' }}
+        />
       </div>
     </NextIntlClientProvider>
   );
