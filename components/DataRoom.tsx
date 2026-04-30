@@ -1,4 +1,4 @@
-import { useTranslations } from 'next-intl';
+import { useTranslations, useLocale } from 'next-intl';
 import type { PhaseFlags } from '@/lib/operationPhase';
 import { ParallaxLetter } from './ParallaxLetter';
 
@@ -43,10 +43,14 @@ function IconMapPin() {
 
 export function DataRoom({ flags }: { flags: PhaseFlags }) {
   const t = useTranslations('dataRoom');
+  const locale = useLocale();
   // V1 (notice non publiée) : les libellés doc1/doc2 renvoient une version
   // « bientôt disponible » et les liens PDF deviennent inactifs (ph-box).
   const doc1Label = flags.showNoticeCTA ? t('doc1') : t('doc1Teaser');
   const doc2Label = flags.showBulletinCTA ? t('doc2') : t('doc2Teaser');
+  // Communiqué de presse — version localisée selon la langue active.
+  // Reçu client 30/04/2026 (3 PDFs FR/EN/AR dans /CP-annonce/).
+  const cpHref = `/documents/communique-presse-${locale}.pdf`;
 
   return (
     <section id="contacts" className="py-24 lg:py-32 relative" aria-labelledby="dataroom-title">
@@ -71,7 +75,7 @@ export function DataRoom({ flags }: { flags: PhaseFlags }) {
                   communication de lancement). */}
               <li>
                 <a
-                  href="/documents/communique-presse-annonce-ayrade.pdf"
+                  href={cpHref}
                   className="group flex items-center gap-2 text-ink hover:text-signal transition-colors duration-150"
                 >
                   <IconFile />
