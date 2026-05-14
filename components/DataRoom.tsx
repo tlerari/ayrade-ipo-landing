@@ -88,7 +88,27 @@ export function DataRoom({ flags }: { flags: PhaseFlags }) {
                   </span>
                 </a>
               </li>
-              {/* 2. Notice d'information COSOB — V2 uniquement (gate :
+              {/* 2. Avis de conformité HCI — Certificat de conformité à la
+                  Charia émis par le Comité national de la Charia pour la
+                  finance islamique (Haut Conseil Islamique), signé le
+                  13 mai 2026. Doc public dès maintenant (annoncé par
+                  AYRADE sur LinkedIn le 14/05) — pas de gating phase. */}
+              <li>
+                <a
+                  href="/documents/visa-conformite-hci-ayrade.pdf"
+                  className="group flex items-center gap-2 text-ink hover:text-signal transition-colors duration-150"
+                >
+                  <IconFile />
+                  <span className="link-hover flex-1">{t('docHci')}</span>
+                  <span
+                    aria-hidden="true"
+                    className="rtl-flip opacity-0 group-hover:opacity-100 transition-opacity duration-150 text-signal font-mono text-xs"
+                  >
+                    →
+                  </span>
+                </a>
+              </li>
+              {/* 3. Notice d'information COSOB — V2 uniquement (gate :
                   notice publiée). V1 : libellé « bientôt disponible ». */}
               <li>
                 {flags.showNoticeCTA ? (
