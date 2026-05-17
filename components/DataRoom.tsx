@@ -108,7 +108,28 @@ export function DataRoom({ flags }: { flags: PhaseFlags }) {
                   </span>
                 </a>
               </li>
-              {/* 3. Notice d'information COSOB — V2 uniquement (gate :
+              {/* 3. Visa COSOB — Décision CAB/40/2026 signée par le Président
+                  de la COSOB le 20 avril 2026, apposant le visa n° 2026/02
+                  du 15 avril 2026 sur la notice d'information. Acte
+                  réglementaire fondateur, public dès maintenant — pas de
+                  gating phase. Précède la notice d'information complète
+                  qui reste gated jusqu'à publication officielle (V2). */}
+              <li>
+                <a
+                  href="/documents/decision-visa-cosob-ayrade.pdf"
+                  className="group flex items-center gap-2 text-ink hover:text-signal transition-colors duration-150"
+                >
+                  <IconFile />
+                  <span className="link-hover flex-1">{t('docVisa')}</span>
+                  <span
+                    aria-hidden="true"
+                    className="rtl-flip opacity-0 group-hover:opacity-100 transition-opacity duration-150 text-signal font-mono text-xs"
+                  >
+                    →
+                  </span>
+                </a>
+              </li>
+              {/* 4. Notice d'information COSOB — V2 uniquement (gate :
                   notice publiée). V1 : libellé « bientôt disponible ». */}
               <li>
                 {flags.showNoticeCTA ? (
