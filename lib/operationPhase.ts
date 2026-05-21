@@ -17,12 +17,15 @@
  *
  * ── Orthogonal axis: NOTICE & SYNDICATE PUBLICATION ──
  *
- * The banking syndicate of the operation is not yet definitively constituted
+ * The placement syndicate of the operation is not yet definitively constituted
  * at the time the site goes live. Until the syndicate is confirmed and the
  * notice is finalised:
  *   - no mention of the "notice d'information" (document official),
- *   - no mention of the banking syndicate or its members,
- *   - no download CTA for the notice or the subscription form.
+ *   - no mention of the placement syndicate or its members.
+ *
+ * NOTE (21/05/2026) — the subscription form (bulletin de souscription) has
+ * been validated by the client and is published publicly BEFORE the notice.
+ * It is therefore decoupled from this gate: showBulletinCTA is always true.
  *
  * Controlled by the env var NEXT_PUBLIC_NOTICE_PUBLISHED (default: "false").
  * Flip to "true" and redeploy when the syndicate is confirmed. Orthogonal to
@@ -118,7 +121,10 @@ export function getPhaseFlags(
   const noticeFlags = {
     showNoticeCTA: noticePublished,
     showSyndicateList: noticePublished,
-    showBulletinCTA: noticePublished,
+    // Bulletin de souscription : document validé par le client, publié
+    // publiquement AVANT la notice (décision client 21/05/2026). Décorrélé
+    // du gate notice — toujours disponible.
+    showBulletinCTA: true,
   };
 
   switch (phase) {

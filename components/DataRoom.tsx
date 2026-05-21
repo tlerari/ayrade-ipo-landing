@@ -44,10 +44,9 @@ function IconMapPin() {
 export function DataRoom({ flags }: { flags: PhaseFlags }) {
   const t = useTranslations('dataRoom');
   const locale = useLocale();
-  // V1 (notice non publiée) : les libellés doc1/doc2 renvoient une version
-  // « bientôt disponible » et les liens PDF deviennent inactifs (ph-box).
+  // V1 (notice non publiée) : le libellé doc1 (notice) renvoie une version
+  // « bientôt disponible » et le lien PDF devient inactif (ph-box).
   const doc1Label = flags.showNoticeCTA ? t('doc1') : t('doc1Teaser');
-  const doc2Label = flags.showBulletinCTA ? t('doc2') : t('doc2Teaser');
   // Communiqué de presse — version localisée selon la langue active.
   // Reçu client 30/04/2026 (3 PDFs FR/EN/AR dans /CP-annonce/).
   const cpHref = `/documents/communique-presse-${locale}.pdf`;
@@ -129,7 +128,27 @@ export function DataRoom({ flags }: { flags: PhaseFlags }) {
                   </span>
                 </a>
               </li>
-              {/* 4. Notice d'information COSOB — V2 uniquement (gate :
+              {/* 4. Bulletin de souscription — document validé par le client
+                  (malgré la mention « DRAFT » du nom de fichier source).
+                  Publié publiquement AVANT la notice, sur décision client
+                  du 21/05/2026 — désolidarisé du gate notice (lien toujours
+                  actif, comme CP / HCI / visa COSOB). */}
+              <li>
+                <a
+                  href="/documents/bulletin-souscription-ayrade.pdf"
+                  className="group flex items-center gap-2 text-ink hover:text-signal transition-colors duration-150"
+                >
+                  <IconFile />
+                  <span className="link-hover flex-1">{t('doc2')}</span>
+                  <span
+                    aria-hidden="true"
+                    className="rtl-flip opacity-0 group-hover:opacity-100 transition-opacity duration-150 text-signal font-mono text-xs"
+                  >
+                    →
+                  </span>
+                </a>
+              </li>
+              {/* 5. Notice d'information COSOB — V2 uniquement (gate :
                   notice publiée). V1 : libellé « bientôt disponible ». */}
               <li>
                 {flags.showNoticeCTA ? (
@@ -153,31 +172,7 @@ export function DataRoom({ flags }: { flags: PhaseFlags }) {
                   </span>
                 )}
               </li>
-              {/* 3. Bulletin de souscription — V2 uniquement (gate :
-                  bulletin téléchargeable). V1 : libellé « bientôt disponible ». */}
-              <li>
-                {flags.showBulletinCTA ? (
-                  <a
-                    href="/documents/bulletin-souscription-ayrade.pdf"
-                    className="group flex items-center gap-2 text-ink hover:text-signal transition-colors duration-150"
-                  >
-                    <IconFile />
-                    <span className="link-hover flex-1">{doc2Label}</span>
-                    <span
-                      aria-hidden="true"
-                      className="rtl-flip opacity-0 group-hover:opacity-100 transition-opacity duration-150 text-signal font-mono text-xs"
-                    >
-                      →
-                    </span>
-                  </a>
-                ) : (
-                  <span className="flex items-center gap-2 text-ink/40">
-                    <IconFile />
-                    <span className="font-mono text-xs">{doc2Label}</span>
-                  </span>
-                )}
-              </li>
-              {/* 4. Plaquette investisseurs — V2 uniquement. En V1 la
+              {/* 6. Plaquette investisseurs — V2 uniquement. En V1 la
                   plaquette n'est pas encore validée et ne peut pas être
                   diffusée (période de préannonce). */}
               {flags.showNoticeCTA && (
