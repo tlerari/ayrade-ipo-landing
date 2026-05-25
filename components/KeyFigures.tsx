@@ -53,6 +53,27 @@ function FileTextIcon() {
   );
 }
 
+function ShieldCheckIcon() {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width={20}
+      height={20}
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.5"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className="text-signal flex-shrink-0 mt-0.5"
+      aria-hidden="true"
+    >
+      <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+      <polyline points="9 12 11 14 15 10" />
+    </svg>
+  );
+}
+
 export function KeyFigures({ flags }: { flags: PhaseFlags }) {
   const t = useTranslations('keyFigures');
   // Syndicate list gate : when the syndicate isn't published yet, show a
@@ -107,26 +128,46 @@ export function KeyFigures({ flags }: { flags: PhaseFlags }) {
           />
         </div>
 
-        <div className="bg-paper border border-navy/12 border-s-2 border-s-signal ps-6 py-5 flex items-start gap-3">
-          <FileTextIcon />
-          <p className="text-sm text-ink/75 leading-relaxed">
-            <strong className="text-ink">
-              {flags.showNoticeCTA ? t('visaTitle') : t('visaTitleTeaser')}
-            </strong>{' '}
-            {flags.showNoticeCTA ? t('visaBody') : t('visaBodyTeaser')}
-            {flags.showNoticeCTA && (
-              <>
-                {' '}
-                <a
-                  href="/documents/notice-cosob-ayrade.pdf"
-                  className="text-signal underline font-semibold link-hover"
-                >
-                  {t('visaCta')}
-                </a>
-                .
-              </>
-            )}
-          </p>
+        <div className="grid md:grid-cols-2 gap-4">
+          {/* Visa régulateur COSOB */}
+          <div className="bg-paper border border-navy/12 border-s-2 border-s-signal ps-6 py-5 flex items-start gap-3">
+            <FileTextIcon />
+            <p className="text-sm text-ink/75 leading-relaxed">
+              <strong className="text-ink">
+                {flags.showNoticeCTA ? t('visaTitle') : t('visaTitleTeaser')}
+              </strong>{' '}
+              {flags.showNoticeCTA ? t('visaBody') : t('visaBodyTeaser')}
+              {flags.showNoticeCTA && (
+                <>
+                  {' '}
+                  <a
+                    href="/documents/notice-cosob-ayrade.pdf"
+                    className="text-signal underline font-semibold link-hover"
+                  >
+                    {t('visaCta')}
+                  </a>
+                  .
+                </>
+              )}
+            </p>
+          </div>
+
+          {/* Conformité Charia — visa du Haut Conseil Islamique (HCI).
+              Document public dès maintenant (cf. DataRoom), pas de gating. */}
+          <div className="bg-paper border border-navy/12 border-s-2 border-s-signal ps-6 py-5 flex items-start gap-3">
+            <ShieldCheckIcon />
+            <p className="text-sm text-ink/75 leading-relaxed">
+              <strong className="text-ink">{t('shariaTitle')}</strong>{' '}
+              {t('shariaBody')}{' '}
+              <a
+                href="/documents/visa-conformite-hci-ayrade.pdf"
+                className="text-signal underline font-semibold link-hover"
+              >
+                {t('shariaCta')}
+              </a>
+              .
+            </p>
+          </div>
         </div>
       </div>
     </section>

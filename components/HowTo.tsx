@@ -30,8 +30,23 @@ export function HowTo({ flags }: { flags: PhaseFlags }) {
     { n: '3', title: t('step3Title'), body: t(step3BodyKey) },
   ];
 
-  // Placeholder bank names 2–11
-  const bankPlaceholders = Array.from({ length: 10 }, (_, i) => `[PH : banque ${i + 2}]`);
+  // Syndicat de placement — 11 établissements confirmés (client 23/05/2026).
+  // BDL est chef de file (rendu à part) ; les 10 autres ci-dessous, dont
+  // 2 IOB (Tell Markets SPA, Invest Market SPA). Noms propres = invariants
+  // selon la langue (rendus en îlot LTR dir="ltr", y compris en version AR).
+  const IOB = new Set(['Tell Markets SPA', 'Invest Market SPA']);
+  const syndicateMembers = [
+    'BNA',
+    'BEA',
+    'CPA',
+    'CNEP Banque',
+    'BADR',
+    'Société Générale Algérie',
+    'Al Salam Bank Algeria',
+    'Al Baraka Bank',
+    'Tell Markets SPA',
+    'Invest Market SPA',
+  ];
 
   return (
     <section id="comment" className="bg-navy text-paper py-24 lg:py-32 relative" aria-labelledby="howto-title">
@@ -62,23 +77,29 @@ export function HowTo({ flags }: { flags: PhaseFlags }) {
           ))}
         </ol>
 
-        {/* Banques du syndicat — masqué tant que la liste définitive n'est pas publiée. */}
+        {/* Membres du syndicat de placement — liste définitive (11 établissements). */}
         {flags.showSyndicateList && (
           <div className="bg-navy border border-paper/15 p-8 lg:p-10 mb-10">
             <p className="font-mono text-[11px] uppercase tracking-micro text-signal mb-6">{t('syndicateLabel')}</p>
-            <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-3 text-sm">
-              <div className="flex items-center gap-2">
-                <span className="font-semibold text-paper">{t('syndicateLeader')}</span>
-                <span className="text-signal font-mono text-[10px] uppercase tracking-micro">
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 text-sm">
+              {/* Chef de file */}
+              <span className="border border-signal/40 bg-signal/10 px-3 py-2.5 flex items-center justify-between gap-2">
+                <span className="font-semibold text-paper" dir="ltr">{t('syndicateLeader')}</span>
+                <span className="text-signal font-mono text-[9px] uppercase tracking-micro shrink-0">
                   {t('syndicateLeaderTag')}
                 </span>
-              </div>
-              {bankPlaceholders.map((name, i) => (
+              </span>
+              {syndicateMembers.map((name) => (
                 <span
-                  key={i}
-                  className="ph-box font-mono text-[10px] px-2 py-1.5 leading-tight"
+                  key={name}
+                  className="border border-paper/15 px-3 py-2.5 flex items-center justify-between gap-2"
                 >
-                  {name}
+                  <span className="text-paper/85" dir="ltr">{name}</span>
+                  {IOB.has(name) && (
+                    <span className="text-signal/80 font-mono text-[9px] uppercase tracking-micro shrink-0">
+                      {t('syndicateIobTag')}
+                    </span>
+                  )}
                 </span>
               ))}
             </div>
