@@ -30,6 +30,11 @@
  * manager) has been confirmed by the client and is now published BEFORE the
  * notice. Decoupled from this gate too: showSyndicateList is always true.
  *
+ * NOTE (26/05/2026) — the investor brochure (plaquette) is decoupled from
+ * the notice gate as well: it has its own env var
+ * NEXT_PUBLIC_PLAQUETTE_PUBLISHED (default: false), surfaced as
+ * showPlaquetteCTA, so it can be published independently of the notice.
+ *
  * Controlled by the env var NEXT_PUBLIC_NOTICE_PUBLISHED (default: "false").
  * Flip to "true" and redeploy when the syndicate is confirmed. Orthogonal to
  * the phase above: both inputs combine into the PhaseFlags consumed by
@@ -85,11 +90,20 @@ export function getOperationPhase(now: Date = new Date()): OperationPhase {
 }
 
 /**
- * Returns whether the notice & syndicate have been officially published.
+ * Returns whether the official information notice has been published.
  * Driven by NEXT_PUBLIC_NOTICE_PUBLISHED env var (default: false).
  */
 export function getNoticePublished(): boolean {
   return process.env.NEXT_PUBLIC_NOTICE_PUBLISHED === 'true';
+}
+
+/**
+ * Returns whether the investor brochure (plaquette) is available.
+ * Independent of the notice publication state (decoupled 26/05/2026).
+ * Driven by NEXT_PUBLIC_PLAQUETTE_PUBLISHED env var (default: false).
+ */
+export function getPlaquettePublished(): boolean {
+  return process.env.NEXT_PUBLIC_PLAQUETTE_PUBLISHED === 'true';
 }
 
 /**
@@ -110,17 +124,19 @@ export interface PhaseFlags {
   showClosingCountdown: boolean;
   showClosedBanner: boolean;
   showArchiveNotice: boolean;
-  // Notice/syndicate-driven (orthogonal to phase)
+  // Publication-driven (orthogonal to phase, each on its own env var)
   showNoticeCTA: boolean;
   showSyndicateList: boolean;
   showBulletinCTA: boolean;
+  showPlaquetteCTA: boolean;
 }
 
 export function getPhaseFlags(
   phase: OperationPhase,
   noticePublished: boolean = getNoticePublished(),
+  plaquettePublished: boolean = getPlaquettePublished(),
 ): PhaseFlags {
-  // Notice-driven flags are orthogonal to phases.
+  // Publication-driven flags are orthogonal to phases.
   const noticeFlags = {
     showNoticeCTA: noticePublished,
     // Syndicat de placement : confirmé par le client (décision 23/05/2026),
@@ -131,6 +147,9 @@ export function getPhaseFlags(
     // publiquement AVANT la notice (décision client 21/05/2026). Décorrélé
     // du gate notice — toujours disponible.
     showBulletinCTA: true,
+    // Plaquette investisseurs : gate dédié (décision client 26/05/2026).
+    // Décorrélée du gate notice — pilotée par NEXT_PUBLIC_PLAQUETTE_PUBLISHED.
+    showPlaquetteCTA: plaquettePublished,
   };
 
   switch (phase) {

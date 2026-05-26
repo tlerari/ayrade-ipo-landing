@@ -172,10 +172,11 @@ export function DataRoom({ flags }: { flags: PhaseFlags }) {
                   </span>
                 )}
               </li>
-              {/* 6. Plaquette investisseurs — V2 uniquement. En V1 la
-                  plaquette n'est pas encore validée et ne peut pas être
-                  diffusée (période de préannonce). */}
-              {flags.showNoticeCTA && (
+              {/* 6. Plaquette investisseurs — gate dédié (showPlaquetteCTA,
+                  décorrélé du gate notice depuis le 26/05/2026). Tant que le
+                  PDF n'est pas livré, NEXT_PUBLIC_PLAQUETTE_PUBLISHED reste à
+                  false et le bloc est masqué. */}
+              {flags.showPlaquetteCTA && (
                 <li>
                   <a
                     href="/documents/plaquette-investisseurs-ayrade.pdf"
