@@ -1,15 +1,20 @@
 import Image from 'next/image';
 import { useTranslations } from 'next-intl';
+import { FilmPlayButton } from './FilmPlayButton';
 
 /**
  * RespirationBand — bande panoramique pleine largeur entre Pillars et Thesis.
- * Placeholder pour le film institutionnel AYRADE (CEO + responsables métiers
- * + experts qualité/sécurité). En attendant le tournage, on réutilise la
- * photo de la baie d'Alger en arrière-plan désaturé avec overlay navy,
- * surmontée d'un bouton play orange et d'un titre court.
+ * Section « Découvrir AYRADE » qui déclenche, depuis le 02/06/2026, la
+ * lecture du film institutionnel AYRADE via une lightbox YouTube
+ * (privacy-enhanced, domaine déjà autorisé dans la CSP nginx).
+ *
+ * L'ID YouTube est posé via NEXT_PUBLIC_YOUTUBE_ID (env de build). S'il est
+ * absent, le bouton reste désactivé (placeholder « bientôt en ligne »).
  */
 export function RespirationBand() {
   const t = useTranslations('respiration');
+  const youtubeId = process.env.NEXT_PUBLIC_YOUTUBE_ID;
+  const ready = !!youtubeId && youtubeId.length > 0;
 
   return (
     <section
@@ -45,35 +50,17 @@ export function RespirationBand() {
             {t('title')}
           </h2>
 
-          {/* Play button — cercle orange, triangle central */}
-          <button
-            type="button"
-            disabled
-            aria-label={t('playAriaLabel')}
-            className="group relative w-20 h-20 lg:w-24 lg:h-24 rounded-full border-2 border-orange/80 bg-orange/10 backdrop-blur-sm flex items-center justify-center mb-6 cursor-not-allowed"
-          >
-            {/* Triangle play */}
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="28"
-              height="28"
-              viewBox="0 0 24 24"
-              fill="currentColor"
-              className="text-orange translate-x-[2px]"
-              aria-hidden="true"
-            >
-              <path d="M8 5v14l11-7z" />
-            </svg>
-            {/* Halo pulsant subtil */}
-            <span
-              aria-hidden="true"
-              className="absolute inset-0 rounded-full border border-orange/30 animate-[ping_3s_ease-in-out_infinite]"
-            />
-          </button>
+          {/* Play button — délégué au client component (lightbox YouTube
+              quand NEXT_PUBLIC_YOUTUBE_ID est posé, placeholder désactivé
+              sinon). */}
+          <FilmPlayButton youtubeId={youtubeId} />
 
-          <p className="font-mono text-[11px] lg:text-[12px] uppercase tracking-[0.18em] text-paper/65">
-            {t('note')}
-          </p>
+          {/* Note « bientôt en ligne » masquée dès que le film est en ligne. */}
+          {!ready && (
+            <p className="font-mono text-[11px] lg:text-[12px] uppercase tracking-[0.18em] text-paper/65">
+              {t('note')}
+            </p>
+          )}
         </div>
       </div>
     </section>

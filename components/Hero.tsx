@@ -3,6 +3,7 @@ import { useTranslations } from 'next-intl';
 import type { PhaseFlags } from '@/lib/operationPhase';
 import { Countdown } from './Countdown';
 import { AlertCompact } from './AlertCompact';
+import { DepliantCTA } from './DepliantCTA';
 
 // Photo Hero — version unique sur FR / EN / AR (visuel AYRADE fourni par le client).
 const HERO_IMAGE = '/assets/ayrade-hero.jpg';
@@ -110,11 +111,16 @@ export function Hero({ flags }: { flags: PhaseFlags }) {
 
         </div>
 
-        {/* ════════ Ligne 2 — bloc cohérent Countdown + Alerte e-mail ════════
+        {/* ════════ Ligne 2 — bloc cohérent Countdown + bloc droit ════════
             Réintroduction de l'UX d'avant la Task #25 (26/04/2026), désormais
-            conforme Loi 18-07 grâce au double opt-in côté backend (cf.
-            email-alert-server/). Encart bordé full-width pour matérialiser
-            visuellement le "bloc cohérent" demandé par le client (28/04/2026). */}
+            conforme Loi 18-07 grâce au double opt-in côté backend. Encart bordé
+            full-width pour matérialiser visuellement le « bloc cohérent »
+            demandé par le client (28/04/2026).
+
+            Deux variantes mutuellement exclusives selon la phase :
+            - Pré-souscription : countdown OUVERTURE + alerte e-mail.
+            - Souscription (1er-30 juin) : countdown CLOTURE + CTA dépliant
+              (décision client 02/06/2026). */}
         {flags.showOpeningCountdown && (
           <div className="fade-up d5 mt-12 lg:mt-16 border border-paper/20 bg-paper/[0.03]">
             <div className="grid lg:grid-cols-2 lg:divide-x lg:divide-paper/15">
@@ -123,6 +129,19 @@ export function Hero({ flags }: { flags: PhaseFlags }) {
               </div>
               <div className="p-6 sm:p-8 lg:p-10">
                 <AlertCompact />
+              </div>
+            </div>
+          </div>
+        )}
+
+        {flags.showClosingCountdown && (
+          <div className="fade-up d5 mt-12 lg:mt-16 border border-paper/20 bg-paper/[0.03]">
+            <div className="grid lg:grid-cols-2 lg:divide-x lg:divide-paper/15">
+              <div className="p-6 sm:p-8 lg:p-10">
+                <Countdown compact mode="closing" />
+              </div>
+              <div className="p-6 sm:p-8 lg:p-10">
+                <DepliantCTA />
               </div>
             </div>
           </div>

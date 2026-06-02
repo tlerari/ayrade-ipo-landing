@@ -3,7 +3,10 @@
 import { useEffect, useState } from 'react';
 import { useTranslations } from 'next-intl';
 
-const TARGET = new Date('2026-06-01T09:00:00+01:00').getTime();
+const TARGET_OPENING = new Date('2026-06-01T09:00:00+01:00').getTime();
+const TARGET_CLOSING = new Date('2026-06-30T15:00:00+01:00').getTime();
+
+type CountdownMode = 'opening' | 'closing';
 
 function pad(n: number): string {
   return String(Math.max(0, n)).padStart(2, '0');
@@ -26,8 +29,19 @@ function pad(n: number): string {
  * headline (utilisée dans Hero après suppression du bloc autonome BeReady).
  * Mêmes données, taille ×0.5 environ, layout horizontal sans séparateurs
  * verticaux pour ne pas surcharger la colonne gauche du Hero.
+ *
+ * Mode `closing` (02/06/2026) — cible la clôture du 30 juin 2026 15h00 au
+ * lieu de l'ouverture du 1ᵉʳ juin. Active pendant la phase 'subscription'
+ * dans le Hero (bandeau dépliant + countdown clôture). Libellés et date
+ * line tirés respectivement de `labelClosing` et `closingDate`.
  */
-export function Countdown({ compact = false }: { compact?: boolean }) {
+export function Countdown({
+  mode = 'opening',
+  compact = false,
+}: {
+  mode?: CountdownMode;
+  compact?: boolean;
+}) {
   const t = useTranslations('countdown');
   const [now, setNow] = useState<number | null>(null);
 
@@ -37,8 +51,12 @@ export function Countdown({ compact = false }: { compact?: boolean }) {
     return () => clearInterval(id);
   }, []);
 
+  const target = mode === 'closing' ? TARGET_CLOSING : TARGET_OPENING;
+  const labelKey = mode === 'closing' ? 'labelClosing' : 'label';
+  const dateLineKey = mode === 'closing' ? 'closingDate' : 'openingDate';
+
   const ready = now !== null;
-  const diff  = ready ? TARGET - (now as number) : 0;
+  const diff  = ready ? target - (now as number) : 0;
   const days  = ready && diff > 0 ? Math.floor(diff / 86_400_000) : 0;
   const hours = ready && diff > 0 ? Math.floor((diff % 86_400_000) / 3_600_000) : 0;
   const mins  = ready && diff > 0 ? Math.floor((diff % 3_600_000) / 60_000) : 0;
@@ -66,7 +84,7 @@ export function Countdown({ compact = false }: { compact?: boolean }) {
         className="w-full"
       >
         <p className="font-mono text-[11px] uppercase tracking-micro text-orange mb-5 font-medium">
-          {t('label')}
+          {t(labelKey)}
         </p>
 
         <div className="grid grid-cols-3 font-mono text-paper tabular-nums">
@@ -91,7 +109,7 @@ export function Countdown({ compact = false }: { compact?: boolean }) {
         </div>
 
         <p className="mt-5 font-mono text-[11px] uppercase tracking-micro text-paper/65 font-medium text-center">
-          {t('openingDate')}
+          {t(dateLineKey)}
         </p>
       </div>
     );
@@ -106,7 +124,7 @@ export function Countdown({ compact = false }: { compact?: boolean }) {
       className="w-full"
     >
       <p className="font-mono text-[11px] uppercase tracking-micro text-signal mb-5 font-medium">
-        {t('label')}
+        {t(labelKey)}
       </p>
 
       {/* Grille 3 cellules — chaque cellule = gros chiffre + unité sous le
@@ -133,7 +151,7 @@ export function Countdown({ compact = false }: { compact?: boolean }) {
       </div>
 
       <p className="mt-6 pt-4 border-t border-paper/10 font-mono text-[11px] uppercase tracking-micro text-paper/65 font-medium text-center">
-        {t('openingDate')}
+        {t(dateLineKey)}
       </p>
     </div>
   );
