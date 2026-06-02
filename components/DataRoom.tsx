@@ -1,6 +1,7 @@
 import { useTranslations, useLocale } from 'next-intl';
 import type { PhaseFlags } from '@/lib/operationPhase';
 import { ParallaxLetter } from './ParallaxLetter';
+import { TrackedAnchor } from './TrackedAnchor';
 
 function IconFile() {
   return (
@@ -73,8 +74,8 @@ export function DataRoom({ flags }: { flags: PhaseFlags }) {
                   publiable même en V1 (pas d'acte réglementé COSOB, c'est la
                   communication de lancement). */}
               <li>
-                <a
-                  href={cpHref}
+                <TrackedAnchor
+                  href={cpHref} metaEvent={{ name: 'ViewContent', data: { content_name: 'communique_presse' } }}
                   className="group flex items-center gap-2 text-ink hover:text-signal transition-colors duration-150"
                 >
                   <IconFile />
@@ -85,7 +86,7 @@ export function DataRoom({ flags }: { flags: PhaseFlags }) {
                   >
                     →
                   </span>
-                </a>
+                </TrackedAnchor>
               </li>
               {/* 2. Avis de conformité HCI — Certificat de conformité à la
                   Charia émis par le Comité national de la Charia pour la
@@ -93,8 +94,8 @@ export function DataRoom({ flags }: { flags: PhaseFlags }) {
                   13 mai 2026. Doc public dès maintenant (annoncé par
                   AYRADE sur LinkedIn le 14/05) — pas de gating phase. */}
               <li>
-                <a
-                  href="/documents/visa-conformite-hci-ayrade.pdf"
+                <TrackedAnchor
+                  href="/documents/visa-conformite-hci-ayrade.pdf" metaEvent={{ name: 'ViewContent', data: { content_name: 'visa_hci' } }}
                   className="group flex items-center gap-2 text-ink hover:text-signal transition-colors duration-150"
                 >
                   <IconFile />
@@ -105,7 +106,7 @@ export function DataRoom({ flags }: { flags: PhaseFlags }) {
                   >
                     →
                   </span>
-                </a>
+                </TrackedAnchor>
               </li>
               {/* 3. Visa COSOB — Décision CAB/40/2026 signée par le Président
                   de la COSOB le 20 avril 2026, apposant le visa n° 2026/02
@@ -114,8 +115,8 @@ export function DataRoom({ flags }: { flags: PhaseFlags }) {
                   gating phase. Précède la notice d'information complète
                   qui reste gated jusqu'à publication officielle (V2). */}
               <li>
-                <a
-                  href="/documents/decision-visa-cosob-ayrade.pdf"
+                <TrackedAnchor
+                  href="/documents/decision-visa-cosob-ayrade.pdf" metaEvent={{ name: 'ViewContent', data: { content_name: 'visa_cosob' } }}
                   className="group flex items-center gap-2 text-ink hover:text-signal transition-colors duration-150"
                 >
                   <IconFile />
@@ -126,7 +127,7 @@ export function DataRoom({ flags }: { flags: PhaseFlags }) {
                   >
                     →
                   </span>
-                </a>
+                </TrackedAnchor>
               </li>
               {/* 4. Bulletin de souscription — document validé par le client
                   (malgré la mention « DRAFT » du nom de fichier source).
@@ -134,8 +135,8 @@ export function DataRoom({ flags }: { flags: PhaseFlags }) {
                   du 21/05/2026 — désolidarisé du gate notice (lien toujours
                   actif, comme CP / HCI / visa COSOB). */}
               <li>
-                <a
-                  href="/documents/bulletin-souscription-ayrade.pdf"
+                <TrackedAnchor
+                  href="/documents/bulletin-souscription-ayrade.pdf" metaEvent={{ name: 'Lead', data: { content_name: 'bulletin_souscription' } }}
                   className="group flex items-center gap-2 text-ink hover:text-signal transition-colors duration-150"
                 >
                   <IconFile />
@@ -146,14 +147,14 @@ export function DataRoom({ flags }: { flags: PhaseFlags }) {
                   >
                     →
                   </span>
-                </a>
+                </TrackedAnchor>
               </li>
               {/* 5. Notice d'information COSOB — V2 uniquement (gate :
                   notice publiée). V1 : libellé « bientôt disponible ». */}
               <li>
                 {flags.showNoticeCTA ? (
-                  <a
-                    href="/documents/notice-cosob-ayrade.pdf"
+                  <TrackedAnchor
+                    href="/documents/notice-cosob-ayrade.pdf" metaEvent={{ name: 'ViewContent', data: { content_name: 'notice_cosob' } }}
                     className="group flex items-center gap-2 text-ink hover:text-signal transition-colors duration-150"
                   >
                     <IconFile />
@@ -164,7 +165,7 @@ export function DataRoom({ flags }: { flags: PhaseFlags }) {
                     >
                       →
                     </span>
-                  </a>
+                  </TrackedAnchor>
                 ) : (
                   <span className="flex items-center gap-2 text-ink/40">
                     <IconFile />
@@ -178,8 +179,8 @@ export function DataRoom({ flags }: { flags: PhaseFlags }) {
                   false et le bloc est masqué. */}
               {flags.showPlaquetteCTA && (
                 <li>
-                  <a
-                    href="/documents/plaquette-investisseurs-ayrade.pdf"
+                  <TrackedAnchor
+                    href="/documents/plaquette-investisseurs-ayrade.pdf" metaEvent={{ name: 'ViewContent', data: { content_name: 'plaquette_investisseurs' } }}
                     className="group flex items-center gap-2 text-ink hover:text-signal transition-colors duration-150"
                   >
                     <IconFile />
@@ -190,7 +191,7 @@ export function DataRoom({ flags }: { flags: PhaseFlags }) {
                     >
                       →
                     </span>
-                  </a>
+                  </TrackedAnchor>
                 </li>
               )}
             </ul>
@@ -203,19 +204,19 @@ export function DataRoom({ flags }: { flags: PhaseFlags }) {
               <div>
                 <p className="font-semibold text-ink text-sm">{t('irName1')}</p>
                 <p className="font-mono text-xs text-ink/60 mt-1">
-                  <a href="mailto:belbachir.lamine@ayrade.com" className="hover:text-signal transition-colors inline-flex items-center gap-1.5">
+                  <TrackedAnchor href="mailto:belbachir.lamine@ayrade.com" metaEvent={{ name: 'ViewContent', data: { content_name: 'contact_ir_lamine' } }} className="hover:text-signal transition-colors inline-flex items-center gap-1.5">
                     <IconMail />
                     belbachir.lamine@ayrade.com
-                  </a>
+                  </TrackedAnchor>
                 </p>
               </div>
               <div className="pt-4 border-t border-navy/10">
                 <p className="font-semibold text-ink text-sm">{t('irName2')}</p>
                 <p className="font-mono text-xs text-ink/60 mt-1">
-                  <a href="mailto:lotfi.temmam@tell.group" className="hover:text-signal transition-colors inline-flex items-center gap-1.5">
+                  <TrackedAnchor href="mailto:lotfi.temmam@tell.group" metaEvent={{ name: 'ViewContent', data: { content_name: 'contact_ir_lotfi' } }} className="hover:text-signal transition-colors inline-flex items-center gap-1.5">
                     <IconMail />
                     lotfi.temmam@tell.group
-                  </a>
+                  </TrackedAnchor>
                 </p>
               </div>
             </div>
@@ -228,16 +229,16 @@ export function DataRoom({ flags }: { flags: PhaseFlags }) {
               <p className="font-semibold text-ink text-sm">{t('pressAgencyName')}</p>
               <p className="font-mono text-xs text-ink/60">{t('pressAgencyRole')}</p>
               <p className="font-mono text-xs text-ink/60">
-                <a href="tel:+213770255872" className="hover:text-signal transition-colors inline-flex items-center gap-1.5">
+                <TrackedAnchor href="tel:+213770255872" metaEvent={{ name: 'ViewContent', data: { content_name: 'contact_presse_tel' } }} className="hover:text-signal transition-colors inline-flex items-center gap-1.5">
                   <IconPhone />
                   +213 770 25 58 72
-                </a>
+                </TrackedAnchor>
               </p>
               <p className="font-mono text-xs text-ink/60">
-                <a href="mailto:presse@ayrade.com" className="hover:text-signal transition-colors inline-flex items-center gap-1.5">
+                <TrackedAnchor href="mailto:presse@ayrade.com" metaEvent={{ name: 'ViewContent', data: { content_name: 'contact_presse_mail' } }} className="hover:text-signal transition-colors inline-flex items-center gap-1.5">
                   <IconMail />
                   presse@ayrade.com
-                </a>
+                </TrackedAnchor>
               </p>
             </div>
           </div>

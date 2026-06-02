@@ -1,6 +1,7 @@
 import { useLocale, useTranslations } from 'next-intl';
 import type { PhaseFlags } from '@/lib/operationPhase';
 import { ParallaxLetter } from './ParallaxLetter';
+import { TrackedAnchor } from './TrackedAnchor';
 
 function DownloadIcon() {
   return (
@@ -109,15 +110,16 @@ export function HowTo({ flags }: { flags: PhaseFlags }) {
         {(flags.showBulletinCTA || flags.showSubscribeCTA) && (
           <div className="flex flex-wrap gap-4">
             {flags.showBulletinCTA && (
-              <a
+              <TrackedAnchor
                 href="/documents/bulletin-souscription-ayrade.pdf"
                 className="group btn-primary px-7 py-4 text-[12px] font-semibold uppercase tracking-wider inline-flex items-center gap-3"
+                metaEvent={{ name: 'Lead', data: { content_name: 'bulletin_souscription' } }}
               >
                 {t('ctaDownload')}
                 <span className="transition-transform duration-200 group-hover:translate-y-0.5" aria-hidden="true">
                   <DownloadIcon />
                 </span>
-              </a>
+              </TrackedAnchor>
             )}
             <a
               href={`/${locale}/faq`}

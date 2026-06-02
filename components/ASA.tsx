@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import { useTranslations } from 'next-intl';
 import { ParallaxLetter } from './ParallaxLetter';
+import { TrackedAnchor } from './TrackedAnchor';
 
 const ASA_IMAGE = '/assets/ayrade-asa.jpg';
 
@@ -159,11 +160,12 @@ export function ASA() {
 
         {/* ── CTA — btn-primary (orange on navy) ── */}
         <div className="flex flex-wrap gap-4">
-          <a
+          <TrackedAnchor
             href="/documents/presentation-asa.pdf"
             target="_blank"
             rel="noopener noreferrer"
             className="group btn-primary px-7 py-4 text-[12px] font-semibold uppercase tracking-wider inline-flex items-center gap-3"
+            metaEvent={{ name: 'Lead', data: { content_name: 'fiche_asa' } }}
           >
             {t('ctaDownload')}
             <span
@@ -172,7 +174,7 @@ export function ASA() {
             >
               <IconDownload />
             </span>
-          </a>
+          </TrackedAnchor>
         </div>
       </div>
     </section>
