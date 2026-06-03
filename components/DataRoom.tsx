@@ -203,6 +203,13 @@ export function DataRoom({ flags }: { flags: PhaseFlags }) {
             <div className="space-y-5 text-sm">
               <div>
                 <p className="font-semibold text-ink text-sm">{t('irName1')}</p>
+                <p className="font-mono text-xs text-ink/60 mt-1">{t('irRole1')}</p>
+                <p className="font-mono text-xs text-ink/60 mt-1">
+                  <TrackedAnchor href="tel:+213770622540" metaEvent={{ name: 'ViewContent', data: { content_name: 'contact_ir_lamine_tel' } }} className="hover:text-signal transition-colors inline-flex items-center gap-1.5">
+                    <IconPhone />
+                    +213 770 62 25 40
+                  </TrackedAnchor>
+                </p>
                 <p className="font-mono text-xs text-ink/60 mt-1">
                   <TrackedAnchor href="mailto:belbachir.lamine@ayrade.com" metaEvent={{ name: 'ViewContent', data: { content_name: 'contact_ir_lamine' } }} className="hover:text-signal transition-colors inline-flex items-center gap-1.5">
                     <IconMail />
