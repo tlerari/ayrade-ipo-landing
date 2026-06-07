@@ -1,9 +1,11 @@
 import Image from 'next/image';
 import { useTranslations } from 'next-intl';
 import type { PhaseFlags } from '@/lib/operationPhase';
+import { subscriptionUrl } from '@/lib/links';
 import { Countdown } from './Countdown';
 import { AlertCompact } from './AlertCompact';
 import { DepliantCTA } from './DepliantCTA';
+import { TrackedAnchor } from './TrackedAnchor';
 
 // Photo Hero — version unique sur FR / EN / AR (visuel AYRADE fourni par le client).
 const HERO_IMAGE = '/assets/ayrade-hero.jpg';
@@ -51,9 +53,12 @@ export function Hero({ flags }: { flags: PhaseFlags }) {
             {(flags.showSubscribeCTA || !flags.showArchiveNotice) && (
               <div className="fade-up d4 mt-10 flex flex-col sm:flex-row gap-3">
                 {flags.showSubscribeCTA && (
-                  <a
-                    href="#comment"
+                  <TrackedAnchor
+                    href={subscriptionUrl('hero')}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="group btn-primary px-7 py-4 text-[12px] font-semibold uppercase tracking-wider inline-flex items-center gap-3"
+                    metaEvent={{ name: 'Lead', data: { content_name: 'cta_souscrire_hero' } }}
                   >
                     {t('ctaSubscribe')}
                     <span
@@ -62,7 +67,7 @@ export function Hero({ flags }: { flags: PhaseFlags }) {
                     >
                       →
                     </span>
-                  </a>
+                  </TrackedAnchor>
                 )}
                 {flags.showNoticeCTA && (
                   <a

@@ -1,6 +1,8 @@
 import { useTranslations, useLocale } from 'next-intl';
 import Image from 'next/image';
+import { subscriptionUrl } from '@/lib/links';
 import { LanguageSwitcher } from './LanguageSwitcher';
+import { TrackedAnchor } from './TrackedAnchor';
 
 export function Nav({ showSubscribe }: { showSubscribe: boolean }) {
   const t = useTranslations('nav');
@@ -39,12 +41,15 @@ export function Nav({ showSubscribe }: { showSubscribe: boolean }) {
         <div className="flex items-center gap-3">
           <LanguageSwitcher />
           {showSubscribe && (
-            <a
-              href={link('comment')}
+            <TrackedAnchor
+              href={subscriptionUrl('nav')}
+              target="_blank"
+              rel="noopener noreferrer"
               className="btn-primary px-5 py-2.5 text-[12px] font-semibold uppercase tracking-wider"
+              metaEvent={{ name: 'Lead', data: { content_name: 'cta_souscrire_nav' } }}
             >
               {t('subscribe')}
-            </a>
+            </TrackedAnchor>
           )}
         </div>
       </nav>
