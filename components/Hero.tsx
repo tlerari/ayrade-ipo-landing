@@ -57,7 +57,7 @@ export function Hero({ flags }: { flags: PhaseFlags }) {
                     href={subscriptionUrl('hero')}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="group btn-primary px-7 py-4 text-[12px] font-semibold uppercase tracking-wider inline-flex items-center gap-3"
+                    className="group btn-primary px-7 py-4 text-[15px] font-semibold uppercase tracking-wider inline-flex items-center gap-3"
                     metaEvent={{ name: 'Lead', data: { content_name: 'cta_souscrire_hero' } }}
                   >
                     {t('ctaSubscribe')}
@@ -72,7 +72,7 @@ export function Hero({ flags }: { flags: PhaseFlags }) {
                 {flags.showNoticeCTA && (
                   <a
                     href="/documents/notice-cosob-ayrade.pdf"
-                    className="btn-ghost-dark px-7 py-4 text-[12px] font-semibold uppercase tracking-wider inline-flex items-center gap-3 link-hover"
+                    className="btn-ghost-dark px-7 py-4 text-[15px] font-semibold uppercase tracking-wider inline-flex items-center gap-3 link-hover"
                   >
                     {t('ctaDownload')}
                   </a>
